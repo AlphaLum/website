@@ -1,0 +1,59 @@
+/* Variables */
+:root {
+  --primary-orange: #E97134;
+  --primary-blue: #356381;
+  --white: #fff;
+}
+
+#hero {
+  background: linear-gradient(45deg,
+    var(--primary-orange) 0%,
+    var(--primary-orange) 20%,
+    rgba(215, 118, 65, 0.8) 35%,
+    rgba(46, 95, 127, 0.8) 65%,
+    var(--primary-blue) 80%,
+    var(--primary-blue) 100%
+  );
+  background-size: 200% 200%;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  margin-top: 0;
+  animation: gradientRotate 8s ease infinite; */
+}
+
+@keyframes gradientRotate {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+#hero .overlay {
+  text-align: center;
+  padding: 2rem;
+  border-radius: 8px;
+  max-width: 800px;
+}
+
+.hero-logo {
+  max-width: 100%;
+  height: auto;
+  margin-bottom: 2rem;
+  filter: drop-shadow(0 5px 15px rgba(0, 0, 0, 0.2));
+}
+
+.tagline {
+  font-size: 1.8rem;
+  color: var(--white);
+  margin-bottom: 1.5rem;
+  letter-spacing: 1px;
+  text-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+}
