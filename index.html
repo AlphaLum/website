@@ -1,19 +1,583 @@
 <!DOCTYPE html>
-<html>
-
+<html lang="en">
 <head>
-    <link rel="stylesheet" href="styles.css">
+    <meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <meta name="description" content="AlphaLum - Full-Spectrum XR solutions from prototype to production. Advanced optical systems with expertise in optics, electronics, software, and AI."/>
+    <title>AlphaLum - Full-Spectrum XR</title>
+
+    <!-- Open Graph Meta Tags for Social Media Sharing -->
+    <meta property="og:title" content="AlphaLum - Full-Spectrum XR" />
+    <meta property="og:description" content="AlphaLum - Full-Spectrum XR solutions from prototype to production. Advanced optical systems with expertise in optics, electronics, software, and AI." />
+    <meta property="og:url" content="https://alphalum.com/" />
+    <meta property="og:image" content="https://alphalum.com/assets/images/logo/apple-touch-icon.png" />
+    <meta property="og:image:width" content="180" />
+    <meta property="og:image:height" content="180" />
+    <meta property="og:type" content="website" />
+
+    <!-- Twitter Card Tags -->
+    <meta name="twitter:card" content="summary" />
+    <meta name="twitter:title" content="AlphaLum - Full-Spectrum XR" />
+    <meta name="twitter:description" content="AlphaLum - Full-Spectrum XR solutions from prototype to production. Advanced optical systems with expertise in optics, electronics, software, and AI." />
+    <meta name="twitter:image" content="https://alphalum.com/assets/images/logo/apple-touch-icon.png" />
+
+    <!-- Favicons -->
+    <link rel="icon" href="assets/images/logo/AlphaLum_logo.svg" type="image/svg+xml"/>
+    <link rel="shortcut icon" href="assets/images/logo/favicon-32x32.png"/>
+    <link rel="icon" type="image/png" sizes="32x32" href="assets/images/logo/favicon-32x32.png"/>
+    <link rel="icon" type="image/png" sizes="16x16" href="assets/images/logo/favicon-16x16.png"/>
+    <link rel="apple-touch-icon" sizes="180x180" href="assets/images/logo/apple-touch-icon.png"/>
+
+    <!-- Webfonts & Font Awesome -->
+    <link rel="preconnect" href="https://fonts.googleapis.com"/>
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+    <link href="https://fonts.googleapis.com/css2?family=Aptos:wght@400;500;600;700&display=swap" rel="stylesheet"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"/>
+
+    <!-- Google Analytics 4 -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-JZW5MCNR2D"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'G-JZW5MCNR2D');
+    </script>
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="reset.css"/>
+    <link rel="stylesheet" href="styles.css"/>
 </head>
 
-<body>
-    <header id="hero">
-        <div class="overlay">
-            <img src="assets/images/logo/AlphaLum_logo.svg" alt="AlphaLum logo" class="hero-logo" />
-            <h2 class="tagline">
-                COMING SOON
-            </h2>
-        </div>
-    </header>
-</body>
+<body id="index" class="homepage">
+    <!-- Accessibility skip link -->
+    <a href="#main-content" class="skip-link">Skip to main content</a>
 
+    <!-- Desktop Navigation -->
+    <nav role="navigation">
+        <div class="nav-container">
+            <a href="/" class="logo">
+                <img src="assets/images/logo/AlphaLum_logo.svg" alt="AlphaLum logo"/>
+            </a>
+            <div class="nav-links">
+                <a href="#about">About</a>
+                <a href="#capabilities">Capabilities</a>
+                <a href="#team">Team</a>
+                <a href="#background">Background</a>
+                <a href="#contact">Contact</a>
+            </div>
+            <div class="hamburger-menu">
+                <span></span><span></span><span></span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Mobile Navigation & Overlay -->
+    <div class="mobile-nav">
+        <a href="#about">About</a>
+        <a href="#capabilities">Capabilities</a>
+        <a href="#team">Team</a>
+        <a href="#background">Background</a>
+        <a href="#contact">Contact</a>
+    </div>
+    <div class="nav-overlay"></div>
+
+    <!-- Main content -->
+    <main id="main-content" role="main">
+        <!-- Hero Section -->
+        <header id="hero">
+            <div class="overlay">
+                <img src="assets/images/logo/AlphaLum_logo.svg" alt="AlphaLum logo" class="hero-logo"/>
+                <h2 class="tagline">
+                    Full-Spectrum XR<br />
+                    From Prototype to Production
+                </h2>
+            </div>
+        </header>
+
+        <!-- About Section -->
+        <section id="about">
+            <div class="container">
+                <div class="about-content">
+                    <div class="about-text">
+                        <h2>About <span class="highlight">AlphaLum</span></h2>
+                        <p>
+                            <span class="highlight">AlphaLum</span> develops advanced optical solutions
+                            that drive the frontier of innovation. Leveraging decades of combined
+                            expertise in optics, electronics, software, and AI, we engineer high-performance
+                            systems built for precision, efficiency, and seamless integration.
+                        </p>
+                        <p>
+                            By streamlining the path from prototype to scalable product, we help
+                            customers bring ideas to market faster, reduce development risk, and
+                            free up resources to focus on what matters most—continued innovation.
+                        </p>
+                        <p>
+                            With a proven track record of bringing complex optical technologies to market,
+                            <span class="highlight">AlphaLum</span> helps leading companies turn ideas into
+                            reliable, high-impact solutions. Our mission: to design transformative optical
+                            systems that redefine how people see, sense, and interact with the world.
+                        </p>
+                    </div>
+                    <div class="about-image">
+                        <div class="image-carousel">
+                            <img src="assets/images/about_img01.png" alt="AlphaLum technology visualization" class="carousel-image active"/>
+                            <img src="assets/images/about_img02.png" alt="AlphaLum technology visualization" class="carousel-image"/>
+                            <img src="assets/images/about_img03.png" alt="AlphaLum technology visualization" class="carousel-image"/>
+                            <img src="assets/images/about_img04.png" alt="AlphaLum technology visualization" class="carousel-image"/>
+                            <img src="assets/images/about_img05.png" alt="AlphaLum technology visualization" class="carousel-image"/>
+                            <img src="assets/images/about_img06.png" alt="AlphaLum technology visualization" class="carousel-image"/>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Capabilities Section -->
+        <section id="capabilities">
+            <div class="container">
+                <h2>Our Capabilities</h2>
+                <p class="section-intro">
+                    Our multidisciplinary team combines expertise across multiple domains to
+                    deliver comprehensive solutions.
+                </p>
+                <div class="capabilities-grid">
+                    <div class="capability-card">
+                        <div class="icon-container">
+                            <img src="assets/images/icons/hologram.gif" alt="Holographic systems icon animation" class="capability-icon"/>
+                        </div>
+                        <h3>Holographic Systems</h3>
+                        <p>
+                            Next-generation AR display solutions, offering immersive experiences
+                            with a very efficient and compact form factor.
+                        </p>
+                    </div>
+                    <div class="capability-card">
+                        <div class="icon-container">
+                            <img src="assets/images/icons/sensing.gif" alt="Sensing icon animation" class="capability-icon"/>
+                        </div>
+                        <h3>Sensing</h3>
+                        <p>
+                            Innovative sensing technologies engineered for next-gen applications,
+                            delivering high accuracy and rapid response in low-power, cost-effective
+                            designs.
+                        </p>
+                    </div>
+                    <div class="capability-card">
+                        <div class="icon-container">
+                            <img src="assets/images/icons/electronics.gif" alt="Electronics icon animation" class="capability-icon"/>
+                        </div>
+                        <h3>Electronics</h3>
+                        <p>
+                            Custom driving solutions and integration expertise that ensure optimum
+                            performance, reliability, and seamless interfacing with advanced optical
+                            components.
+                        </p>
+                    </div>
+                    <div class="capability-card">
+                        <div class="icon-container">
+                            <img src="assets/images/icons/software.gif" alt="Software and hardware co-design icon animation" class="capability-icon"/>
+                        </div>
+                        <h3>Software & Hardware Co-Design</h3>
+                        <p>
+                            Intelligent software solutions that boost hardware performance through
+                            tight co-design with analog sensor electronics. Our integrated approach
+                            streamlines complex functions while maximizing overall system efficiency.
+                        </p>
+                    </div>
+                    <div class="capability-card">
+                        <div class="icon-container">
+                            <img src="assets/images/icons/artificial-intelligence.gif" alt="Artificial intelligence icon animation" class="capability-icon"/>
+                        </div>
+                        <h3>Artificial Intelligence</h3>
+                        <p>
+                            Leveraging cutting-edge EdgeAI technology, our systems deliver real-time
+                            AI/ML performance on resource-constrained devices, providing low-cost,
+                            high-performance outcomes for next-generation applications.
+                        </p>
+                    </div>
+                    <div class="capability-card">
+                        <div class="icon-container">
+                            <img src="assets/images/icons/optics.gif" alt="Optics icon animation" class="capability-icon"/>
+                        </div>
+                        <h3>Advanced Optics</h3>
+                        <p>
+                            Cutting-edge optical systems with exceptional performance and efficiency.
+                            Leveraging innovative design principles to deliver compact and
+                            cost-effective solutions.
+                        </p>
+                    </div>
+                    <div class="capability-card">
+                        <div class="icon-container">
+                            <img src="assets/images/icons/manufacturing.gif" alt="Manufacturing icon animation" class="capability-icon"/>
+                        </div>
+                        <h3>Manufacturing</h3>
+                        <p>
+                            Proven expertise in scaling from prototype to high-performance
+                            production.
+                        </p>
+                    </div>
+                    <div class="capability-card">
+                        <div class="icon-container">
+                            <img src="assets/images/icons/metrology.gif" alt="Metrology icon animation" class="capability-icon"/>
+                        </div>
+                        <h3>Metrology</h3>
+                        <p>
+                            Precise solutions for characterizing, calibrating, and validating advanced
+                            optical systems with high accuracy and repeatability.
+                        </p>
+                    </div>
+                    <div class="capability-card">
+                        <div class="icon-container">
+                            <img src="assets/images/icons/prototyping.gif" alt="Prototyping icon animation" class="capability-icon"/>
+                        </div>
+                        <h3>Prototyping</h3>
+                        <p>
+                            Rapid and precise prototyping of optical systems, enabling fast iteration,
+                            performance validation, and smooth transition to scalable production.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Team Section -->
+        <section id="team">
+            <div class="container">
+                <h2>Team</h2>
+                <h3 class="section-subheader">Leadership</h3>
+                <p class="section-intro">
+                    Our founding team brings together decades of combined expertise with a
+                    proven track record of successful collaboration.
+                </p>
+                <div class="team-cards">
+                    <div class="team-card">
+                        <div class="team-card-img">
+                            <img src="assets/images/team/leadership/markus_rossi.jpeg" alt="Markus Rossi"/>
+                        </div>
+                        <h3>Markus Rossi</h3>
+                        <h4>CEO</h4>
+                        <ul class="team-card-list">
+                            <li>25+ years in micro-optics and photonics</li>
+                            <li>Co-founder & CTO/CIO, Heptagon (acquired by ams)</li>
+                            <li>Former VP & Head of Innovation Office, ams OSRAM</li>
+                            <li>Ph.D. in Micro-Optics (EPFL)</li>
+                        </ul>
+                    </div>
+                    <div class="team-card">
+                        <div class="team-card-img">
+                            <img src="assets/images/team/leadership/eric_tremblay.jpeg" alt="Eric Tremblay"/>
+                        </div>
+                        <h3>Eric Tremblay</h3>
+                        <h4>CTO</h4>
+                        <ul class="team-card-list">
+                            <li>14+ years in optical engineering and system architecture</li>
+                            <li>Technical Project Lead & Co-founder, Composyt Light Labs (acquired by Intel)</li>
+                            <li>Ph.D. in Electrical Engineering (UC San Diego)</li>
+                        </ul>
+                    </div>
+                    <div class="team-card">
+                        <div class="team-card-img">
+                            <img src="assets/images/team/leadership/tanja_koch.jpeg" alt="Tanja Koch"/>
+                        </div>
+                        <h3>Tanja Koch</h3>
+                        <h4>CBO</h4>
+                        <ul class="team-card-list">
+                            <li>9+ years experience as start-up founder (AR space), venture capitalist & innovation strategist</li>
+                            <li>Deep expertise in design thinking and user-driven innovation</li>
+                            <li>Previously Senior Product Manager at ams OSRAM</li>
+                            <li>M.Sc. in Management (TMU)</li>
+                        </ul>
+                    </div>
+                    <div class="team-card">
+                        <div class="team-card-img">
+                            <img src="assets/images/team/leadership/carlos_macias.jpeg" alt="Carlos Macias"/>
+                        </div>
+                        <h3>Carlos Macias</h3>
+                        <h4>Director of R&D</h4>
+                        <ul class="team-card-list">
+                            <li>15+ years experience in research and engineering</li>
+                            <li>Led engineering projects for high-volume consumer and industrial optics at Magic Leap and ams OSRAM</li>
+                            <li>Track record of guiding products from R&D to mass production</li>
+                            <li>Ph.D. in Physics (Imperial College London)</li>
+                        </ul>
+                    </div>
+                    <div class="team-card">
+                        <div class="team-card-img">
+                            <img src="assets/images/team/leadership/volker_zagolla.jpeg" alt="Volker Zagolla"/>
+                        </div>
+                        <h3>Volker Zagolla</h3>
+                        <h4>Director of Engineering</h4>
+                        <ul class="team-card-list">
+                            <li>9+ years advancing AR display, combiner, and eye-tracking technologies</li>
+                            <li>Lead engineer specializing in system design for next-generation display and eye-tracking technologies at Intel, Magic Leap and ams OSRAM</li>
+                            <li>Proven track record in test-driven, data-centric development and metrology, with expertise in taking prototypes from PoC to full industrialization.</li>
+                            <li>Ph.D. in Optics & Photonics (EPFL)</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Extended Team -->
+                <div class="team-expanded">
+                    <h3 class="section-subheader">Extended Team</h3>
+                    <p class="extended-team-intro">
+                        Our team of senior experts comes from diverse backgrounds including
+                        optical sciences, physics, electrical engineering, laser technology,
+                        computer science, and neuroscience and includes 17 dedicated full-time
+                        engineers who have worked together for several years, leveraging their
+                        combined expertise to drive innovation.
+                    </p>
+                    <div class="team-stats-banner">
+                        <div class="stat-item">
+                            <div class="stat-icon">
+                                <i class="fas fa-graduation-cap" aria-hidden="true"></i>
+                            </div>
+                            <div class="stat-value">14</div>
+                            <div class="stat-label">PhDs</div>
+                        </div>
+                        <div class="stat-item">
+                            <div class="stat-icon">
+                                <i class="fas fa-book" aria-hidden="true"></i>
+                            </div>
+                            <div class="stat-value">220+</div>
+                            <div class="stat-label">Publications</div>
+                        </div>
+                        <div class="stat-item">
+                            <div class="stat-icon">
+                                <i class="fas fa-university" aria-hidden="true"></i>
+                            </div>
+                            <div class="stat-value">15+</div>
+                            <div class="stat-label">Research Institutions</div>
+                        </div>
+                        <div class="stat-item">
+                            <div class="stat-icon">
+                                <i class="fas fa-globe-americas" aria-hidden="true"></i>
+                            </div>
+                            <div class="stat-value">11</div>
+                            <div class="stat-label">Nationalities</div>
+                        </div>
+                        <div class="stat-item">
+                            <div class="stat-icon">
+                                <i class="fas fa-comments" aria-hidden="true"></i>
+                            </div>
+                            <div class="stat-value">12</div>
+                            <div class="stat-label">Languages</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Background Section -->
+        <section id="background">
+            <div class="container">
+                <h2>Background</h2>
+                <p class="section-intro">
+                    Our team brings together expertise from prestigious academic
+                    institutions and world-leading technology companies. Originally incubated
+                    within ams OSRAM's innovation office, we have since spun off as an
+                    independent startup dedicated to advancing breakthrough optical solutions.
+                </p>
+                <div class="logo-banner">
+                    <div class="logo-grid">
+                        <div class="partner-logo-card work">
+                            <a href="https://ams-osram.com" target="_blank" rel="noopener noreferrer">
+                                <img src="assets/images/background/work/AMS-Osram_Logo.png" alt="AMS OSRAM" class="partner-logo"/>
+                            </a>
+                        </div>
+                        <div class="partner-logo-card work">
+                            <a href="https://hptg.com/" target="_blank" rel="noopener noreferrer">
+                                <img src="assets/images/background/work/Heptagon_Logo.png" alt="Heptagon" class="partner-logo"/>
+                            </a>
+                        </div>
+                        <div class="partner-logo-card work">
+                            <a href="https://www.intel.com" target="_blank" rel="noopener noreferrer">
+                                <img src="assets/images/background/work/Intel_Logo.png" alt="Intel" class="partner-logo"/>
+                            </a>
+                        </div>
+                        <div class="partner-logo-card work">
+                            <a href="https://www.magicleap.com" target="_blank" rel="noopener noreferrer">
+                                <img src="assets/images/background/work/Magic_Leap_Logo.svg" alt="Magic Leap" class="partner-logo"/>
+                            </a>
+                        </div>
+                        <div class="partner-logo-card work">
+                            <a href="https://www.venturelab.swiss/ComposytLightLabs" target="_blank" rel="noopener noreferrer">
+                                <img src="assets/images/background/work/Composyt_Logo.png" alt="Composyt" class="partner-logo"/>
+                            </a>
+                        </div>
+                        <div class="partner-logo-card work">
+                            <a href="https://www.deutsche-startups.de/verzeichnisse/investors-a-z/fluxunit-osram-ventures/" target="_blank" rel="noopener noreferrer">
+                                <img src="assets/images/background/work/Fluxunit_Logo.png" alt="OSRAM Fluxunit" class="partner-logo"/>
+                            </a>
+                        </div>
+                        <div class="partner-logo-card work">
+                            <a href="https://www.venturelab.swiss/Lemoptix" target="_blank" rel="noopener noreferrer">
+                                <img src="assets/images/background/work/Lemoptix_Logo.png" alt="Lemoptix" class="partner-logo"/>
+                            </a>
+                        </div>
+                        <div class="partner-logo-card work">
+                            <a href="https://www.idiap.ch/en/allnews/idiap-spin-off-keylemon-acquired-by-ams" target="_blank" rel="noopener noreferrer">
+                                <img src="assets/images/background/work/Keylemon_Logo.png" alt="KeyLemon" class="partner-logo"/>
+                            </a>
+                        </div>
+                        <div class="partner-logo-card work">
+                            <a href="https://home.cern" target="_blank" rel="noopener noreferrer">
+                                <img src="assets/images/background/work/CERN_Logo.png" alt="CERN" class="partner-logo"/>
+                            </a>
+                        </div>
+                        <div class="partner-logo-card work">
+                            <a href="https://www.csem.ch" target="_blank" rel="noopener noreferrer">
+                                <img src="assets/images/background/work/CSEM_Logo.png" alt="CSEM" class="partner-logo"/>
+                            </a>
+                        </div>
+                        <div class="partner-logo-card work">
+                            <a href="https://www.idiap.ch" target="_blank" rel="noopener noreferrer">
+                                <img src="assets/images/background/work/IDIAP_Logo.png" alt="IDIAP" class="partner-logo"/>
+                            </a>
+                        </div>
+                        <div class="partner-logo-card education">
+                            <a href="https://www.epfl.ch" target="_blank" rel="noopener noreferrer">
+                                <img src="assets/images/background/education/EPFL_Logo.png" alt="EPFL" class="partner-logo"/>
+                            </a>
+                        </div>
+                        <div class="partner-logo-card education">
+                            <a href="https://ethz.ch" target="_blank" rel="noopener noreferrer">
+                                <img src="assets/images/background/education/ETH_Logo.svg" alt="ETH" class="partner-logo"/>
+                            </a>
+                        </div>
+                        <div class="partner-logo-card education">
+                            <a href="https://www.stanford.edu" target="_blank" rel="noopener noreferrer">
+                                <img src="assets/images/background/education/Stanford_Logo.png" alt="Stanford" class="partner-logo"/>
+                            </a>
+                        </div>
+                        <div class="partner-logo-card education">
+                            <a href="https://www.cam.ac.uk" target="_blank" rel="noopener noreferrer">
+                                <img src="assets/images/background/education/University_Cambridge_Logo.png" alt="University of Cambridge" class="partner-logo"/>
+                            </a>
+                        </div>
+                        <div class="partner-logo-card education">
+                            <a href="https://www.mit.edu" target="_blank" rel="noopener noreferrer">
+                                <img src="assets/images/background/education/MIT_Logo.png" alt="MIT" class="partner-logo"/>
+                            </a>
+                        </div>
+                        <div class="partner-logo-card education">
+                            <a href="https://www.tum.de" target="_blank" rel="noopener noreferrer">
+                                <img src="assets/images/background/education/TUM_Logo.svg" alt="TUM" class="partner-logo"/>
+                            </a>
+                        </div>
+                        <div class="partner-logo-card education">
+                            <a href="https://www.mcgill.ca" target="_blank" rel="noopener noreferrer">
+                                <img src="assets/images/background/education/McGill_Logo.png" alt="McGill" class="partner-logo"/>
+                            </a>
+                        </div>
+                        <div class="partner-logo-card education">
+                            <a href="https://www.imperial.ac.uk" target="_blank" rel="noopener noreferrer">
+                                <img src="assets/images/background/education/Imperial_College_London_Logo.png" alt="Imperial College London" class="partner-logo"/>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Contact Section -->
+        <section id="contact">
+            <div class="container">
+                <h2>Contact</h2>
+                <div class="contact-grid">
+                    <div class="contact-info">
+                        <div class="contact-item">
+                            <div class="icon-container">
+                                <i class="fas fa-map-marker-alt" aria-hidden="true"></i>
+                            </div>
+                            <div>
+                                <h3>Location</h3>
+                                <p>
+                                    AlphaLum SA<br />
+                                    EPFL Innovation park<br />
+                                    Bâtiment J<br />
+                                    1015 Lausanne, CH
+                                </p>
+                            </div>
+                        </div>
+                        <div class="contact-item">
+                            <div class="icon-container">
+                                <i class="fab fa-linkedin" aria-hidden="true"></i>
+                            </div>
+                            <div>
+                                <h3>Connect With Us</h3>
+                                <p><a href="https://www.linkedin.com/company/alphalum" target="_blank" rel="noopener noreferrer" class="orange-link">LinkedIn</a></p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="map-container">
+                        <div class="map-wrapper">
+                            <img src="assets/images/google_map.png" alt="Map showing AlphaLum location" class="map-image"/>
+                        </div>
+                        <div class="custom-marker">
+                            <div class="marker-pin"></div>
+                            <div class="marker-pulse"></div>
+                            <div class="marker-directions">
+                                <a href="https://www.google.com/maps/dir/?api=1&destination=46.51655782918687,6.562174015525956&travelmode=driving" target="_blank" rel="noopener noreferrer" class="directions-link" aria-label="Get directions to AlphaLum">
+                                    <i class="fas fa-directions" aria-hidden="true"></i> Directions
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Legal Notice (Impressum) -->
+        <section id="impressum">
+            <div class="container">
+                <h2>Legal Notice</h2>
+                <div class="impressum-grid">
+                    <div class="impressum-item">
+                        <div class="icon-container"><i class="fas fa-building"></i></div>
+                        <div>
+                            <h3>Responsible Entity</h3>
+                            <p><strong>AlphaLum SA</strong></p>
+                            <p>
+                                EPFL Innovation park<br />
+                                Bâtiment J<br />
+                                1015 Lausanne<br />
+                                Switzerland
+                            </p>
+                        </div>
+                    </div>
+                    <div class="impressum-item">
+                        <div class="icon-container"><i class="fas fa-user-tie"></i></div>
+                        <div>
+                            <h3>Legal Representatives</h3>
+                            <p>Markus Rossi (CEO)</p>
+                            <p>
+                                Email:
+                                <a href="mailto:contact.us@alphalum.com">contact.us@alphalum.com</a>
+                            </p>
+                        </div>
+                    </div>
+                    <div class="impressum-item">
+                        <div class="icon-container"><i class="fas fa-file-contract"></i></div>
+                        <div>
+                            <h3>Company Details</h3>
+                            <p>Commercial Register Number:<br />CH-550.1.248.892-6</p>
+                            <p>VAT Identification Number:<br />CHE-482.900.372</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer id="footer">
+        <p>© <span id="current-year">2025</span> AlphaLum SA. All rights reserved.</p>
+    </footer>
+
+    <!-- Back-to-top button -->
+    <button id="back-to-top" aria-label="Back to Top">↑</button>
+
+    <!-- JavaScript -->
+    <script src="script.js"></script>
+</body>
 </html>
