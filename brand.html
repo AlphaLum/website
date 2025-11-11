@@ -1,0 +1,540 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <meta name="description" content="AlphaLum Brand Guidelines - Interactive brand asset and style guide"/>
+    <title>AlphaLum - Brand Guidelines</title>
+
+    <!-- Favicons -->
+    <link rel="icon" href="assets/images/logo/AlphaLum_logo.svg" type="image/svg+xml"/>
+    <link rel="shortcut icon" href="assets/images/logo/favicon-32x32.png"/>
+    <link rel="icon" type="image/png" sizes="32x32" href="assets/images/logo/favicon-32x32.png"/>
+    <link rel="icon" type="image/png" sizes="16x16" href="assets/images/logo/favicon-16x16.png"/>
+    <link rel="apple-touch-icon" sizes="180x180" href="assets/images/logo/apple-touch-icon.png"/>
+
+    <!-- Google Fonts - Dynamic loading -->
+    <link rel="preconnect" href="https://fonts.googleapis.com"/>
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+    <link id="header-font-link" href="" rel="stylesheet"/>
+    <link id="body-font-link" href="" rel="stylesheet"/>
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="reset.css"/>
+    <link rel="stylesheet" href="brand-styles.css"/>
+</head>
+
+<body>
+    <!-- Sticky Navigation Bar -->
+    <nav class="sticky-nav">
+        <div class="sticky-nav-content">
+            <!-- First Row: Colors -->
+            <div class="sticky-nav-row">
+                <div class="sticky-nav-section">
+                    <span class="sticky-nav-label">Primary:</span>
+                    <div class="color-swatches-group">
+                        <input type="color" id="sticky-primary" class="sticky-color-picker" value="#FFFFFF" title="White"/>
+                        <input type="color" id="sticky-secondary" class="sticky-color-picker" value="#373737" title="Black"/>
+                    </div>
+                </div>
+                
+                <!-- Rainbow Accents -->
+                <div class="sticky-nav-section">
+                    <span class="sticky-nav-label">Rainbow:</span>
+                    <div class="color-swatches-group">
+                        <input type="color" id="sticky-accent-red" class="sticky-color-picker" value="#FF0000" title="Red"/>
+                        <input type="color" id="sticky-accent-orange" class="sticky-color-picker" value="#FF7F00" title="Orange"/>
+                        <input type="color" id="sticky-accent-yellow" class="sticky-color-picker" value="#FFFF00" title="Yellow"/>
+                        <input type="color" id="sticky-accent-green" class="sticky-color-picker" value="#00FF00" title="Green"/>
+                        <input type="color" id="sticky-accent-blue" class="sticky-color-picker" value="#0000FF" title="Blue"/>
+                        <input type="color" id="sticky-accent-indigo" class="sticky-color-picker" value="#4B0082" title="Indigo"/>
+                        <input type="color" id="sticky-accent-violet" class="sticky-color-picker" value="#9400D3" title="Violet"/>
+                    </div>
+                </div>
+                
+                <!-- Backgrounds -->
+                <div class="sticky-nav-section">
+                    <span class="sticky-nav-label">BG:</span>
+                    <div class="color-swatches-group">
+                        <input type="color" id="sticky-bg-1" class="sticky-color-picker" value="#FFFAFF" title="Background 1"/>
+                        <input type="color" id="sticky-bg-2" class="sticky-color-picker" value="#E8E8E8" title="Background 2"/>
+                        <input type="color" id="sticky-bg-3" class="sticky-color-picker" value="#303036" title="Background 3"/>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Second Row: Fonts -->
+            <div class="sticky-nav-row">
+                <div class="sticky-nav-section">
+                    <span class="sticky-nav-label">Header Font:</span>
+                    <button id="sticky-header-font-btn" class="font-selector-button" data-font-type="header">
+                        <span id="sticky-header-font-name">Inter</span>
+                        <span>▼</span>
+                    </button>
+                </div>
+                
+                <div class="sticky-nav-section">
+                    <span class="sticky-nav-label">Body Font:</span>
+                    <button id="sticky-body-font-btn" class="font-selector-button" data-font-type="body">
+                        <span id="sticky-body-font-name">DM Sans</span>
+                        <span>▼</span>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Font Modal -->
+    <div class="font-modal-overlay" id="font-modal-overlay">
+        <div class="font-modal">
+            <div class="font-modal-header">
+                <h3 id="font-modal-title">Select Header Font</h3>
+                <button class="font-modal-close" id="font-modal-close" aria-label="Close">×</button>
+            </div>
+            <div class="font-modal-body" id="font-modal-body">
+                <!-- Font options will be dynamically inserted here -->
+            </div>
+        </div>
+    </div>
+
+    <div class="brand-container">
+        <!-- Header -->
+        <header class="brand-header">
+            <h1>AlphaLum Brand Guidelines</h1>
+            <p class="subtitle">Interactive brand asset and style guide</p>
+        </header>
+
+        <!-- Logo Variations Section -->
+        <section id="logo-variations" class="brand-section">
+            <h2>Logo Variations</h2>
+            <p class="section-description">Our logo family includes multiple variations for different use cases and backgrounds.</p>
+            <div class="logo-grid" id="logo-grid">
+                <!-- Logos will be loaded dynamically -->
+            </div>
+        </section>
+
+        <!-- Color Palette Section -->
+        <section id="color-palette" class="brand-section">
+            <h2>Color Palette</h2>
+            <p class="section-description">Define and preview your brand colors. Changes apply instantly across all elements.</p>
+            
+            <div class="color-controls-grid">
+                <!-- Primary & Secondary -->
+                <div class="color-control-group">
+                    <h3>Primary Colors (Black & White)</h3>
+                    <div class="color-control">
+                        <label for="primary-color">Primary (White)</label>
+                        <div class="color-input-group">
+                            <input type="color" id="primary-color" value="#FFFFFF"/>
+                            <input type="text" id="primary-color-text" value="#FFFFFF" maxlength="7"/>
+                        </div>
+                        <div class="color-swatch" id="primary-swatch"></div>
+                    </div>
+                    <div class="color-control">
+                        <label for="secondary-color">Secondary (Black)</label>
+                        <div class="color-input-group">
+                            <input type="color" id="secondary-color" value="#373737"/>
+                            <input type="text" id="secondary-color-text" value="#373737" maxlength="7"/>
+                        </div>
+                        <div class="color-swatch" id="secondary-swatch"></div>
+                    </div>
+                </div>
+
+                <!-- Background Colors -->
+                <div class="color-control-group">
+                    <h3>Background Colors</h3>
+                    <div class="color-control">
+                        <label for="bg-1-color">Background 1 (Light)</label>
+                        <div class="color-input-group">
+                            <input type="color" id="bg-1-color" value="#FFFAFF"/>
+                            <input type="text" id="bg-1-color-text" value="#FFFAFF" maxlength="7"/>
+                        </div>
+                        <div class="color-swatch" id="bg-1-swatch"></div>
+                    </div>
+                    <div class="color-control">
+                        <label for="bg-2-color">Background 2 (Medium)</label>
+                        <div class="color-input-group">
+                            <input type="color" id="bg-2-color" value="#E8E8E8"/>
+                            <input type="text" id="bg-2-color-text" value="#E8E8E8" maxlength="7"/>
+                        </div>
+                        <div class="color-swatch" id="bg-2-swatch"></div>
+                    </div>
+                    <div class="color-control">
+                        <label for="bg-3-color">Background 3 (Dark)</label>
+                        <div class="color-input-group">
+                            <input type="color" id="bg-3-color" value="#303036"/>
+                            <input type="text" id="bg-3-color-text" value="#303036" maxlength="7"/>
+                        </div>
+                        <div class="color-swatch" id="bg-3-swatch"></div>
+                    </div>
+                </div>
+
+                <!-- Rainbow Accent Colors -->
+                <div class="color-control-group">
+                    <h3>Rainbow Accent Colors</h3>
+                    <div class="color-control">
+                        <label for="accent-red-color">Red</label>
+                        <div class="color-input-group">
+                            <input type="color" id="accent-red-color" value="#FF0000"/>
+                            <input type="text" id="accent-red-color-text" value="#FF0000" maxlength="7"/>
+                        </div>
+                        <div class="color-swatch" id="accent-red-swatch"></div>
+                    </div>
+                    <div class="color-control">
+                        <label for="accent-orange-color">Orange</label>
+                        <div class="color-input-group">
+                            <input type="color" id="accent-orange-color" value="#FF7F00"/>
+                            <input type="text" id="accent-orange-color-text" value="#FF7F00" maxlength="7"/>
+                        </div>
+                        <div class="color-swatch" id="accent-orange-swatch"></div>
+                    </div>
+                    <div class="color-control">
+                        <label for="accent-yellow-color">Yellow</label>
+                        <div class="color-input-group">
+                            <input type="color" id="accent-yellow-color" value="#FFFF00"/>
+                            <input type="text" id="accent-yellow-color-text" value="#FFFF00" maxlength="7"/>
+                        </div>
+                        <div class="color-swatch" id="accent-yellow-swatch"></div>
+                    </div>
+                    <div class="color-control">
+                        <label for="accent-green-color">Green</label>
+                        <div class="color-input-group">
+                            <input type="color" id="accent-green-color" value="#00FF00"/>
+                            <input type="text" id="accent-green-color-text" value="#00FF00" maxlength="7"/>
+                        </div>
+                        <div class="color-swatch" id="accent-green-swatch"></div>
+                    </div>
+                    <div class="color-control">
+                        <label for="accent-blue-color">Blue</label>
+                        <div class="color-input-group">
+                            <input type="color" id="accent-blue-color" value="#0000FF"/>
+                            <input type="text" id="accent-blue-color-text" value="#0000FF" maxlength="7"/>
+                        </div>
+                        <div class="color-swatch" id="accent-blue-swatch"></div>
+                    </div>
+                    <div class="color-control">
+                        <label for="accent-indigo-color">Indigo</label>
+                        <div class="color-input-group">
+                            <input type="color" id="accent-indigo-color" value="#4B0082"/>
+                            <input type="text" id="accent-indigo-color-text" value="#4B0082" maxlength="7"/>
+                        </div>
+                        <div class="color-swatch" id="accent-indigo-swatch"></div>
+                    </div>
+                    <div class="color-control">
+                        <label for="accent-violet-color">Violet</label>
+                        <div class="color-input-group">
+                            <input type="color" id="accent-violet-color" value="#9400D3"/>
+                            <input type="text" id="accent-violet-color-text" value="#9400D3" maxlength="7"/>
+                        </div>
+                        <div class="color-swatch" id="accent-violet-swatch"></div>
+                    </div>
+                    
+                    <!-- Rainbow Gradient Preview -->
+                    <div class="rainbow-gradient-preview">
+                        <div class="gradient-bar"></div>
+                        <p class="gradient-label">Rainbow Gradient (for dividers/accents)</p>
+                    </div>
+                </div>
+
+                <!-- Font Colors -->
+                <div class="color-control-group">
+                    <h3>Text Colors</h3>
+                    <div class="color-control">
+                        <label for="font-primary-color">Primary Font Color</label>
+                        <div class="color-input-group">
+                            <input type="color" id="font-primary-color" value="#1A1A1A"/>
+                            <input type="text" id="font-primary-color-text" value="#1A1A1A" maxlength="7"/>
+                        </div>
+                        <div class="color-swatch" id="font-primary-swatch"></div>
+                    </div>
+                    <div class="color-control">
+                        <label for="font-secondary-color">Secondary Font Color</label>
+                        <div class="color-input-group">
+                            <input type="color" id="font-secondary-color" value="#6B7280"/>
+                            <input type="text" id="font-secondary-color-text" value="#6B7280" maxlength="7"/>
+                        </div>
+                        <div class="color-swatch" id="font-secondary-swatch"></div>
+                    </div>
+                </div>
+
+                <!-- Status Colors -->
+                <div class="color-control-group">
+                    <h3>Status Colors</h3>
+                    <div class="color-control">
+                        <label for="error-color">Error Color</label>
+                        <div class="color-input-group">
+                            <input type="color" id="error-color" value="#EF4444"/>
+                            <input type="text" id="error-color-text" value="#EF4444" maxlength="7"/>
+                        </div>
+                        <div class="color-swatch" id="error-swatch"></div>
+                    </div>
+                    <div class="color-control">
+                        <label for="success-color">Success Color</label>
+                        <div class="color-input-group">
+                            <input type="color" id="success-color" value="#10B981"/>
+                            <input type="text" id="success-color-text" value="#10B981" maxlength="7"/>
+                        </div>
+                        <div class="color-swatch" id="success-swatch"></div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Typography Section -->
+        <section id="typography" class="brand-section">
+            <h2>Typography System</h2>
+            <p class="section-description">Select fonts and preview how they work across different heading and paragraph styles.</p>
+            
+            <div class="typography-controls">
+                <div class="font-selector">
+                    <label>Header Font Family</label>
+                    <button id="header-font-btn" class="font-selector-button" data-font-type="header" style="width: 100%; justify-content: space-between;">
+                        <span id="header-font-name">Inter</span>
+                        <span>▼</span>
+                    </button>
+                </div>
+                <div class="font-selector">
+                    <label>Body Font Family</label>
+                    <button id="body-font-btn" class="font-selector-button" data-font-type="body" style="width: 100%; justify-content: space-between;">
+                        <span id="body-font-name">DM Sans</span>
+                        <span>▼</span>
+                    </button>
+                </div>
+            </div>
+
+            <div class="typography-preview">
+                <h3>Heading Styles</h3>
+                <div class="heading-samples">
+                    <div class="sample-giant">Giant Header: The quick brown fox jumps over the lazy dog</div>
+                    <h1 class="sample-h1">H1: The quick brown fox jumps over the lazy dog</h1>
+                    <h2 class="sample-h2">H2: The quick brown fox jumps over the lazy dog</h2>
+                    <h3 class="sample-h3">H3: The quick brown fox jumps over the lazy dog</h3>
+                    <h4 class="sample-h4">H4: The quick brown fox jumps over the lazy dog</h4>
+                    <h5 class="sample-h5">H5: The quick brown fox jumps over the lazy dog</h5>
+                    <h6 class="sample-h6">H6: The quick brown fox jumps over the lazy dog</h6>
+                </div>
+
+                <h3>Paragraph Styles</h3>
+                <div class="paragraph-samples">
+                    <p class="sample-p-large">
+                        Large paragraph: AlphaLum develops advanced optical solutions that push the frontiers of augmented and mixed reality. We design high-performance systems that deliver precision, efficiency, and seamless integration backed by decades of expertise.
+                    </p>
+                    <p class="sample-p-regular">
+                        Regular paragraph: Our proven track record of bringing complex optical technologies to market enables us to help leading companies turn ideas into reliable, high-impact products - speeding time to market, reducing development risk, and freeing resources for continuous innovation.
+                    </p>
+                    <p class="sample-p-small">
+                        Small paragraph: Our mission is to design transformative optical systems that not only redefine how people see and sense the world but also empower their interactions and everyday tasks.
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Web Components Section -->
+        <section id="web-components" class="brand-section">
+            <h2>Web Components</h2>
+            <p class="section-description">Standard UI components with consistent styling.</p>
+
+            <div class="components-showcase">
+                <!-- Buttons -->
+                <div class="component-group">
+                    <h3>Buttons (Large)</h3>
+                    <div class="component-examples">
+                        <button class="btn-primary">Primary Button</button>
+                        <button class="btn-secondary">Secondary Button</button>
+                        <button class="btn-tertiary">Tertiary Button</button>
+                    </div>
+                </div>
+
+                <!-- Small Buttons -->
+                <div class="component-group">
+                    <h3>Buttons (Small)</h3>
+                    <div class="component-examples">
+                        <button class="btn-primary-sm">Primary Button</button>
+                        <button class="btn-secondary-sm">Secondary Button</button>
+                        <button class="btn-tertiary-sm">Tertiary Button</button>
+                    </div>
+                </div>
+
+                <!-- Links -->
+                <div class="component-group">
+                    <h3>Links</h3>
+                    <div class="component-examples">
+                        <a href="#" class="link-default">Default Link</a>
+                        <a href="#" class="link-primary">Primary Link</a>
+                        <a href="#" class="link-secondary">Secondary Link</a>
+                    </div>
+                </div>
+
+                <!-- Form Fields -->
+                <div class="component-group">
+                    <h3>Form Fields</h3>
+                    <div class="component-examples form-examples">
+                        <div class="form-field">
+                            <label for="sample-input">Text Input</label>
+                            <input type="text" id="sample-input" placeholder="Enter text here"/>
+                        </div>
+                        <div class="form-field">
+                            <label for="sample-select">Select Dropdown</label>
+                            <select id="sample-select">
+                                <option>Option 1</option>
+                                <option>Option 2</option>
+                                <option>Option 3</option>
+                            </select>
+                        </div>
+                        <div class="form-field">
+                            <label for="sample-textarea">Textarea</label>
+                            <textarea id="sample-textarea" rows="3" placeholder="Enter longer text here"></textarea>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Navigation Header -->
+                <div class="component-group">
+                    <h3>Navigation Header</h3>
+                    <div class="component-examples">
+                        <nav class="sample-nav">
+                            <div class="sample-logo">AlphaLum</div>
+                            <div class="sample-nav-links">
+                                <a href="#">About</a>
+                                <a href="#">Products</a>
+                                <a href="#">Contact</a>
+                            </div>
+                        </nav>
+                    </div>
+                </div>
+
+                <!-- Cards -->
+                <div class="component-group">
+                    <h3>Card Layouts</h3>
+                    <div class="component-examples cards-grid">
+                        <div class="sample-card">
+                            <h4>Card Title</h4>
+                            <p>This is a sample card with some descriptive text to show how content appears in card layouts.</p>
+                        </div>
+                        <div class="sample-card">
+                            <h4>Card Title</h4>
+                            <p>Cards are useful for organizing content into digestible, scannable sections.</p>
+                        </div>
+                        <div class="sample-card">
+                            <h4>Card Title</h4>
+                            <p>They maintain consistent spacing and visual hierarchy across the interface.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Iconography Section -->
+        <section id="iconography" class="brand-section">
+            <h2>Iconography Guidelines</h2>
+            <p class="section-description">Icon usage follows consistent principles for clarity and brand recognition.</p>
+            <div class="guidelines-content">
+                <ul class="guidelines-list">
+                    <li><strong>Style:</strong> Use simple, clean line-based icons or animated GIF icons for emphasis</li>
+                    <li><strong>Size:</strong> Icons should be clearly visible, typically 24px-120px depending on context</li>
+                    <li><strong>Color:</strong> Icons inherit brand colors, primarily using primary and secondary colors</li>
+                    <li><strong>Spacing:</strong> Maintain adequate padding around icons for visual breathing room</li>
+                    <li><strong>Consistency:</strong> Use the same icon style throughout the interface</li>
+                </ul>
+            </div>
+        </section>
+
+        <!-- Imagery Style Section -->
+        <section id="imagery-style" class="brand-section">
+            <h2>Imagery Style</h2>
+            <p class="section-description">Guidelines for photography and illustration usage.</p>
+            <div class="guidelines-content">
+                <ul class="guidelines-list">
+                    <li><strong>Photography:</strong> Use high-quality, professional images that showcase technology and innovation</li>
+                    <li><strong>Subject Matter:</strong> Focus on optical systems, AR/XR technology, and team collaboration</li>
+                    <li><strong>Color Grading:</strong> Maintain natural colors with slight emphasis on brand colors where appropriate</li>
+                    <li><strong>Composition:</strong> Clean, modern compositions with good use of negative space</li>
+                    <li><strong>Illustrations:</strong> Technical illustrations should be precise and informative, matching brand color palette</li>
+                </ul>
+            </div>
+        </section>
+
+        <!-- Tone of Voice Section -->
+        <section id="tone-of-voice" class="brand-section">
+            <h2>Tone of Voice</h2>
+            <p class="section-description">How we communicate the AlphaLum brand.</p>
+            <div class="guidelines-content">
+                <div class="tone-grid">
+                    <div class="tone-item">
+                        <h4>Professional & Expert</h4>
+                        <p>We speak with authority and deep technical knowledge while remaining accessible and clear.</p>
+                    </div>
+                    <div class="tone-item">
+                        <h4>Innovation-Focused</h4>
+                        <p>We emphasize cutting-edge solutions and forward-thinking approaches to optical technology.</p>
+                    </div>
+                    <div class="tone-item">
+                        <h4>Collaborative & Enabling</h4>
+                        <p>We position ourselves as partners who empower clients to achieve their goals.</p>
+                    </div>
+                    <div class="tone-item">
+                        <h4>Precise & Efficient</h4>
+                        <p>Our language is clear and purposeful, reflecting the precision of our optical systems.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Example Usage Sections -->
+        <section id="example-usage" class="brand-section">
+            <h2>Example Usage</h2>
+            <p class="section-description">See how brand elements come together in real layouts.</p>
+
+            <!-- Hero Section Example -->
+            <div class="example-layout example-hero">
+                <h3 class="example-label">Hero Section</h3>
+                <div class="mock-hero">
+                    <h1>Full-Spectrum XR Solutions</h1>
+                    <p>From prototype to production, we deliver advanced optical systems with precision, efficiency, and seamless integration.</p>
+                    <div class="hero-buttons">
+                        <button class="btn-primary">Get Started</button>
+                        <button class="btn-secondary">Learn More</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Info Section with Image Right -->
+            <div class="example-layout example-info-right">
+                <h3 class="example-label">Information Section (Background 2, Image Right)</h3>
+                <div class="mock-info-section bg-2">
+                    <div class="info-content">
+                        <h2>Advanced Optical Engineering</h2>
+                        <p>Our multidisciplinary team combines expertise across optics, electronics, software, and AI to deliver comprehensive solutions. We design high-performance systems that deliver precision and efficiency backed by decades of experience.</p>
+                    </div>
+                    <div class="info-image">
+                        <img src="assets/images/about_img01.png" alt="Technology visualization"/>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Info Section with Image Left -->
+            <div class="example-layout example-info-left">
+                <h3 class="example-label">Information Section (Background 3, Image Left)</h3>
+                <div class="mock-info-section bg-3">
+                    <div class="info-image">
+                        <img src="assets/images/about_img02.png" alt="Technology visualization"/>
+                    </div>
+                    <div class="info-content">
+                        <h2>Proven Track Record</h2>
+                        <p>From prototype to high-volume production, our expertise enables us to help leading companies turn ideas into reliable, high-impact products. We speed time to market, reduce development risk, and free resources for continuous innovation.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Footer -->
+        <footer class="brand-footer">
+            <p>&copy; 2025 AlphaLum SA. All rights reserved.</p>
+        </footer>
+    </div>
+
+    <!-- JavaScript -->
+    <script src="brand-script.js"></script>
+</body>
+</html>
+
