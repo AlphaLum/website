@@ -102,10 +102,10 @@ body {
 .sticky-nav-content {
   max-width: var(--container-max-width);
   margin: 0 auto;
-  padding: var(--spacing-sm) var(--spacing-md);
+  padding: 0.2rem var(--spacing-md);
   display: flex;
   flex-direction: row;
-  gap: var(--spacing-lg);
+  gap: var(--spacing-md);
   align-items: center;
   justify-content: space-between;
 }
@@ -118,7 +118,7 @@ body {
 }
 
 .sticky-nav-logo img {
-  max-height: 45px;
+  max-height: 55px;
   width: auto;
   object-fit: contain;
   transition: var(--transition);
@@ -374,15 +374,16 @@ body {
   font-size: 7rem;
   color: var(--brand-font-primary);
   margin: 0 0 var(--spacing-sm) 0;
-  font-weight: 100;
+  font-weight: 300;
   line-height: 1.1;
   margin-top:5rem;
 }
 
 .brand-header .subtitle {
   font-size: 1.25rem;
-  color: var(--brand-font-secondary);
+  color: var(--brand-font-primary);
   margin: 0;
+  font-weight: 300;
 }
 
 /* Sections */
