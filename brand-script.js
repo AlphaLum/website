@@ -25,10 +25,19 @@ document.addEventListener('DOMContentLoaded', function() {
     initializeTypographyControls();
     initializeStickyNav();
     initializeFontModal();
+    initializeHeroVideo();
+    initializeButtonStyleTabs();
     
     // Load initial fonts
     loadGoogleFont('Inter', 'header');
     loadGoogleFont('DM Sans', 'body');
+    
+    // Initialize rainbow gradient
+    updateRainbowGradient();
+    
+    // Initialize tertiary button color
+    const primaryColor = getComputedStyle(document.documentElement).getPropertyValue('--brand-primary').trim();
+    updateTertiaryButtonColor(primaryColor);
 });
 
 // Logo Grid Initialization
@@ -39,10 +48,8 @@ function initializeLogoGrid() {
     const logoFiles = [
         'AlphaLum_logo.svg',
         'AlphaLum_logo.png',
-        'apple-touch-icon.png',
-        'favicon-16x16.png',
-        'favicon-32x32.png',
-        'favicon-32x32_dark.png'
+        'light-full-logo.png',
+        'light-symbol.png'
     ];
     
     logoFiles.forEach(filename => {
@@ -73,9 +80,10 @@ function initializeColorControls() {
         'bg-3': '--brand-bg-3',
         'accent-1': '--brand-accent-1',
         'accent-2': '--brand-accent-2',
-        'accent-3': '--brand-accent-3',
+        'button': '--brand-button',
         'font-primary': '--brand-font-primary',
         'font-secondary': '--brand-font-secondary',
+        'font-light': '--brand-font-light',
         'error': '--brand-error',
         'success': '--brand-success'
     };
@@ -97,6 +105,16 @@ function initializeColorControls() {
             colorText.value = color.toUpperCase();
             updateSwatch(colorSwatch, color);
             updateCSSVariable(cssVariable, color);
+            
+            // Update rainbow gradient if it's a rainbow color
+            if (cssVariable.includes('primary') || cssVariable.includes('secondary') || cssVariable.includes('accent')) {
+                updateRainbowGradient();
+            }
+            
+            // Update tertiary button background if primary color changes
+            if (cssVariable === '--brand-primary') {
+                updateTertiaryButtonColor(color);
+            }
         });
         
         // Text input change event
@@ -113,6 +131,11 @@ function initializeColorControls() {
                 colorPicker.value = color;
                 updateSwatch(colorSwatch, color);
                 updateCSSVariable(cssVariable, color);
+                
+                // Update rainbow gradient if it's a rainbow color
+                if (cssVariable.includes('primary') || cssVariable.includes('secondary') || cssVariable.includes('accent')) {
+                    updateRainbowGradient();
+                }
             }
         });
         
@@ -189,23 +212,39 @@ function updateFontFamily(variable, fontName) {
 }
 
 function updateRainbowGradient() {
-    // Get current rainbow colors from CSS variables
+    // Get current rainbow colors from CSS variables (4 colors: Primary → Accent 1 → Secondary → Accent 2)
     const root = document.documentElement;
     const computedStyle = getComputedStyle(root);
     
-    const red = computedStyle.getPropertyValue('--brand-accent-red').trim();
-    const orange = computedStyle.getPropertyValue('--brand-accent-orange').trim();
-    const yellow = computedStyle.getPropertyValue('--brand-accent-yellow').trim();
-    const green = computedStyle.getPropertyValue('--brand-accent-green').trim();
-    const blue = computedStyle.getPropertyValue('--brand-accent-blue').trim();
-    const indigo = computedStyle.getPropertyValue('--brand-accent-indigo').trim();
-    const violet = computedStyle.getPropertyValue('--brand-accent-violet').trim();
+    const primary = computedStyle.getPropertyValue('--brand-primary').trim();
+    const secondary = computedStyle.getPropertyValue('--brand-secondary').trim();
+    const accent1 = computedStyle.getPropertyValue('--brand-accent-1').trim();
+    const accent2 = computedStyle.getPropertyValue('--brand-accent-2').trim();
     
-    // Create gradient
-    const gradient = `linear-gradient(90deg, ${red} 0%, ${orange} 14.28%, ${yellow} 28.56%, ${green} 42.84%, ${blue} 57.12%, ${indigo} 71.4%, ${violet} 100%)`;
+    // Create 4-color gradient: Primary → Accent 1 → Secondary → Accent 2
+    const gradient = `linear-gradient(90deg, ${primary} 10%, ${accent1} 50.33%, ${secondary} 90%)`;
     
     // Update CSS variable
     root.style.setProperty('--rainbow-gradient', gradient);
+}
+
+function updateTertiaryButtonColor(primaryColor) {
+    // Convert hex to RGB and create 10% opacity background
+    const hex = primaryColor.replace('#', '');
+    const r = parseInt(hex.substring(0, 2), 16);
+    const g = parseInt(hex.substring(2, 4), 16);
+    const b = parseInt(hex.substring(4, 6), 16);
+    
+    // Update CSS for tertiary buttons with 10% opacity
+    const style = document.createElement('style');
+    style.id = 'tertiary-button-style';
+    
+    // Remove old style if it exists
+    const oldStyle = document.getElementById('tertiary-button-style');
+    if (oldStyle) {
+        oldStyle.remove();
+    }
+    
 }
 
 // Export color palette as JSON
@@ -221,14 +260,16 @@ function exportColorPalette() {
             medium: computedStyle.getPropertyValue('--brand-bg-2').trim(),
             dark: computedStyle.getPropertyValue('--brand-bg-3').trim()
         },
-        accents: {
-            accent1: computedStyle.getPropertyValue('--brand-accent-1').trim(),
-            accent2: computedStyle.getPropertyValue('--brand-accent-2').trim(),
-            accent3: computedStyle.getPropertyValue('--brand-accent-3').trim()
+        rainbow: {
+            primary1: computedStyle.getPropertyValue('--brand-primary').trim(),
+            primary2: computedStyle.getPropertyValue('--brand-secondary').trim(),
+            accent1: computedStyle.getPropertyValue('--brand-accent-1').trim()
         },
+        button: computedStyle.getPropertyValue('--brand-button').trim(),
         fonts: {
             primary: computedStyle.getPropertyValue('--brand-font-primary').trim(),
-            secondary: computedStyle.getPropertyValue('--brand-font-secondary').trim()
+            secondary: computedStyle.getPropertyValue('--brand-font-secondary').trim(),
+            light: computedStyle.getPropertyValue('--brand-font-light').trim()
         },
         status: {
             error: computedStyle.getPropertyValue('--brand-error').trim(),
@@ -369,13 +410,9 @@ function initializeStickyNav() {
     const stickyColorMappings = {
         'sticky-primary': { main: 'primary-color', text: 'primary-color-text', var: '--brand-primary' },
         'sticky-secondary': { main: 'secondary-color', text: 'secondary-color-text', var: '--brand-secondary' },
-        'sticky-accent-red': { main: 'accent-red-color', text: 'accent-red-color-text', var: '--brand-accent-red' },
-        'sticky-accent-orange': { main: 'accent-orange-color', text: 'accent-orange-color-text', var: '--brand-accent-orange' },
-        'sticky-accent-yellow': { main: 'accent-yellow-color', text: 'accent-yellow-color-text', var: '--brand-accent-yellow' },
-        'sticky-accent-green': { main: 'accent-green-color', text: 'accent-green-color-text', var: '--brand-accent-green' },
-        'sticky-accent-blue': { main: 'accent-blue-color', text: 'accent-blue-color-text', var: '--brand-accent-blue' },
-        'sticky-accent-indigo': { main: 'accent-indigo-color', text: 'accent-indigo-color-text', var: '--brand-accent-indigo' },
-        'sticky-accent-violet': { main: 'accent-violet-color', text: 'accent-violet-color-text', var: '--brand-accent-violet' },
+        'sticky-accent-1': { main: 'accent-1-color', text: 'accent-1-color-text', var: '--brand-accent-1' },
+        'sticky-accent-2': { main: 'accent-2-color', text: 'accent-2-color-text', var: '--brand-accent-2' },
+        'sticky-button': { main: 'button-color', text: 'button-color-text', var: '--brand-button' },
         'sticky-bg-1': { main: 'bg-1-color', text: 'bg-1-color-text', var: '--brand-bg-1' },
         'sticky-bg-2': { main: 'bg-2-color', text: 'bg-2-color-text', var: '--brand-bg-2' },
         'sticky-bg-3': { main: 'bg-3-color', text: 'bg-3-color-text', var: '--brand-bg-3' }
@@ -405,9 +442,14 @@ function initializeStickyNav() {
                 updateSwatch(swatch, color);
             }
             
-            // Update rainbow gradient if it's an accent color
-            if (mapping.var.includes('accent')) {
+            // Update rainbow gradient if it's a rainbow color (primary, secondary, or accent)
+            if (mapping.var.includes('primary') || mapping.var.includes('secondary') || mapping.var.includes('accent')) {
                 updateRainbowGradient();
+            }
+            
+            // Update tertiary button background if primary color changes
+            if (mapping.var === '--brand-primary') {
+                updateTertiaryButtonColor(color);
             }
         });
         
@@ -418,6 +460,164 @@ function initializeStickyNav() {
     });
     
     // Font selectors are now handled by the modal in initializeFontModal
+}
+
+// Hero Video Ping-Pong Loop Initialization
+function initializeHeroVideo() {
+    // Initialize both light and dark hero videos
+    initializeSingleVideo('hero-background-video');
+    initializeSingleVideo('hero-background-video-dark');
+}
+
+function initializeSingleVideo(videoId) {
+    const video = document.getElementById(videoId);
+    
+    if (!video) return;
+    
+    let playbackDirection = 1; // 1 for forward, -1 for backward
+    let animationFrameId = null;
+    
+    // Wait for video metadata to load
+    video.addEventListener('loadedmetadata', function() {
+        // Start playing forward
+        video.play().catch(error => {
+            console.log('Video autoplay was prevented:', error);
+        });
+    });
+    
+    // Handle ended event for forward playback
+    video.addEventListener('ended', function() {
+        playbackDirection = -1;
+        playBackward();
+    });
+    
+    // Function to play video backward using requestAnimationFrame
+    function playBackward() {
+        if (playbackDirection === -1) {
+            const currentTime = video.currentTime;
+            
+            if (currentTime <= 0.03) {
+                // Reached the beginning, switch to forward
+                playbackDirection = 1;
+                video.currentTime = 0;
+                video.play().catch(error => {
+                    console.log('Video play error:', error);
+                });
+                return;
+            }
+            
+            // Move backward by approximately 1/30th of a second (roughly 30fps)
+            video.currentTime = Math.max(0, currentTime - 0.033);
+            
+            animationFrameId = requestAnimationFrame(playBackward);
+        }
+    }
+    
+    // Stop backward animation if video starts playing forward
+    video.addEventListener('play', function() {
+        if (animationFrameId) {
+            cancelAnimationFrame(animationFrameId);
+            animationFrameId = null;
+        }
+    });
+}
+
+// Button Style Tabs Initialization
+function initializeButtonStyleTabs() {
+    const tabs = document.querySelectorAll('.style-tab');
+    
+    tabs.forEach(tab => {
+        tab.addEventListener('click', function() {
+            // Remove active class from all tabs
+            tabs.forEach(t => t.classList.remove('active'));
+            
+            // Add active class to clicked tab
+            this.classList.add('active');
+            
+            // Get the selected style
+            const style = this.dataset.style;
+            
+            // Update hero buttons based on selected style
+            updateHeroButtons(style);
+        });
+    });
+}
+
+function updateHeroButtons(style) {
+    // Get all hero button containers
+    const lightHeroButtons = document.querySelector('.mock-hero-light .hero-buttons');
+    const darkHeroButtons = document.querySelector('.mock-hero-dark .hero-buttons');
+    
+    if (!lightHeroButtons || !darkHeroButtons) return;
+    
+    // Define button HTML based on style
+    let lightButtonsHTML = '';
+    let darkButtonsHTML = '';
+    
+    switch(style) {
+        case 'standard':
+            // Standard buttons (primary + secondary)
+            lightButtonsHTML = `
+                <button class="btn-primary">
+                    <span>Contact Us</span>
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-tabler icons-tabler-outline icon-tabler-arrow-zig-zag"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M6 20v-10l10 6v-12" /><path d="M13 7l3 -3l3 3" /></svg>
+                </button>
+                <button class="btn-secondary">
+                    <span>Learn More</span>
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="button-icon"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M7 18v-11.31a.7 .7 0 0 1 1.195 -.495l9.805 9.805" /><path d="M13 16h5v-5" /></svg>
+                </button>
+            `;
+            
+            darkButtonsHTML = `
+                <button class="btn-primary-white">
+                    <span>Contact Us</span>
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-tabler icons-tabler-outline icon-tabler-arrow-zig-zag"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M6 20v-10l10 6v-12" /><path d="M13 7l3 -3l3 3" /></svg>
+                </button>
+                <button class="btn-secondary-white">
+                    <span>Learn More</span>
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="button-icon"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M7 18v-11.31a .7 .7 0 0 1 1.195 -.495l9.805 9.805" /><path d="M13 16h5v-5" /></svg>
+                </button>
+            `;
+            break;
+            
+        case 'gradient':
+            // Gradient button (only contact us)
+            lightButtonsHTML = `
+                <button class="btn-gradient">
+                    <span>Contact Us</span>
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="button-icon"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M7 18v-11.31a .7 .7 0 0 1 1.195 -.495l9.805 9.805" /><path d="M13 16h5v-5" /></svg>
+                </button>
+            `;
+            
+            darkButtonsHTML = `
+                <button class="btn-gradient">
+                    <span>Contact Us</span>
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="button-icon"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M7 18v-11.31a .7 .7 0 0 1 1.195 -.495l9.805 9.805" /><path d="M13 16h5v-5" /></svg>
+                </button>
+            `;
+            break;
+            
+        case 'rainbow-border':
+            // Rainbow border button (only contact us)
+            lightButtonsHTML = `
+                <button class="btn-experimental-border">
+                    <span>Contact Us</span>
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="button-icon"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M7 18v-11.31a .7 .7 0 0 1 1.195 -.495l9.805 9.805" /><path d="M13 16h5v-5" /></svg>
+                </button>
+            `;
+            
+            darkButtonsHTML = `
+                <button class="btn-experimental-border">
+                    <span>Contact Us</span>
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="button-icon"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M7 18v-11.31a .7 .7 0 0 1 1.195 -.495l9.805 9.805" /><path d="M13 16h5v-5" /></svg>
+                </button>
+            `;
+            break;
+    }
+    
+    // Update the HTML
+    lightHeroButtons.innerHTML = lightButtonsHTML;
+    darkHeroButtons.innerHTML = darkButtonsHTML;
 }
 
 // Make export functions available globally

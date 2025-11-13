@@ -30,25 +30,23 @@
         <div class="sticky-nav-content">
             <!-- First Row: Colors -->
             <div class="sticky-nav-row">
-                <div class="sticky-nav-section">
-                    <span class="sticky-nav-label">Primary:</span>
-                    <div class="color-swatches-group">
-                        <input type="color" id="sticky-primary" class="sticky-color-picker" value="#FFFFFF" title="White"/>
-                        <input type="color" id="sticky-secondary" class="sticky-color-picker" value="#373737" title="Black"/>
-                    </div>
-                </div>
+                <!-- Combined in Rainbow section now -->
                 
-                <!-- Rainbow Accents -->
+                <!-- Rainbow Gradient (3 colors: Primary + Accent 1 + Secondary) -->
                 <div class="sticky-nav-section">
                     <span class="sticky-nav-label">Rainbow:</span>
                     <div class="color-swatches-group">
-                        <input type="color" id="sticky-accent-red" class="sticky-color-picker" value="#FF0000" title="Red"/>
-                        <input type="color" id="sticky-accent-orange" class="sticky-color-picker" value="#FF7F00" title="Orange"/>
-                        <input type="color" id="sticky-accent-yellow" class="sticky-color-picker" value="#FFFF00" title="Yellow"/>
-                        <input type="color" id="sticky-accent-green" class="sticky-color-picker" value="#00FF00" title="Green"/>
-                        <input type="color" id="sticky-accent-blue" class="sticky-color-picker" value="#0000FF" title="Blue"/>
-                        <input type="color" id="sticky-accent-indigo" class="sticky-color-picker" value="#4B0082" title="Indigo"/>
-                        <input type="color" id="sticky-accent-violet" class="sticky-color-picker" value="#9400D3" title="Violet"/>
+                        <input type="color" id="sticky-primary" class="sticky-color-picker" value="#ff3b0a" title="Primary"/>
+                        <input type="color" id="sticky-accent-1" class="sticky-color-picker" value="#FF4FD8" title="Accent 1"/>
+                        <input type="color" id="sticky-secondary" class="sticky-color-picker" value="#0095FF" title="Secondary"/>
+                    </div>
+                </div>
+                
+                <!-- Button Color -->
+                <div class="sticky-nav-section">
+                    <span class="sticky-nav-label">Button:</span>
+                    <div class="color-swatches-group">
+                        <input type="color" id="sticky-button" class="sticky-color-picker" value="#000000" title="Button Color"/>
                     </div>
                 </div>
                 
@@ -58,7 +56,7 @@
                     <div class="color-swatches-group">
                         <input type="color" id="sticky-bg-1" class="sticky-color-picker" value="#FFFAFF" title="Background 1"/>
                         <input type="color" id="sticky-bg-2" class="sticky-color-picker" value="#E8E8E8" title="Background 2"/>
-                        <input type="color" id="sticky-bg-3" class="sticky-color-picker" value="#303036" title="Background 3"/>
+                        <input type="color" id="sticky-bg-3" class="sticky-color-picker" value="#161618" title="Background 3"/>
                     </div>
                 </div>
             </div>
@@ -76,7 +74,7 @@
                 <div class="sticky-nav-section">
                     <span class="sticky-nav-label">Body Font:</span>
                     <button id="sticky-body-font-btn" class="font-selector-button" data-font-type="body">
-                        <span id="sticky-body-font-name">DM Sans</span>
+                        <span id="sticky-body-font-name">Inter</span>
                         <span>▼</span>
                     </button>
                 </div>
@@ -104,6 +102,32 @@
             <p class="subtitle">Interactive brand asset and style guide</p>
         </header>
 
+        <!-- Brand Principles Section -->
+        <section id="brand-principles" class="brand-section">
+            <h2>Brand Principles</h2>
+            <p class="section-description">These principles inform how the AlphaLum brand looks, feels, and is communicated in copy.</p>
+            <div class="guidelines-content">
+                <div class="tone-grid">
+                    <div class="tone-item">
+                        <h4>Modest & Confident</h4>
+                        <p>Clear, grounded communication that shows expertise without exaggeration.</p>
+                    </div>
+                    <div class="tone-item">
+                        <h4>Precise & Clean (like a laser)</h4>
+                        <p>Crisp layouts and exact visual structure that reflect engineering accuracy.</p>
+                    </div>
+                    <div class="tone-item">
+                        <h4>Intentionally Colorful</h4>
+                        <p>Color used sparingly and purposefully, inspired by the physics of light.</p>
+                    </div>
+                    <div class="tone-item">
+                        <h4>Transparent</h4>
+                        <p>A visual language rooted in clarity, openness, and the transparency of our lenses.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
         <!-- Logo Variations Section -->
         <section id="logo-variations" class="brand-section">
             <h2>Logo Variations</h2>
@@ -121,20 +145,20 @@
             <div class="color-controls-grid">
                 <!-- Primary & Secondary -->
                 <div class="color-control-group">
-                    <h3>Primary Colors (Black & White)</h3>
+                    <h3>Primary Colors</h3>
                     <div class="color-control">
                         <label for="primary-color">Primary (White)</label>
                         <div class="color-input-group">
-                            <input type="color" id="primary-color" value="#FFFFFF"/>
-                            <input type="text" id="primary-color-text" value="#FFFFFF" maxlength="7"/>
+                            <input type="color" id="primary-color" value="#ff4524"/>
+                            <input type="text" id="primary-color-text" value="#0095FF" maxlength="7"/>
                         </div>
                         <div class="color-swatch" id="primary-swatch"></div>
                     </div>
                     <div class="color-control">
                         <label for="secondary-color">Secondary (Black)</label>
                         <div class="color-input-group">
-                            <input type="color" id="secondary-color" value="#373737"/>
-                            <input type="text" id="secondary-color-text" value="#373737" maxlength="7"/>
+                            <input type="color" id="secondary-color" value="#0095FF"/>
+                            <input type="text" id="secondary-color-text" value="#0095FF" maxlength="7"/>
                         </div>
                         <div class="color-swatch" id="secondary-swatch"></div>
                     </div>
@@ -162,77 +186,45 @@
                     <div class="color-control">
                         <label for="bg-3-color">Background 3 (Dark)</label>
                         <div class="color-input-group">
-                            <input type="color" id="bg-3-color" value="#303036"/>
-                            <input type="text" id="bg-3-color-text" value="#303036" maxlength="7"/>
+                            <input type="color" id="bg-3-color" value="#161618"/>
+                            <input type="text" id="bg-3-color-text" value="#161618" maxlength="7"/>
                         </div>
                         <div class="color-swatch" id="bg-3-swatch"></div>
                     </div>
                 </div>
 
-                <!-- Rainbow Accent Colors -->
+                <!-- Rainbow Colors (3 colors: Primary + Accent + Secondary) -->
                 <div class="color-control-group">
-                    <h3>Rainbow Accent Colors</h3>
+                    <h3>Rainbow Gradient Colors</h3>
+                    <p class="section-description" style="font-size: 0.9rem; margin-bottom: var(--spacing-md);">
+                        These three colors create the AlphaLum Brand Rainbow gradient: Primary → Accent 1 → Secondary.
+                    </p>
                     <div class="color-control">
-                        <label for="accent-red-color">Red</label>
+                        <label for="accent-1-color">Accent Color 1</label>
                         <div class="color-input-group">
-                            <input type="color" id="accent-red-color" value="#FF0000"/>
-                            <input type="text" id="accent-red-color-text" value="#FF0000" maxlength="7"/>
+                            <input type="color" id="accent-1-color" value="#FF4FD8"/>
+                            <input type="text" id="accent-1-color-text" value="#FF4FD8" maxlength="7"/>
                         </div>
-                        <div class="color-swatch" id="accent-red-swatch"></div>
-                    </div>
-                    <div class="color-control">
-                        <label for="accent-orange-color">Orange</label>
-                        <div class="color-input-group">
-                            <input type="color" id="accent-orange-color" value="#FF7F00"/>
-                            <input type="text" id="accent-orange-color-text" value="#FF7F00" maxlength="7"/>
-                        </div>
-                        <div class="color-swatch" id="accent-orange-swatch"></div>
-                    </div>
-                    <div class="color-control">
-                        <label for="accent-yellow-color">Yellow</label>
-                        <div class="color-input-group">
-                            <input type="color" id="accent-yellow-color" value="#FFFF00"/>
-                            <input type="text" id="accent-yellow-color-text" value="#FFFF00" maxlength="7"/>
-                        </div>
-                        <div class="color-swatch" id="accent-yellow-swatch"></div>
-                    </div>
-                    <div class="color-control">
-                        <label for="accent-green-color">Green</label>
-                        <div class="color-input-group">
-                            <input type="color" id="accent-green-color" value="#00FF00"/>
-                            <input type="text" id="accent-green-color-text" value="#00FF00" maxlength="7"/>
-                        </div>
-                        <div class="color-swatch" id="accent-green-swatch"></div>
-                    </div>
-                    <div class="color-control">
-                        <label for="accent-blue-color">Blue</label>
-                        <div class="color-input-group">
-                            <input type="color" id="accent-blue-color" value="#0000FF"/>
-                            <input type="text" id="accent-blue-color-text" value="#0000FF" maxlength="7"/>
-                        </div>
-                        <div class="color-swatch" id="accent-blue-swatch"></div>
-                    </div>
-                    <div class="color-control">
-                        <label for="accent-indigo-color">Indigo</label>
-                        <div class="color-input-group">
-                            <input type="color" id="accent-indigo-color" value="#4B0082"/>
-                            <input type="text" id="accent-indigo-color-text" value="#4B0082" maxlength="7"/>
-                        </div>
-                        <div class="color-swatch" id="accent-indigo-swatch"></div>
-                    </div>
-                    <div class="color-control">
-                        <label for="accent-violet-color">Violet</label>
-                        <div class="color-input-group">
-                            <input type="color" id="accent-violet-color" value="#9400D3"/>
-                            <input type="text" id="accent-violet-color-text" value="#9400D3" maxlength="7"/>
-                        </div>
-                        <div class="color-swatch" id="accent-violet-swatch"></div>
+                        <div class="color-swatch" id="accent-1-swatch"></div>
                     </div>
                     
                     <!-- Rainbow Gradient Preview -->
                     <div class="rainbow-gradient-preview">
                         <div class="gradient-bar"></div>
-                        <p class="gradient-label">Rainbow Gradient (for dividers/accents)</p>
+                        <p class="gradient-label">Rainbow Gradient: Primary → Accent 1 → Secondary</p>
+                    </div>
+                </div>
+
+                <!-- Button Color -->
+                <div class="color-control-group">
+                    <h3>Button Color</h3>
+                    <div class="color-control">
+                        <label for="button-color">Button Color</label>
+                        <div class="color-input-group">
+                            <input type="color" id="button-color" value="#000000"/>
+                            <input type="text" id="button-color-text" value="#000000" maxlength="7"/>
+                        </div>
+                        <div class="color-swatch" id="button-swatch"></div>
                     </div>
                 </div>
 
@@ -240,7 +232,7 @@
                 <div class="color-control-group">
                     <h3>Text Colors</h3>
                     <div class="color-control">
-                        <label for="font-primary-color">Primary Font Color</label>
+                        <label for="font-primary-color">Primary Font Color (Light Backgrounds)</label>
                         <div class="color-input-group">
                             <input type="color" id="font-primary-color" value="#1A1A1A"/>
                             <input type="text" id="font-primary-color-text" value="#1A1A1A" maxlength="7"/>
@@ -254,6 +246,14 @@
                             <input type="text" id="font-secondary-color-text" value="#6B7280" maxlength="7"/>
                         </div>
                         <div class="color-swatch" id="font-secondary-swatch"></div>
+                    </div>
+                    <div class="color-control">
+                        <label for="font-light-color">Light Font Color (Dark Backgrounds)</label>
+                        <div class="color-input-group">
+                            <input type="color" id="font-light-color" value="#F5F5F5"/>
+                            <input type="text" id="font-light-color-text" value="#F5F5F5" maxlength="7"/>
+                        </div>
+                        <div class="color-swatch" id="font-light-swatch"></div>
                     </div>
                 </div>
 
@@ -283,25 +283,7 @@
         <!-- Typography Section -->
         <section id="typography" class="brand-section">
             <h2>Typography System</h2>
-            <p class="section-description">Select fonts and preview how they work across different heading and paragraph styles.</p>
-            
-            <div class="typography-controls">
-                <div class="font-selector">
-                    <label>Header Font Family</label>
-                    <button id="header-font-btn" class="font-selector-button" data-font-type="header" style="width: 100%; justify-content: space-between;">
-                        <span id="header-font-name">Inter</span>
-                        <span>▼</span>
-                    </button>
-                </div>
-                <div class="font-selector">
-                    <label>Body Font Family</label>
-                    <button id="body-font-btn" class="font-selector-button" data-font-type="body" style="width: 100%; justify-content: space-between;">
-                        <span id="body-font-name">DM Sans</span>
-                        <span>▼</span>
-                    </button>
-                </div>
-            </div>
-
+            <p class="section-description">Our typography emphasizes precision and clarity through lighter font weights. We avoid overly bold fonts, using thinner weights (300) for large headings to signify technical precision, while maintaining readability with appropriate weights (400) for body text and stronger weights (600) for smaller headings and labels.</p>
             <div class="typography-preview">
                 <h3>Heading Styles</h3>
                 <div class="heading-samples">
@@ -339,9 +321,33 @@
                 <div class="component-group">
                     <h3>Buttons (Large)</h3>
                     <div class="component-examples">
-                        <button class="btn-primary">Primary Button</button>
-                        <button class="btn-secondary">Secondary Button</button>
-                        <button class="btn-tertiary">Tertiary Button</button>
+                        <button class="btn-primary">
+                            <span>Primary Button</span>
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="button-icon"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M7 18v-11.31a.7 .7 0 0 1 1.195 -.495l9.805 9.805" /><path d="M13 16h5v-5" /></svg>
+                        </button>
+                        <button class="btn-secondary">
+                            <span>Secondary Button</span>
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="button-icon"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M7 18v-11.31a.7 .7 0 0 1 1.195 -.495l9.805 9.805" /><path d="M13 16h5v-5" /></svg>
+                        </button>
+                        <button class="btn-tertiary">
+                            <span>Tertiary Button</span>
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="button-icon"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M7 18v-11.31a.7 .7 0 0 1 1.195 -.495l9.805 9.805" /><path d="M13 16h5v-5" /></svg>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Experimental Gradient Buttons -->
+                <div class="component-group">
+                    <h3>Experimental Buttons</h3>
+                    <div class="component-examples">
+                        <button class="btn-gradient">
+                            <span>Gradient Button</span>
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="button-icon"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M7 18v-11.31a .7 .7 0 0 1 1.195 -.495l9.805 9.805" /><path d="M13 16h5v-5" /></svg>
+                        </button>
+                        <button class="btn-experimental-border">
+                            <span>Rainbow Border</span>
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="button-icon"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M7 18v-11.31a .7 .7 0 0 1 1.195 -.495l9.805 9.805" /><path d="M13 16h5v-5" /></svg>
+                        </button>
                     </div>
                 </div>
 
@@ -349,9 +355,18 @@
                 <div class="component-group">
                     <h3>Buttons (Small)</h3>
                     <div class="component-examples">
-                        <button class="btn-primary-sm">Primary Button</button>
-                        <button class="btn-secondary-sm">Secondary Button</button>
-                        <button class="btn-tertiary-sm">Tertiary Button</button>
+                        <button class="btn-primary-sm">
+                            <span>Primary Button</span>
+                            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="button-icon"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M6 20v-10l10 6v-12" /><path d="M13 7l3 -3l3 3" /></svg>
+                        </button>
+                        <button class="btn-secondary-sm">
+                            <span>Secondary Button</span>
+                            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="button-icon"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M6 20v-10l10 6v-12" /><path d="M13 7l3 -3l3 3" /></svg>
+                        </button>
+                        <button class="btn-tertiary-sm">
+                            <span>Tertiary Button</span>
+                            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="button-icon"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M6 20v-10l10 6v-12" /><path d="M13 7l3 -3l3 3" /></svg>
+                        </button>
                     </div>
                 </div>
 
@@ -361,7 +376,6 @@
                     <div class="component-examples">
                         <a href="#" class="link-default">Default Link</a>
                         <a href="#" class="link-primary">Primary Link</a>
-                        <a href="#" class="link-secondary">Secondary Link</a>
                     </div>
                 </div>
 
@@ -385,21 +399,6 @@
                             <label for="sample-textarea">Textarea</label>
                             <textarea id="sample-textarea" rows="3" placeholder="Enter longer text here"></textarea>
                         </div>
-                    </div>
-                </div>
-
-                <!-- Navigation Header -->
-                <div class="component-group">
-                    <h3>Navigation Header</h3>
-                    <div class="component-examples">
-                        <nav class="sample-nav">
-                            <div class="sample-logo">AlphaLum</div>
-                            <div class="sample-nav-links">
-                                <a href="#">About</a>
-                                <a href="#">Products</a>
-                                <a href="#">Contact</a>
-                            </div>
-                        </nav>
                     </div>
                 </div>
 
@@ -454,78 +453,236 @@
             </div>
         </section>
 
-        <!-- Tone of Voice Section -->
-        <section id="tone-of-voice" class="brand-section">
-            <h2>Tone of Voice</h2>
-            <p class="section-description">How we communicate the AlphaLum brand.</p>
-            <div class="guidelines-content">
-                <div class="tone-grid">
-                    <div class="tone-item">
-                        <h4>Professional & Expert</h4>
-                        <p>We speak with authority and deep technical knowledge while remaining accessible and clear.</p>
-                    </div>
-                    <div class="tone-item">
-                        <h4>Innovation-Focused</h4>
-                        <p>We emphasize cutting-edge solutions and forward-thinking approaches to optical technology.</p>
-                    </div>
-                    <div class="tone-item">
-                        <h4>Collaborative & Enabling</h4>
-                        <p>We position ourselves as partners who empower clients to achieve their goals.</p>
-                    </div>
-                    <div class="tone-item">
-                        <h4>Precise & Efficient</h4>
-                        <p>Our language is clear and purposeful, reflecting the precision of our optical systems.</p>
-                    </div>
-                </div>
-            </div>
-        </section>
-
         <!-- Example Usage Sections -->
         <section id="example-usage" class="brand-section">
             <h2>Example Usage</h2>
-            <p class="section-description">See how brand elements come together in real layouts.</p>
-
-            <!-- Hero Section Example -->
-            <div class="example-layout example-hero">
-                <h3 class="example-label">Hero Section</h3>
-                <div class="mock-hero">
-                    <h1>Full-Spectrum XR Solutions</h1>
-                    <p>From prototype to production, we deliver advanced optical systems with precision, efficiency, and seamless integration.</p>
-                    <div class="hero-buttons">
-                        <button class="btn-primary">Get Started</button>
-                        <button class="btn-secondary">Learn More</button>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Info Section with Image Right -->
-            <div class="example-layout example-info-right">
-                <h3 class="example-label">Information Section (Background 2, Image Right)</h3>
-                <div class="mock-info-section bg-2">
-                    <div class="info-content">
-                        <h2>Advanced Optical Engineering</h2>
-                        <p>Our multidisciplinary team combines expertise across optics, electronics, software, and AI to deliver comprehensive solutions. We design high-performance systems that deliver precision and efficiency backed by decades of experience.</p>
-                    </div>
-                    <div class="info-image">
-                        <img src="assets/images/about_img01.png" alt="Technology visualization"/>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Info Section with Image Left -->
-            <div class="example-layout example-info-left">
-                <h3 class="example-label">Information Section (Background 3, Image Left)</h3>
-                <div class="mock-info-section bg-3">
-                    <div class="info-image">
-                        <img src="assets/images/about_img02.png" alt="Technology visualization"/>
-                    </div>
-                    <div class="info-content">
-                        <h2>Proven Track Record</h2>
-                        <p>From prototype to high-volume production, our expertise enables us to help leading companies turn ideas into reliable, high-impact products. We speed time to market, reduce development risk, and free resources for continuous innovation.</p>
-                    </div>
-                </div>
+            <p class="section-description">See how brand elements come together in real full-width layouts.</p>
+            
+            <!-- Button Style Tabs -->
+            <div class="button-style-tabs">
+                <button class="style-tab active" data-style="standard">
+                    Standard Buttons
+                </button>
+                <button class="style-tab" data-style="gradient">
+                    Experimental Gradient
+                </button>
+                <button class="style-tab" data-style="rainbow-border">
+                    Rainbow Border
+                </button>
             </div>
         </section>
+
+        <!-- Hero Section Example - Full Width -->
+        <div class="example-section">
+            <div class="mock-hero mock-hero-light">
+                <video id="hero-background-video" class="hero-video-background" muted playsinline>
+                    <source src="assets/videos/white-bg-lens.mp4" type="video/mp4">
+                </video>
+                <div class="mock-hero-content">
+                    <h1><span class="rainbow-text">Full-Spectrum</span> XR Solutions</h1>
+                    <p>From prototype to production, we deliver advanced optical systems with precision, efficiency, and seamless integration.</p>
+                    <div class="hero-buttons">
+                        <button class="btn-primary">
+                            <span>Contact Us</span>
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-tabler icons-tabler-outline icon-tabler-arrow-zig-zag"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M6 20v-10l10 6v-12" /><path d="M13 7l3 -3l3 3" /></svg>
+                        </button>
+                        <button class="btn-secondary">
+                            <span>Learn More</span>
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="button-icon"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M7 18v-11.31a.7 .7 0 0 1 1.195 -.495l9.805 9.805" /><path d="M13 16h5v-5" /></svg>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Hero Section Example - Dark Version -->
+        <div class="example-section">
+            <div class="mock-hero mock-hero-dark">
+                <video id="hero-background-video-dark" class="hero-video-background" muted playsinline>
+                    <source src="assets/videos/dark-bg-lens.mp4" type="video/mp4">
+                </video>
+                <div class="mock-hero-content">
+                    <h1><span class="rainbow-text">Full-Spectrum</span> XR Solutions</h1>
+                    <p>From prototype to production, we deliver advanced optical systems with precision, efficiency, and seamless integration.</p>
+                    <div class="hero-buttons">
+                        <button class="btn-primary-white">
+                            <span>Contact Us</span>
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-tabler icons-tabler-outline icon-tabler-arrow-zig-zag"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M6 20v-10l10 6v-12" /><path d="M13 7l3 -3l3 3" /></svg>
+                        </button>
+                        <button class="btn-secondary-white">
+                            <span>Learn More</span>
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="button-icon"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M7 18v-11.31a.7 .7 0 0 1 1.195 -.495l9.805 9.805" /><path d="M13 16h5v-5" /></svg>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Background Examples Section -->
+        <section id="background-examples" class="brand-section">
+            <h2>Background Options</h2>
+            <p class="section-description">These examples demonstrate the different background colors available for sections and their appropriate text colors.</p>
+        </section>
+
+        <!-- Background Color 1 Example - Full Width -->
+        <div class="example-section">
+            <div class="mock-info-section bg-light">
+                <div class="info-content">
+                    <h2>Background Color 1 (Light)</h2>
+                    <p>This is our primary light background color. It provides a clean, professional canvas for dark text and maintains excellent readability. Perfect for main content sections that need maximum clarity and focus.</p>
+                </div>
+                <div class="info-image">
+                    <div class="circular-video-container">
+                        <video class="circular-video" autoplay muted loop playsinline>
+                            <source src="assets/videos/white-bg-lens.mp4" type="video/mp4">
+                        </video>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Primary Color Background Example - Metrics Layout -->
+        <div class="example-section">
+            <div class="mock-metrics-section bg-primary">
+                <div class="metrics-grid">
+                    <div class="metric-item">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="metric-icon">
+                            <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+                            <path d="M13 3l0 7l6 0l-8 11l0 -7l-6 0l8 -11" />
+                        </svg>
+                        <h3 class="metric-value">80%</h3>
+                        <p class="metric-label">Less Energy Usage</p>
+                    </div>
+                    <div class="metric-item">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="metric-icon">
+                            <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+                            <path d="M12 12m-9 0a9 9 0 1 0 18 0a9 9 0 1 0 -18 0" />
+                            <path d="M12 3v18" />
+                            <path d="M12 12h9" />
+                        </svg>
+                        <h3 class="metric-value">20x</h3>
+                        <p class="metric-label">Contrast Ratio</p>
+                    </div>
+                    <div class="metric-item">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="metric-icon">
+                            <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+                            <path d="M12 3l8 4.5l0 9l-8 4.5l-8 -4.5l0 -9l8 -4.5" />
+                            <path d="M12 12l8 -4.5" />
+                            <path d="M12 12l0 9" />
+                            <path d="M12 12l-8 -4.5" />
+                        </svg>
+                        <h3 class="metric-value">5x</h3>
+                        <p class="metric-label">Smaller Footprint</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Background Color 1 Example #2 - Full Width -->
+        <div class="example-section">
+            <div class="mock-info-section bg-light">
+                <div class="info-image">
+                    <div class="circular-video-container">
+                        <video class="circular-video" autoplay muted loop playsinline>
+                            <source src="assets/videos/white-bg-lens.mp4" type="video/mp4">
+                        </video>
+                    </div>
+                </div>
+                <div class="info-content">
+                    <h2>Another Light Background Section</h2>
+                    <p>This demonstrates another use of Background Color 1 (Light). The light background is versatile and can be used multiple times throughout your design to maintain consistency while providing visual breaks between more colorful sections.</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Secondary Color Background Example - Contact Form -->
+        <div class="example-section">
+            <div class="mock-contact-section bg-secondary">
+                <div class="contact-content">
+                    <h2>Get in Touch</h2>
+                    <p>Ready to bring your optical innovation to life? Let's discuss how we can help.</p>
+                </div>
+                <form class="contact-form">
+                    <div class="form-row">
+                        <div class="form-field">
+                            <label for="contact-name">Name</label>
+                            <input type="text" id="contact-name" placeholder="Your name" required/>
+                        </div>
+                        <div class="form-field">
+                            <label for="contact-email">Email</label>
+                            <input type="email" id="contact-email" placeholder="your@email.com" required/>
+                        </div>
+                    </div>
+                    <div class="form-field">
+                        <label for="contact-company">Company</label>
+                        <input type="text" id="contact-company" placeholder="Your company"/>
+                    </div>
+                    <div class="form-field">
+                        <label for="contact-message">Message</label>
+                        <textarea id="contact-message" rows="5" placeholder="Tell us about your project..." required></textarea>
+                    </div>
+                    <button type="submit" class="btn-primary-white">
+                        <span>Send Message</span>
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="button-icon">
+                            <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+                            <path d="M10 14l11 -11" />
+                            <path d="M21 3l-6.5 18a.55 .55 0 0 1 -1 0l-3.5 -7l-7 -3.5a.55 .55 0 0 1 0 -1l18 -6.5" />
+                        </svg>
+                    </button>
+                </form>
+            </div>
+        </div>
+
+        <!-- Dark Background Color Example - Full Width -->
+        <div class="example-section">
+            <div class="mock-info-section bg-dark">
+                <div class="info-image">
+                    <div class="circular-video-container">
+                        <video class="circular-video" autoplay muted loop playsinline>
+                            <source src="assets/videos/dark-bg-lens.mp4" type="video/mp4">
+                        </video>
+                    </div>
+                </div>
+                <div class="info-content">
+                    <h2>Dark Background (Background 3)</h2>
+                    <p>Our dark background color creates sophisticated, modern sections with excellent depth. Light text provides clear contrast while maintaining a premium feel. Perfect for technical content, hero sections, or creating visual hierarchy.</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Primary Color 10% Opacity Background Example - Full Width -->
+        <div class="example-section">
+            <div class="mock-info-section bg-primary-10">
+                <div class="info-content">
+                    <h2>Primary Color (10% Opacity)</h2>
+                    <p>This section uses the primary brand color at 10% opacity, creating a subtle tinted background that maintains excellent readability with dark text. This approach is perfect for callout sections, feature highlights, or areas where you want a gentle brand presence without overwhelming the content.</p>
+                </div>
+                <div class="info-image">
+                    <div class="circular-video-container">
+                        <video class="circular-video" autoplay muted loop playsinline>
+                            <source src="assets/videos/white-bg-lens.mp4" type="video/mp4">
+                        </video>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Secondary Color 10% Opacity Background Example - Full Width -->
+        <div class="example-section">
+            <div class="mock-info-section bg-secondary-10">
+                <div class="info-image">
+                    <div class="circular-video-container">
+                        <video class="circular-video" autoplay muted loop playsinline>
+                            <source src="assets/videos/white-bg-lens.mp4" type="video/mp4">
+                        </video>
+                    </div>
+                </div>
+                <div class="info-content">
+                    <h2>Secondary Color (10% Opacity)</h2>
+                    <p>Using the secondary brand color at 10% opacity provides another subtle background option. This light tint adds visual variety while maintaining the same high level of readability. It's ideal for alternating sections or creating soft visual separation between content blocks.</p>
+                </div>
+            </div>
+        </div>
 
         <!-- Footer -->
         <footer class="brand-footer">
