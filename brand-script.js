@@ -49,12 +49,28 @@ function initializeLogoGrid() {
         'AlphaLum_logo.svg',
         'AlphaLum_logo.png',
         'light-full-logo.png',
-        'light-symbol.png'
+        'light-symbol.png',
+        'logo-a.png',
+        'logo-b.png',
+        'logo-c.png',
+        'logo-d.png',
+        'logo-e.png',
+        'logo-f.png',
+        'logo-g.png',
+        'logo-h.png',
+        'logo-i.png',
+        'logo-j.png',
+        'logo-k.png',
+        'logo-l.png',
+        'logo-m.png',
+        'logo-n.png',
+        'logo-h.png',
     ];
     
     logoFiles.forEach(filename => {
         const logoItem = document.createElement('div');
         logoItem.className = 'logo-item';
+        logoItem.style.cursor = 'pointer';
         
         const img = document.createElement('img');
         img.src = `assets/images/logo/${filename}`;
@@ -64,10 +80,23 @@ function initializeLogoGrid() {
         name.className = 'logo-name';
         name.textContent = filename;
         
+        // Add click event to change sticky nav logo
+        logoItem.addEventListener('click', function() {
+            changeStickyLogo(`assets/images/logo/${filename}`);
+        });
+        
         logoItem.appendChild(img);
         logoItem.appendChild(name);
         logoGrid.appendChild(logoItem);
     });
+}
+
+// Change Sticky Navigation Logo
+function changeStickyLogo(logoPath) {
+    const stickyLogo = document.getElementById('sticky-logo-img');
+    if (stickyLogo) {
+        stickyLogo.src = logoPath;
+    }
 }
 
 // Color Controls Initialization
@@ -212,20 +241,51 @@ function updateFontFamily(variable, fontName) {
 }
 
 function updateRainbowGradient() {
-    // Get current rainbow colors from CSS variables (4 colors: Primary → Accent 1 → Secondary → Accent 2)
+    // Get current rainbow colors from CSS variables (3 colors: Primary → Accent 1 → Secondary)
     const root = document.documentElement;
     const computedStyle = getComputedStyle(root);
     
     const primary = computedStyle.getPropertyValue('--brand-primary').trim();
     const secondary = computedStyle.getPropertyValue('--brand-secondary').trim();
     const accent1 = computedStyle.getPropertyValue('--brand-accent-1').trim();
-    const accent2 = computedStyle.getPropertyValue('--brand-accent-2').trim();
     
-    // Create 4-color gradient: Primary → Accent 1 → Secondary → Accent 2
-    const gradient = `linear-gradient(90deg, ${primary} 10%, ${accent1} 50.33%, ${secondary} 90%)`;
+    // Create 3-color gradient: Primary → Accent 1 → Secondary
+    const gradient = `linear-gradient(90deg, ${primary} 10%, ${accent1} 50%, ${secondary} 90%)`;
     
     // Update CSS variable
     root.style.setProperty('--rainbow-gradient', gradient);
+    
+    // Convert hex to rgba with 10% opacity for background gradient
+    const primaryRgba = hexToRgba(primary, 0.1);
+    const accent1Rgba = hexToRgba(accent1, 0.1);
+    const secondaryRgba = hexToRgba(secondary, 0.1);
+    
+    const gradientBg = `linear-gradient(90deg, ${primaryRgba} 0%, ${accent1Rgba} 50%, ${secondaryRgba} 100%)`;
+    root.style.setProperty('--rainbow-gradient-bg', gradientBg);
+    
+    // Update BG-3 swatch to show the gradient
+    const bg3Swatch = document.getElementById('bg-3-swatch');
+    if (bg3Swatch) {
+        bg3Swatch.style.background = gradientBg;
+    }
+    
+    // Update sticky BG-3 picker to show the gradient
+    const stickyBg3 = document.getElementById('sticky-bg-3');
+    if (stickyBg3) {
+        stickyBg3.style.background = gradientBg;
+    }
+}
+
+function hexToRgba(hex, alpha) {
+    // Remove # if present
+    hex = hex.replace('#', '');
+    
+    // Parse hex values
+    const r = parseInt(hex.substring(0, 2), 16);
+    const g = parseInt(hex.substring(2, 4), 16);
+    const b = parseInt(hex.substring(4, 6), 16);
+    
+    return `rgba(${r}, ${g}, ${b}, ${alpha})`;
 }
 
 function updateTertiaryButtonColor(primaryColor) {
@@ -406,7 +466,7 @@ function selectFont(fontName, fontType) {
 
 // Sticky Navigation Initialization
 function initializeStickyNav() {
-    // Color pickers in sticky nav
+    // Color pickers in sticky nav (excluding bg-3 which is now a gradient)
     const stickyColorMappings = {
         'sticky-primary': { main: 'primary-color', text: 'primary-color-text', var: '--brand-primary' },
         'sticky-secondary': { main: 'secondary-color', text: 'secondary-color-text', var: '--brand-secondary' },
@@ -414,8 +474,7 @@ function initializeStickyNav() {
         'sticky-accent-2': { main: 'accent-2-color', text: 'accent-2-color-text', var: '--brand-accent-2' },
         'sticky-button': { main: 'button-color', text: 'button-color-text', var: '--brand-button' },
         'sticky-bg-1': { main: 'bg-1-color', text: 'bg-1-color-text', var: '--brand-bg-1' },
-        'sticky-bg-2': { main: 'bg-2-color', text: 'bg-2-color-text', var: '--brand-bg-2' },
-        'sticky-bg-3': { main: 'bg-3-color', text: 'bg-3-color-text', var: '--brand-bg-3' }
+        'sticky-bg-2': { main: 'bg-2-color', text: 'bg-2-color-text', var: '--brand-bg-2' }
     };
     
     Object.keys(stickyColorMappings).forEach(stickyId => {
@@ -464,9 +523,13 @@ function initializeStickyNav() {
 
 // Hero Video Ping-Pong Loop Initialization
 function initializeHeroVideo() {
-    // Initialize both light and dark hero videos
+    // Initialize hero videos with ping-pong loop
     initializeSingleVideo('hero-background-video');
-    initializeSingleVideo('hero-background-video-dark');
+    initializeSingleVideo('stats-video-background');
+    initializeSingleVideo('contact-video-background');
+    
+    // Initialize glass button videos
+    initializeGlassButtonVideos();
 }
 
 function initializeSingleVideo(videoId) {
@@ -522,6 +585,56 @@ function initializeSingleVideo(videoId) {
     });
 }
 
+// Initialize glass button videos
+function initializeGlassButtonVideos() {
+    const glassButtons = document.querySelectorAll('.btn-glass-video');
+    
+    glassButtons.forEach(button => {
+        const video = button.querySelector('.btn-glass-video-background');
+        
+        if (!video) return;
+        
+        let playbackDirection = 1;
+        let animationFrameId = null;
+        
+        video.addEventListener('loadedmetadata', function() {
+            video.play().catch(error => {
+                console.log('Glass button video autoplay prevented:', error);
+            });
+        });
+        
+        video.addEventListener('ended', function() {
+            playbackDirection = -1;
+            playBackward();
+        });
+        
+        function playBackward() {
+            if (playbackDirection === -1) {
+                const currentTime = video.currentTime;
+                
+                if (currentTime <= 0.03) {
+                    playbackDirection = 1;
+                    video.currentTime = 0;
+                    video.play().catch(error => {
+                        console.log('Video play error:', error);
+                    });
+                    return;
+                }
+                
+                video.currentTime = Math.max(0, currentTime - 0.033);
+                animationFrameId = requestAnimationFrame(playBackward);
+            }
+        }
+        
+        video.addEventListener('play', function() {
+            if (animationFrameId) {
+                cancelAnimationFrame(animationFrameId);
+                animationFrameId = null;
+            }
+        });
+    });
+}
+
 // Button Style Tabs Initialization
 function initializeButtonStyleTabs() {
     const tabs = document.querySelectorAll('.style-tab');
@@ -544,15 +657,13 @@ function initializeButtonStyleTabs() {
 }
 
 function updateHeroButtons(style) {
-    // Get all hero button containers
+    // Get hero button container
     const lightHeroButtons = document.querySelector('.mock-hero-light .hero-buttons');
-    const darkHeroButtons = document.querySelector('.mock-hero-dark .hero-buttons');
     
-    if (!lightHeroButtons || !darkHeroButtons) return;
+    if (!lightHeroButtons) return;
     
     // Define button HTML based on style
     let lightButtonsHTML = '';
-    let darkButtonsHTML = '';
     
     switch(style) {
         case 'standard':
@@ -560,22 +671,11 @@ function updateHeroButtons(style) {
             lightButtonsHTML = `
                 <button class="btn-primary">
                     <span>Contact Us</span>
-                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-tabler icons-tabler-outline icon-tabler-arrow-zig-zag"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M6 20v-10l10 6v-12" /><path d="M13 7l3 -3l3 3" /></svg>
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="button-icon"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M17 14h4v-4" /><path d="M3 12c.887 1.284 2.48 2.033 4 2c1.52 .033 3.113 -.716 4 -2s2.48 -2.033 4 -2c1.52 -.033 3 1 4 2l2 2" /></svg>
                 </button>
                 <button class="btn-secondary">
                     <span>Learn More</span>
-                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="button-icon"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M7 18v-11.31a.7 .7 0 0 1 1.195 -.495l9.805 9.805" /><path d="M13 16h5v-5" /></svg>
-                </button>
-            `;
-            
-            darkButtonsHTML = `
-                <button class="btn-primary-white">
-                    <span>Contact Us</span>
-                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-tabler icons-tabler-outline icon-tabler-arrow-zig-zag"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M6 20v-10l10 6v-12" /><path d="M13 7l3 -3l3 3" /></svg>
-                </button>
-                <button class="btn-secondary-white">
-                    <span>Learn More</span>
-                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="button-icon"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M7 18v-11.31a .7 .7 0 0 1 1.195 -.495l9.805 9.805" /><path d="M13 16h5v-5" /></svg>
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="button-icon"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M17 14h4v-4" /><path d="M3 12c.887 1.284 2.48 2.033 4 2c1.52 .033 3.113 -.716 4 -2s2.48 -2.033 4 -2c1.52 -.033 3 1 4 2l2 2" /></svg>
                 </button>
             `;
             break;
@@ -585,14 +685,7 @@ function updateHeroButtons(style) {
             lightButtonsHTML = `
                 <button class="btn-gradient">
                     <span>Contact Us</span>
-                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="button-icon"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M7 18v-11.31a .7 .7 0 0 1 1.195 -.495l9.805 9.805" /><path d="M13 16h5v-5" /></svg>
-                </button>
-            `;
-            
-            darkButtonsHTML = `
-                <button class="btn-gradient">
-                    <span>Contact Us</span>
-                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="button-icon"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M7 18v-11.31a .7 .7 0 0 1 1.195 -.495l9.805 9.805" /><path d="M13 16h5v-5" /></svg>
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="button-icon"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M17 14h4v-4" /><path d="M3 12c.887 1.284 2.48 2.033 4 2c1.52 .033 3.113 -.716 4 -2s2.48 -2.033 4 -2c1.52 -.033 3 1 4 2l2 2" /></svg>
                 </button>
             `;
             break;
@@ -602,14 +695,20 @@ function updateHeroButtons(style) {
             lightButtonsHTML = `
                 <button class="btn-experimental-border">
                     <span>Contact Us</span>
-                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="button-icon"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M7 18v-11.31a .7 .7 0 0 1 1.195 -.495l9.805 9.805" /><path d="M13 16h5v-5" /></svg>
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="button-icon"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M17 14h4v-4" /><path d="M3 12c.887 1.284 2.48 2.033 4 2c1.52 .033 3.113 -.716 4 -2s2.48 -2.033 4 -2c1.52 -.033 3 1 4 2l2 2" /></svg>
                 </button>
             `;
+            break;
             
-            darkButtonsHTML = `
-                <button class="btn-experimental-border">
+        case 'glass-video':
+            // Glass video button (only contact us)
+            lightButtonsHTML = `
+                <button class="btn-glass-video">
+                    <video class="btn-glass-video-background" muted playsinline>
+                        <source src="assets/videos/spectrum-gradient.mp4" type="video/mp4">
+                    </video>
                     <span>Contact Us</span>
-                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="button-icon"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M7 18v-11.31a .7 .7 0 0 1 1.195 -.495l9.805 9.805" /><path d="M13 16h5v-5" /></svg>
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="button-icon"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M17 14h4v-4" /><path d="M3 12c.887 1.284 2.48 2.033 4 2c1.52 .033 3.113 -.716 4 -2s2.48 -2.033 4 -2c1.52 -.033 3 1 4 2l2 2" /></svg>
                 </button>
             `;
             break;
@@ -617,7 +716,13 @@ function updateHeroButtons(style) {
     
     // Update the HTML
     lightHeroButtons.innerHTML = lightButtonsHTML;
-    darkHeroButtons.innerHTML = darkButtonsHTML;
+    
+    // Re-initialize glass button videos after updating HTML
+    if (style === 'glass-video') {
+        setTimeout(() => {
+            initializeGlassButtonVideos();
+        }, 100);
+    }
 }
 
 // Make export functions available globally

@@ -28,55 +28,63 @@
     <!-- Sticky Navigation Bar -->
     <nav class="sticky-nav">
         <div class="sticky-nav-content">
-            <!-- First Row: Colors -->
-            <div class="sticky-nav-row">
-                <!-- Combined in Rainbow section now -->
-                
-                <!-- Rainbow Gradient (3 colors: Primary + Accent 1 + Secondary) -->
-                <div class="sticky-nav-section">
-                    <span class="sticky-nav-label">Rainbow:</span>
-                    <div class="color-swatches-group">
-                        <input type="color" id="sticky-primary" class="sticky-color-picker" value="#ff3b0a" title="Primary"/>
-                        <input type="color" id="sticky-accent-1" class="sticky-color-picker" value="#FF4FD8" title="Accent 1"/>
-                        <input type="color" id="sticky-secondary" class="sticky-color-picker" value="#0095FF" title="Secondary"/>
-                    </div>
-                </div>
-                
-                <!-- Button Color -->
-                <div class="sticky-nav-section">
-                    <span class="sticky-nav-label">Button:</span>
-                    <div class="color-swatches-group">
-                        <input type="color" id="sticky-button" class="sticky-color-picker" value="#000000" title="Button Color"/>
-                    </div>
-                </div>
-                
-                <!-- Backgrounds -->
-                <div class="sticky-nav-section">
-                    <span class="sticky-nav-label">BG:</span>
-                    <div class="color-swatches-group">
-                        <input type="color" id="sticky-bg-1" class="sticky-color-picker" value="#FFFAFF" title="Background 1"/>
-                        <input type="color" id="sticky-bg-2" class="sticky-color-picker" value="#E8E8E8" title="Background 2"/>
-                        <input type="color" id="sticky-bg-3" class="sticky-color-picker" value="#161618" title="Background 3"/>
-                    </div>
-                </div>
+            <!-- Logo -->
+            <div class="sticky-nav-logo">
+                <img id="sticky-logo-img" src="assets/images/logo/logo-j.png" alt="AlphaLum Logo" />
             </div>
             
-            <!-- Second Row: Fonts -->
-            <div class="sticky-nav-row">
-                <div class="sticky-nav-section">
-                    <span class="sticky-nav-label">Header Font:</span>
-                    <button id="sticky-header-font-btn" class="font-selector-button" data-font-type="header">
-                        <span id="sticky-header-font-name">Inter</span>
-                        <span>▼</span>
-                    </button>
+            <!-- Controls Container -->
+            <div class="sticky-nav-controls">
+                <!-- First Row: Colors -->
+                <div class="sticky-nav-row">
+                    <!-- Combined in Rainbow section now -->
+                    
+                    <!-- Rainbow Gradient (3 colors: Primary + Accent 1 + Secondary) -->
+                    <div class="sticky-nav-section">
+                        <span class="sticky-nav-label">Rainbow:</span>
+                        <div class="color-swatches-group">
+                            <input type="color" id="sticky-primary" class="sticky-color-picker" value="#ff3b0a" title="Primary"/>
+                            <input type="color" id="sticky-accent-1" class="sticky-color-picker" value="#FF4FD8" title="Accent 1"/>
+                            <input type="color" id="sticky-secondary" class="sticky-color-picker" value="#0095FF" title="Secondary"/>
+                        </div>
+                    </div>
+                    
+                    <!-- Button Color -->
+                    <div class="sticky-nav-section">
+                        <span class="sticky-nav-label">Button:</span>
+                        <div class="color-swatches-group">
+                            <input type="color" id="sticky-button" class="sticky-color-picker" value="#000000" title="Button Color"/>
+                        </div>
+                    </div>
+                    
+                    <!-- Backgrounds -->
+                    <div class="sticky-nav-section">
+                        <span class="sticky-nav-label">BG:</span>
+                        <div class="color-swatches-group">
+                            <input type="color" id="sticky-bg-1" class="sticky-color-picker" value="#FFFAFF" title="Background 1"/>
+                            <input type="color" id="sticky-bg-2" class="sticky-color-picker" value="#f4f4f6" title="Background 2"/>
+                            <input type="color" id="sticky-bg-3" class="sticky-color-picker" value="#ffe5dd" title="Background 3 (Rainbow Gradient)" disabled style="background: linear-gradient(90deg, rgba(255, 69, 36, 0.1) 0%, rgba(255, 79, 216, 0.1) 50%, rgba(0, 149, 255, 0.1) 100%); cursor: not-allowed;"/>
+                        </div>
+                    </div>
                 </div>
                 
-                <div class="sticky-nav-section">
-                    <span class="sticky-nav-label">Body Font:</span>
-                    <button id="sticky-body-font-btn" class="font-selector-button" data-font-type="body">
-                        <span id="sticky-body-font-name">Inter</span>
-                        <span>▼</span>
-                    </button>
+                <!-- Second Row: Fonts -->
+                <div class="sticky-nav-row">
+                    <div class="sticky-nav-section">
+                        <span class="sticky-nav-label">Header Font:</span>
+                        <button id="sticky-header-font-btn" class="font-selector-button" data-font-type="header">
+                            <span id="sticky-header-font-name">Inter</span>
+                            <span>▼</span>
+                        </button>
+                    </div>
+                    
+                    <div class="sticky-nav-section">
+                        <span class="sticky-nav-label">Body Font:</span>
+                        <button id="sticky-body-font-btn" class="font-selector-button" data-font-type="body">
+                            <span id="sticky-body-font-name">Inter</span>
+                            <span>▼</span>
+                        </button>
+                    </div>
                 </div>
             </div>
         </div>
@@ -178,18 +186,18 @@
                     <div class="color-control">
                         <label for="bg-2-color">Background 2 (Medium)</label>
                         <div class="color-input-group">
-                            <input type="color" id="bg-2-color" value="#E8E8E8"/>
-                            <input type="text" id="bg-2-color-text" value="#E8E8E8" maxlength="7"/>
+                            <input type="color" id="bg-2-color" value="#f4f4f6"/>
+                            <input type="text" id="bg-2-color-text" value="#f4f4f6" maxlength="7"/>
                         </div>
                         <div class="color-swatch" id="bg-2-swatch"></div>
                     </div>
                     <div class="color-control">
-                        <label for="bg-3-color">Background 3 (Dark)</label>
+                        <label for="bg-3-color">Background 3 (Rainbow Gradient 10%)</label>
                         <div class="color-input-group">
-                            <input type="color" id="bg-3-color" value="#161618"/>
-                            <input type="text" id="bg-3-color-text" value="#161618" maxlength="7"/>
+                            <input type="color" id="bg-3-color" value="#ffe5dd" disabled/>
+                            <input type="text" id="bg-3-color-text" value="Rainbow 10%" maxlength="20" disabled/>
                         </div>
-                        <div class="color-swatch" id="bg-3-swatch"></div>
+                        <div class="color-swatch" id="bg-3-swatch" style="background: linear-gradient(90deg, rgba(255, 69, 36, 0.1) 0%, rgba(255, 79, 216, 0.1) 50%, rgba(0, 149, 255, 0.1) 100%);"></div>
                     </div>
                 </div>
 
@@ -323,15 +331,15 @@
                     <div class="component-examples">
                         <button class="btn-primary">
                             <span>Primary Button</span>
-                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="button-icon"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M7 18v-11.31a.7 .7 0 0 1 1.195 -.495l9.805 9.805" /><path d="M13 16h5v-5" /></svg>
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="button-icon"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M17 14h4v-4" /><path d="M3 12c.887 1.284 2.48 2.033 4 2c1.52 .033 3.113 -.716 4 -2s2.48 -2.033 4 -2c1.52 -.033 3 1 4 2l2 2" /></svg>
                         </button>
                         <button class="btn-secondary">
                             <span>Secondary Button</span>
-                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="button-icon"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M7 18v-11.31a.7 .7 0 0 1 1.195 -.495l9.805 9.805" /><path d="M13 16h5v-5" /></svg>
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="button-icon"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M17 14h4v-4" /><path d="M3 12c.887 1.284 2.48 2.033 4 2c1.52 .033 3.113 -.716 4 -2s2.48 -2.033 4 -2c1.52 -.033 3 1 4 2l2 2" /></svg>
                         </button>
                         <button class="btn-tertiary">
                             <span>Tertiary Button</span>
-                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="button-icon"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M7 18v-11.31a.7 .7 0 0 1 1.195 -.495l9.805 9.805" /><path d="M13 16h5v-5" /></svg>
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="button-icon"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M17 14h4v-4" /><path d="M3 12c.887 1.284 2.48 2.033 4 2c1.52 .033 3.113 -.716 4 -2s2.48 -2.033 4 -2c1.52 -.033 3 1 4 2l2 2" /></svg>
                         </button>
                     </div>
                 </div>
@@ -342,11 +350,18 @@
                     <div class="component-examples">
                         <button class="btn-gradient">
                             <span>Gradient Button</span>
-                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="button-icon"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M7 18v-11.31a .7 .7 0 0 1 1.195 -.495l9.805 9.805" /><path d="M13 16h5v-5" /></svg>
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="button-icon"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M17 14h4v-4" /><path d="M3 12c.887 1.284 2.48 2.033 4 2c1.52 .033 3.113 -.716 4 -2s2.48 -2.033 4 -2c1.52 -.033 3 1 4 2l2 2" /></svg>
                         </button>
                         <button class="btn-experimental-border">
                             <span>Rainbow Border</span>
-                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="button-icon"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M7 18v-11.31a .7 .7 0 0 1 1.195 -.495l9.805 9.805" /><path d="M13 16h5v-5" /></svg>
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="button-icon"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M17 14h4v-4" /><path d="M3 12c.887 1.284 2.48 2.033 4 2c1.52 .033 3.113 -.716 4 -2s2.48 -2.033 4 -2c1.52 -.033 3 1 4 2l2 2" /></svg>
+                        </button>
+                        <button class="btn-glass-video">
+                            <video class="btn-glass-video-background" muted playsinline>
+                                <source src="assets/videos/spectrum-gradient.mp4" type="video/mp4">
+                            </video>
+                            <span>Glass Video</span>
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="button-icon"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M17 14h4v-4" /><path d="M3 12c.887 1.284 2.48 2.033 4 2c1.52 .033 3.113 -.716 4 -2s2.48 -2.033 4 -2c1.52 -.033 3 1 4 2l2 2" /></svg>
                         </button>
                     </div>
                 </div>
@@ -357,15 +372,15 @@
                     <div class="component-examples">
                         <button class="btn-primary-sm">
                             <span>Primary Button</span>
-                            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="button-icon"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M6 20v-10l10 6v-12" /><path d="M13 7l3 -3l3 3" /></svg>
+                            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="button-icon"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M17 14h4v-4" /><path d="M3 12c.887 1.284 2.48 2.033 4 2c1.52 .033 3.113 -.716 4 -2s2.48 -2.033 4 -2c1.52 -.033 3 1 4 2l2 2" /></svg>
                         </button>
                         <button class="btn-secondary-sm">
                             <span>Secondary Button</span>
-                            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="button-icon"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M6 20v-10l10 6v-12" /><path d="M13 7l3 -3l3 3" /></svg>
+                            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="button-icon"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M17 14h4v-4" /><path d="M3 12c.887 1.284 2.48 2.033 4 2c1.52 .033 3.113 -.716 4 -2s2.48 -2.033 4 -2c1.52 -.033 3 1 4 2l2 2" /></svg>
                         </button>
                         <button class="btn-tertiary-sm">
                             <span>Tertiary Button</span>
-                            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="button-icon"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M6 20v-10l10 6v-12" /><path d="M13 7l3 -3l3 3" /></svg>
+                            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="button-icon"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M17 14h4v-4" /><path d="M3 12c.887 1.284 2.48 2.033 4 2c1.52 .033 3.113 -.716 4 -2s2.48 -2.033 4 -2c1.52 -.033 3 1 4 2l2 2" /></svg>
                         </button>
                     </div>
                 </div>
@@ -469,6 +484,9 @@
                 <button class="style-tab" data-style="rainbow-border">
                     Rainbow Border
                 </button>
+                <button class="style-tab" data-style="glass-video">
+                    Glass Video
+                </button>
             </div>
         </section>
 
@@ -479,44 +497,22 @@
                     <source src="assets/videos/white-bg-lens.mp4" type="video/mp4">
                 </video>
                 <div class="mock-hero-content">
-                    <h1><span class="rainbow-text">Full-Spectrum</span> XR Solutions</h1>
+                    <h1><span class="rainbow-text">Mastering</span> the Language of Light</h1>
                     <p>From prototype to production, we deliver advanced optical systems with precision, efficiency, and seamless integration.</p>
                     <div class="hero-buttons">
                         <button class="btn-primary">
                             <span>Contact Us</span>
-                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-tabler icons-tabler-outline icon-tabler-arrow-zig-zag"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M6 20v-10l10 6v-12" /><path d="M13 7l3 -3l3 3" /></svg>
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="button-icon"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M17 14h4v-4" /><path d="M3 12c.887 1.284 2.48 2.033 4 2c1.52 .033 3.113 -.716 4 -2s2.48 -2.033 4 -2c1.52 -.033 3 1 4 2l2 2" /></svg>
                         </button>
                         <button class="btn-secondary">
                             <span>Learn More</span>
-                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="button-icon"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M7 18v-11.31a.7 .7 0 0 1 1.195 -.495l9.805 9.805" /><path d="M13 16h5v-5" /></svg>
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="button-icon"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M17 14h4v-4" /><path d="M3 12c.887 1.284 2.48 2.033 4 2c1.52 .033 3.113 -.716 4 -2s2.48 -2.033 4 -2c1.52 -.033 3 1 4 2l2 2" /></svg>
                         </button>
                     </div>
                 </div>
             </div>
         </div>
 
-        <!-- Hero Section Example - Dark Version -->
-        <div class="example-section">
-            <div class="mock-hero mock-hero-dark">
-                <video id="hero-background-video-dark" class="hero-video-background" muted playsinline>
-                    <source src="assets/videos/dark-bg-lens.mp4" type="video/mp4">
-                </video>
-                <div class="mock-hero-content">
-                    <h1><span class="rainbow-text">Full-Spectrum</span> XR Solutions</h1>
-                    <p>From prototype to production, we deliver advanced optical systems with precision, efficiency, and seamless integration.</p>
-                    <div class="hero-buttons">
-                        <button class="btn-primary-white">
-                            <span>Contact Us</span>
-                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-tabler icons-tabler-outline icon-tabler-arrow-zig-zag"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M6 20v-10l10 6v-12" /><path d="M13 7l3 -3l3 3" /></svg>
-                        </button>
-                        <button class="btn-secondary-white">
-                            <span>Learn More</span>
-                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="button-icon"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M7 18v-11.31a.7 .7 0 0 1 1.195 -.495l9.805 9.805" /><path d="M13 16h5v-5" /></svg>
-                        </button>
-                    </div>
-                </div>
-            </div>
-        </div>
 
         <!-- Background Examples Section -->
         <section id="background-examples" class="brand-section">
@@ -541,9 +537,12 @@
             </div>
         </div>
 
-        <!-- Primary Color Background Example - Metrics Layout -->
+        <!-- Gradient Background Example - Metrics Layout -->
         <div class="example-section">
-            <div class="mock-metrics-section bg-primary">
+            <div class="mock-metrics-section bg-gradient">
+                <video id="stats-video-background" class="stats-video-background" muted playsinline>
+                    <source src="assets/videos/spectrum-gradient.mp4" type="video/mp4">
+                </video>
                 <div class="metrics-grid">
                     <div class="metric-item">
                         <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="metric-icon">
@@ -578,26 +577,51 @@
             </div>
         </div>
 
-        <!-- Background Color 1 Example #2 - Full Width -->
+        <!-- Marketing Section 1 - Image Right -->
         <div class="example-section">
             <div class="mock-info-section bg-light">
-                <div class="info-image">
-                    <div class="circular-video-container">
-                        <video class="circular-video" autoplay muted loop playsinline>
-                            <source src="assets/videos/white-bg-lens.mp4" type="video/mp4">
-                        </video>
-                    </div>
-                </div>
                 <div class="info-content">
-                    <h2>Another Light Background Section</h2>
-                    <p>This demonstrates another use of Background Color 1 (Light). The light background is versatile and can be used multiple times throughout your design to maintain consistency while providing visual breaks between more colorful sections.</p>
+                    <h2>Precision Engineering</h2>
+                    <p>Our optical systems are designed with meticulous attention to detail, combining cutting-edge technology with decades of expertise. We deliver solutions that meet the most demanding specifications while maintaining exceptional performance and reliability.</p>
+                </div>
+                <div class="info-image">
+                    <img src="assets/images/marketing/marketing-sample-1.jpg" alt="Precision Engineering" />
                 </div>
             </div>
         </div>
 
-        <!-- Secondary Color Background Example - Contact Form -->
+        <!-- Marketing Section 2 - Image Left -->
         <div class="example-section">
-            <div class="mock-contact-section bg-secondary">
+            <div class="mock-info-section bg-light">
+                <div class="info-image">
+                    <img src="assets/images/marketing/marketing-sample-2.jpg" alt="Innovation in Optics" />
+                </div>
+                <div class="info-content">
+                    <h2>Innovation in Optics</h2>
+                    <p>From prototype to production, we bring innovative optical solutions to life. Our team combines research, development, and manufacturing expertise to create products that push the boundaries of what's possible in AR and XR technology.</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Marketing Section 3 - Image Right -->
+        <div class="example-section">
+            <div class="mock-info-section bg-light">
+                <div class="info-content">
+                    <h2>Trusted by Industry Leaders</h2>
+                    <p>Leading technology companies trust AlphaLum to deliver optical systems that power the next generation of augmented reality experiences. Our proven track record and commitment to excellence make us the partner of choice for cutting-edge projects.</p>
+                </div>
+                <div class="info-image">
+                    <img src="assets/images/marketing/marketing-sample-3.jpg" alt="Trusted by Industry Leaders" />
+                </div>
+            </div>
+        </div>
+
+        <!-- Gradient Background Example - Contact Form -->
+        <div class="example-section">
+            <div class="mock-contact-section bg-gradient">
+                <video id="contact-video-background" class="stats-video-background" muted playsinline>
+                    <source src="assets/videos/spectrum-gradient.mp4" type="video/mp4">
+                </video>
                 <div class="contact-content">
                     <h2>Get in Touch</h2>
                     <p>Ready to bring your optical innovation to life? Let's discuss how we can help.</p>
@@ -621,66 +645,15 @@
                         <label for="contact-message">Message</label>
                         <textarea id="contact-message" rows="5" placeholder="Tell us about your project..." required></textarea>
                     </div>
-                    <button type="submit" class="btn-primary-white">
+                    <button type="submit" class="btn-primary">
                         <span>Send Message</span>
                         <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="button-icon">
                             <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
-                            <path d="M10 14l11 -11" />
-                            <path d="M21 3l-6.5 18a.55 .55 0 0 1 -1 0l-3.5 -7l-7 -3.5a.55 .55 0 0 1 0 -1l18 -6.5" />
+                            <path d="M17 10h4v4" />
+                            <path d="M3 12c.887 -1.284 2.48 -2.033 4 -2c1.52 -.033 3.113 .716 4 2s2.48 2.033 4 2c1.52 .033 3 -1 4 -2l2 -2" />
                         </svg>
                     </button>
                 </form>
-            </div>
-        </div>
-
-        <!-- Dark Background Color Example - Full Width -->
-        <div class="example-section">
-            <div class="mock-info-section bg-dark">
-                <div class="info-image">
-                    <div class="circular-video-container">
-                        <video class="circular-video" autoplay muted loop playsinline>
-                            <source src="assets/videos/dark-bg-lens.mp4" type="video/mp4">
-                        </video>
-                    </div>
-                </div>
-                <div class="info-content">
-                    <h2>Dark Background (Background 3)</h2>
-                    <p>Our dark background color creates sophisticated, modern sections with excellent depth. Light text provides clear contrast while maintaining a premium feel. Perfect for technical content, hero sections, or creating visual hierarchy.</p>
-                </div>
-            </div>
-        </div>
-
-        <!-- Primary Color 10% Opacity Background Example - Full Width -->
-        <div class="example-section">
-            <div class="mock-info-section bg-primary-10">
-                <div class="info-content">
-                    <h2>Primary Color (10% Opacity)</h2>
-                    <p>This section uses the primary brand color at 10% opacity, creating a subtle tinted background that maintains excellent readability with dark text. This approach is perfect for callout sections, feature highlights, or areas where you want a gentle brand presence without overwhelming the content.</p>
-                </div>
-                <div class="info-image">
-                    <div class="circular-video-container">
-                        <video class="circular-video" autoplay muted loop playsinline>
-                            <source src="assets/videos/white-bg-lens.mp4" type="video/mp4">
-                        </video>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <!-- Secondary Color 10% Opacity Background Example - Full Width -->
-        <div class="example-section">
-            <div class="mock-info-section bg-secondary-10">
-                <div class="info-image">
-                    <div class="circular-video-container">
-                        <video class="circular-video" autoplay muted loop playsinline>
-                            <source src="assets/videos/white-bg-lens.mp4" type="video/mp4">
-                        </video>
-                    </div>
-                </div>
-                <div class="info-content">
-                    <h2>Secondary Color (10% Opacity)</h2>
-                    <p>Using the secondary brand color at 10% opacity provides another subtle background option. This light tint adds visual variety while maintaining the same high level of readability. It's ideal for alternating sections or creating soft visual separation between content blocks.</p>
-                </div>
             </div>
         </div>
 
