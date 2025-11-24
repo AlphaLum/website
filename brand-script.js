@@ -44,13 +44,22 @@ document.addEventListener('DOMContentLoaded', function() {
 function initializeLogoGrid() {
     const logoGrid = document.getElementById('logo-grid');
     
-    // List of logo files in the assets/images/logo/ folder
-    const logoFiles = [
+    // Top logos to show initially
+    const topLogos = [
+        'logo-q.png',
+        'logo-p.png',
+        'logo-l.png',
+        'logo-j.png',
+        'logo-k.png',
+        'logo-a.png'
+    ];
+    
+    // All other logos
+    const additionalLogos = [
         'AlphaLum_logo.svg',
         'AlphaLum_logo.png',
         'light-full-logo.png',
         'light-symbol.png',
-        'logo-a.png',
         'logo-b.png',
         'logo-c.png',
         'logo-d.png',
@@ -59,17 +68,15 @@ function initializeLogoGrid() {
         'logo-g.png',
         'logo-h.png',
         'logo-i.png',
-        'logo-j.png',
-        'logo-k.png',
-        'logo-l.png',
         'logo-m.png',
         'logo-n.png',
-        'logo-h.png',
+        'logo-o.png'
     ];
     
-    logoFiles.forEach(filename => {
+    // Create logo items
+    function createLogoItem(filename, isTopLogo) {
         const logoItem = document.createElement('div');
-        logoItem.className = 'logo-item';
+        logoItem.className = isTopLogo ? 'logo-item logo-item-top' : 'logo-item logo-item-additional';
         logoItem.style.cursor = 'pointer';
         
         const img = document.createElement('img');
@@ -87,8 +94,58 @@ function initializeLogoGrid() {
         
         logoItem.appendChild(img);
         logoItem.appendChild(name);
+        
+        return logoItem;
+    }
+    
+    // Add top logos
+    topLogos.forEach(filename => {
+        const logoItem = createLogoItem(filename, true);
         logoGrid.appendChild(logoItem);
     });
+    
+    // Add additional logos (hidden initially)
+    additionalLogos.forEach(filename => {
+        const logoItem = createLogoItem(filename, false);
+        logoItem.style.display = 'none';
+        logoGrid.appendChild(logoItem);
+    });
+    
+    // Create "View More" button
+    const viewMoreBtn = document.createElement('button');
+    viewMoreBtn.className = 'btn-secondary view-more-logos';
+    viewMoreBtn.innerHTML = `
+        <span>View More Logos</span>
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="button-icon"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M6 9l6 6l6 -6" /></svg>
+    `;
+    
+    let isExpanded = false;
+    
+    viewMoreBtn.addEventListener('click', function() {
+        isExpanded = !isExpanded;
+        const additionalItems = document.querySelectorAll('.logo-item-additional');
+        
+        if (isExpanded) {
+            additionalItems.forEach(item => {
+                item.style.display = 'flex';
+            });
+            viewMoreBtn.innerHTML = `
+                <span>View Less</span>
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="button-icon"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M6 15l6 -6l6 6" /></svg>
+            `;
+        } else {
+            additionalItems.forEach(item => {
+                item.style.display = 'none';
+            });
+            viewMoreBtn.innerHTML = `
+                <span>View More Logos</span>
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="button-icon"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M6 9l6 6l6 -6" /></svg>
+            `;
+        }
+    });
+    
+    // Add button after the logo grid
+    logoGrid.parentElement.appendChild(viewMoreBtn);
 }
 
 // Change Sticky Navigation Logo
