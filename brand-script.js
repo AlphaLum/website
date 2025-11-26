@@ -52,7 +52,8 @@ function initializeLogoGrid() {
         'logo-l.png',
         'logo-j.png',
         'logo-k.png',
-        'logo-a.png'
+        'logo-a.png',
+        'logo-z.png'
     ];
     
     // All other logos
@@ -71,7 +72,8 @@ function initializeLogoGrid() {
         'logo-i.png',
         'logo-m.png',
         'logo-n.png',
-        'logo-o.png'
+        'logo-o.png',
+        'logo-z.png'
     ];
     
     // Create logo items
