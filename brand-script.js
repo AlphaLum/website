@@ -27,6 +27,7 @@ document.addEventListener('DOMContentLoaded', function() {
     initializeFontModal();
     initializeHeroVideo();
     initializeButtonStyleTabs();
+    initializeMoreBenefits();
     
     // Load initial fonts
     loadGoogleFont('Inter', 'header');
@@ -521,61 +522,79 @@ function selectFont(fontName, fontType) {
     }
 }
 
+// More Benefits Button Initialization
+function initializeMoreBenefits() {
+    const moreBenefitsBtn = document.getElementById('more-benefits-btn');
+    const benefitsCards = document.getElementById('trusted-benefits-cards');
+    
+    if (moreBenefitsBtn && benefitsCards) {
+        moreBenefitsBtn.addEventListener('click', function() {
+            // Toggle cards visibility
+            if (benefitsCards.style.display === 'none') {
+                benefitsCards.style.display = 'grid';
+                
+                // Change button to "Show Less" with up arrow
+                this.innerHTML = `
+                    <span>Show Less</span>
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="button-icon"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M12 19l0 -14" /><path d="M18 11l-6 -6" /><path d="M6 11l6 -6" /></svg>
+                `;
+            } else {
+                benefitsCards.style.display = 'none';
+                
+                // Change button back to "More benefits"
+                this.innerHTML = `
+                    <span>More benefits</span>
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="button-icon"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M12 5l0 14" /><path d="M18 13l-6 6" /><path d="M6 13l6 6" /></svg>
+                `;
+            }
+        });
+    }
+}
+
 // Sticky Navigation Initialization
 function initializeStickyNav() {
-    // Color pickers in sticky nav (excluding bg-3 which is now a gradient)
-    const stickyColorMappings = {
-        'sticky-primary': { main: 'primary-color', text: 'primary-color-text', var: '--brand-primary' },
-        'sticky-secondary': { main: 'secondary-color', text: 'secondary-color-text', var: '--brand-secondary' },
-        'sticky-accent-1': { main: 'accent-1-color', text: 'accent-1-color-text', var: '--brand-accent-1' },
-        'sticky-accent-2': { main: 'accent-2-color', text: 'accent-2-color-text', var: '--brand-accent-2' },
-        'sticky-button': { main: 'button-color', text: 'button-color-text', var: '--brand-button' },
-        'sticky-bg-1': { main: 'bg-1-color', text: 'bg-1-color-text', var: '--brand-bg-1' },
-        'sticky-bg-2': { main: 'bg-2-color', text: 'bg-2-color-text', var: '--brand-bg-2' }
-    };
+    // Handle active state for nav links
+    const navLinks = document.querySelectorAll('.nav-link');
+    const sections = Array.from(navLinks).map(link => {
+        const id = link.getAttribute('href').substring(1);
+        return document.getElementById(id);
+    }).filter(section => section !== null);
     
-    Object.keys(stickyColorMappings).forEach(stickyId => {
-        const stickyPicker = document.getElementById(stickyId);
-        const mapping = stickyColorMappings[stickyId];
-        const mainPicker = document.getElementById(mapping.main);
-        const textInput = document.getElementById(mapping.text);
+    // Function to update active link
+    function updateActiveLink() {
+        const scrollPosition = window.scrollY + 100; // Offset for sticky header
         
-        if (!stickyPicker || !mainPicker) return;
+        let currentSectionId = null;
         
-        // When sticky picker changes, update main controls and CSS
-        stickyPicker.addEventListener('input', function() {
-            const color = this.value;
-            mainPicker.value = color;
-            if (textInput) {
-                textInput.value = color.toUpperCase();
-            }
-            updateCSSVariable(mapping.var, color);
+        // Find the current section
+        for (const section of sections) {
+            const sectionTop = section.offsetTop;
+            const sectionHeight = section.offsetHeight;
             
-            // Update swatch if it exists
-            const swatchId = mapping.main.replace('-color', '-swatch');
-            const swatch = document.getElementById(swatchId);
-            if (swatch) {
-                updateSwatch(swatch, color);
+            if (scrollPosition >= sectionTop && scrollPosition < sectionTop + sectionHeight) {
+                currentSectionId = section.id;
             }
-            
-            // Update rainbow gradient if it's a rainbow color (primary, secondary, or accent)
-            if (mapping.var.includes('primary') || mapping.var.includes('secondary') || mapping.var.includes('accent')) {
-                updateRainbowGradient();
-            }
-            
-            // Update tertiary button background if primary color changes
-            if (mapping.var === '--brand-primary') {
-                updateTertiaryButtonColor(color);
+        }
+        
+        // If we're at the very top or no section found yet (and scrolled past first one), default to first
+        if (!currentSectionId && sections.length > 0 && window.scrollY < sections[0].offsetTop) {
+            currentSectionId = sections[0].id; // Optional: highlight first item if near top
+        }
+        
+        // Update classes
+        navLinks.forEach(link => {
+            link.classList.remove('active');
+            if (link.getAttribute('href') === `#${currentSectionId}`) {
+                link.classList.add('active');
             }
         });
-        
-        // When main picker changes, update sticky picker
-        mainPicker.addEventListener('input', function() {
-            stickyPicker.value = this.value;
-        });
-    });
+    }
     
-    // Font selectors are now handled by the modal in initializeFontModal
+    // Add scroll event listener
+    window.addEventListener('scroll', updateActiveLink);
+    
+    // Initial call
+    updateActiveLink();
 }
 
 // Hero Video Ping-Pong Loop Initialization
@@ -765,6 +784,20 @@ function updateHeroButtons(style) {
                         <source src="assets/videos/spectrum-gradient.mp4" type="video/mp4">
                     </video>
                     <span>Contact Us</span>
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="button-icon"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M17 14h4v-4" /><path d="M3 12c.887 1.284 2.48 2.033 4 2c1.52 .033 3.113 -.716 4 -2s2.48 -2.033 4 -2c1.52 -.033 3 1 4 2l2 2" /></svg>
+                </button>
+            `;
+            break;
+            
+        case 'aurora':
+            // Aurora buttons (primary + secondary)
+            lightButtonsHTML = `
+                <button class="btn-exp-aurora-primary">
+                    <span>Contact Us</span>
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="button-icon"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M17 14h4v-4" /><path d="M3 12c.887 1.284 2.48 2.033 4 2c1.52 .033 3.113 -.716 4 -2s2.48 -2.033 4 -2c1.52 -.033 3 1 4 2l2 2" /></svg>
+                </button>
+                <button class="btn-exp-aurora-secondary">
+                    <span>Learn More</span>
                     <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="button-icon"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M17 14h4v-4" /><path d="M3 12c.887 1.284 2.48 2.033 4 2c1.52 .033 3.113 -.716 4 -2s2.48 -2.033 4 -2c1.52 -.033 3 1 4 2l2 2" /></svg>
                 </button>
             `;

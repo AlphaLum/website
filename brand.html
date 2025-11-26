@@ -33,59 +33,12 @@
                 <img id="sticky-logo-img" src="assets/images/logo/logo-j.png" alt="AlphaLum Logo" />
             </div>
             
-            <!-- Controls Container -->
-            <div class="sticky-nav-controls">
-                <!-- First Row: Colors -->
-                <div class="sticky-nav-row">
-                    <!-- Combined in Rainbow section now -->
-                    
-                    <!-- Rainbow Gradient (3 colors: Primary + Accent 1 + Secondary) -->
-                    <div class="sticky-nav-section">
-                        <span class="sticky-nav-label">Rainbow:</span>
-                        <div class="color-swatches-group">
-                            <input type="color" id="sticky-primary" class="sticky-color-picker" value="#ff3b0a" title="Primary"/>
-                            <input type="color" id="sticky-accent-1" class="sticky-color-picker" value="#FF4FD8" title="Accent 1"/>
-                            <input type="color" id="sticky-secondary" class="sticky-color-picker" value="#0095FF" title="Secondary"/>
-                        </div>
-                    </div>
-                    
-                    <!-- Button Color -->
-                    <div class="sticky-nav-section">
-                        <span class="sticky-nav-label">Button:</span>
-                        <div class="color-swatches-group">
-                            <input type="color" id="sticky-button" class="sticky-color-picker" value="#000000" title="Button Color"/>
-                        </div>
-                    </div>
-                    
-                    <!-- Backgrounds -->
-                    <div class="sticky-nav-section">
-                        <span class="sticky-nav-label">BG:</span>
-                        <div class="color-swatches-group">
-                            <input type="color" id="sticky-bg-1" class="sticky-color-picker" value="#FFFAFF" title="Background 1"/>
-                            <input type="color" id="sticky-bg-2" class="sticky-color-picker" value="#f4f4f6" title="Background 2"/>
-                            <input type="color" id="sticky-bg-3" class="sticky-color-picker" value="#ffe5dd" title="Background 3 (Rainbow Gradient)" disabled style="background: linear-gradient(90deg, rgba(255, 69, 36, 0.1) 0%, rgba(255, 79, 216, 0.1) 50%, rgba(0, 149, 255, 0.1) 100%); cursor: not-allowed;"/>
-                        </div>
-                    </div>
-                </div>
-                
-                <!-- Second Row: Fonts -->
-                <div class="sticky-nav-row">
-                    <div class="sticky-nav-section">
-                        <span class="sticky-nav-label">Header Font:</span>
-                        <button id="sticky-header-font-btn" class="font-selector-button" data-font-type="header">
-                            <span id="sticky-header-font-name">Inter</span>
-                            <span>▼</span>
-                        </button>
-                    </div>
-                    
-                    <div class="sticky-nav-section">
-                        <span class="sticky-nav-label">Body Font:</span>
-                        <button id="sticky-body-font-btn" class="font-selector-button" data-font-type="body">
-                            <span id="sticky-body-font-name">Inter</span>
-                            <span>▼</span>
-                        </button>
-                    </div>
-                </div>
+            <!-- Navigation Links -->
+            <div class="sticky-nav-links">
+                <a href="#brand-principles" class="nav-link">Principles</a>
+                <a href="#logo-variations" class="nav-link">Logos</a>
+                <a href="#color-palette" class="nav-link">Colors</a>
+                <a href="#typography" class="nav-link">Typography</a>
             </div>
         </div>
     </nav>
@@ -116,19 +69,19 @@
             <p class="section-description">These principles inform how the AlphaLum brand looks, feels, and is communicated in copy.</p>
             <div class="guidelines-content">
                 <div class="tone-grid">
-                    <div class="tone-item">
+                    <div class="sample-card">
                         <h4>Modest & Confident</h4>
                         <p>Clear, grounded communication that shows expertise without exaggeration.</p>
                     </div>
-                    <div class="tone-item">
-                        <h4>Precise & Clean (like a laser)</h4>
+                    <div class="sample-card">
+                        <h4>Precise & Clean</h4>
                         <p>Crisp layouts and exact visual structure that reflect engineering accuracy.</p>
                     </div>
-                    <div class="tone-item">
+                    <div class="sample-card">
                         <h4>Intentionally Colorful</h4>
                         <p>Color used sparingly and purposefully, inspired by the physics of light.</p>
                     </div>
-                    <div class="tone-item">
+                    <div class="sample-card">
                         <h4>Transparent</h4>
                         <p>A visual language rooted in clarity, openness, and the transparency of our lenses.</p>
                     </div>
@@ -344,6 +297,21 @@
                     </div>
                 </div>
 
+                <!-- Brand Color Buttons -->
+                <div class="component-group">
+                    <h3>Brand Color Buttons (Large)</h3>
+                    <div class="component-examples">
+                        <button class="btn-brand-primary">
+                            <span>Brand Primary</span>
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="button-icon"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M17 14h4v-4" /><path d="M3 12c.887 1.284 2.48 2.033 4 2c1.52 .033 3.113 -.716 4 -2s2.48 -2.033 4 -2c1.52 -.033 3 1 4 2l2 2" /></svg>
+                        </button>
+                        <button class="btn-brand-secondary">
+                            <span>Brand Secondary</span>
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="button-icon"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M17 14h4v-4" /><path d="M3 12c.887 1.284 2.48 2.033 4 2c1.52 .033 3.113 -.716 4 -2s2.48 -2.033 4 -2c1.52 -.033 3 1 4 2l2 2" /></svg>
+                        </button>
+                    </div>
+                </div>
+
                 <!-- Experimental Gradient Buttons -->
                 <div class="component-group">
                     <h3>Experimental Buttons</h3>
@@ -363,6 +331,19 @@
                             <span>Glass Video</span>
                             <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="button-icon"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M17 14h4v-4" /><path d="M3 12c.887 1.284 2.48 2.033 4 2c1.52 .033 3.113 -.716 4 -2s2.48 -2.033 4 -2c1.52 -.033 3 1 4 2l2 2" /></svg>
                         </button>
+                    </div>
+
+                    <!-- New Experimental Buttons Row -->
+                    <div class="component-examples" style="margin-top: var(--spacing-lg);">
+                        <!-- Aurora Buttons -->
+                        <div style="display: flex; gap: var(--spacing-sm); align-items: center;">
+                            <button class="btn-exp-aurora-primary">
+                                <span>Aurora Primary</span>
+                            </button>
+                            <button class="btn-exp-aurora-secondary">
+                                <span>Aurora Secondary</span>
+                            </button>
+                        </div>
                     </div>
                 </div>
 
@@ -444,27 +425,26 @@
         <!-- Iconography Section -->
         <section id="iconography" class="brand-section">
             <h2>Iconography Guidelines</h2>
-            <p class="section-description">Icon usage follows consistent principles for clarity and brand recognition.</p>
+            <p class="section-description">Consistent icons ensure clarity and brand recognition.</p>
             <div class="guidelines-content">
                 <ul class="guidelines-list">
-                    <li><strong>Light Wave Symbolism:</strong> We use arrows with waves to signify light waves, representing the physics of our optical technology</li>
-                    <li><strong>Simple Icons:</strong> In small places and UI elements, we use simple, clean line-based icons for clarity and functionality</li>
-                    <li><strong>Realistic 3D Icons:</strong> In general, we use realistic 3D "icons" to show pops of color and precision in our imagery style, reflecting our engineering expertise</li>
-                    <li><strong>Size:</strong> Icons should be clearly visible, typically 24px-120px depending on context</li>
-                    <li><strong>Color:</strong> Icons inherit brand colors, primarily using the rainbow gradient to emphasize the spectrum of light</li>
-                    <li><strong>Spacing:</strong> Maintain adequate padding around icons for visual breathing room</li>
+                    <li><strong>Symbolism:</strong> Arrows with waves represent light physics.</li>
+                    <li><strong>Simple Icons:</strong> Clean line art for UI elements and small sizes.</li>
+                    <li><strong>3D Icons:</strong> Realistic, colorful 3D elements for feature highlights.</li>
+                    <li><strong>Usage:</strong> Scale from 24px to 120px with ample breathing room.</li>
+                    <li><strong>Color:</strong> Apply brand colors or rainbow gradients to emphasize light.</li>
                 </ul>
 
                 <!-- Icon Examples -->
                 <div class="icon-examples-section">
                     <h3>Realistic 3D Icons</h3>
-                    <p class="section-description">Used for large feature highlights, hero sections, and marketing materials to showcase color and precision.</p>
+                    <p class="section-description">For feature highlights and marketing materials.</p>
                     <div class="icon-examples-grid">
                         <div class="icon-example">
                             <img src="assets/images/new-icons/icon-sample1.png" alt="3D Icon Example 1" />
                         </div>
                         <div class="icon-example">
-                            <img src="assets/images/new-icons/icon-sample2.png" alt="3D Icon Example 2" />
+                            <img src="assets/images/new-icons/icon-sample4.png" alt="3D Icon Example 2" />
                         </div>
                         <div class="icon-example">
                             <img src="assets/images/new-icons/icon-sample3.png" alt="3D Icon Example 3" />
@@ -472,7 +452,7 @@
                     </div>
 
                     <h3 style="margin-top: var(--spacing-xl);">Simple Line Icons</h3>
-                    <p class="section-description">Used for buttons, UI elements, and smaller interface components where clarity at small sizes is essential.</p>
+                    <p class="section-description">For buttons, UI elements, and small components.</p>
                     <div class="icon-examples-simple">
                         <div class="simple-icon-example">
                             <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
@@ -517,16 +497,31 @@
         <!-- Imagery Style Section -->
         <section id="imagery-style" class="brand-section">
             <h2>Imagery Style</h2>
-            <p class="section-description">Our imagery philosophy emphasizes authentic photography that tells the story of compact precision.</p>
+            <p class="section-description">Authentic photography telling the story of compact precision.</p>
             <div class="guidelines-content">
                 <ul class="guidelines-list">
-                    <li><strong>Real Photography Only:</strong> Always use real images, not mockups or generic stock photography. Authenticity reflects our engineering integrity</li>
-                    <li><strong>Simplicity of Form Factor:</strong> Showcase the sleek, minimal external design of our optical systems. Emphasize compact size, clean lines, and elegant simplicity</li>
-                    <li><strong>Complexity Within:</strong> Reveal the sophisticated technology and intricate engineering inside such small form factors. Show detailed internals, precision components, and technical sophistication</li>
-                    <li><strong>The Contrast Story:</strong> These two approaches work together to tell our brand story—deceptively simple on the outside, remarkably complex on the inside</li>
-                    <li><strong>Color Grading:</strong> Maintain natural colors with slight emphasis on brand colors where appropriate, especially highlighting the spectrum of light in optical elements</li>
-                    <li><strong>Composition:</strong> Clean, modern compositions with good use of negative space to emphasize precision and clarity</li>
+                    <li><strong>Authenticity:</strong> Use real photography, avoiding generic stock or mockups.</li>
+                    <li><strong>Contrast:</strong> Highlight the balance between sleek external design and complex internal engineering.</li>
+                    <li><strong>Color & Light:</strong> Enhance natural tones with brand colors to accentuate optical elements.</li>
+                    <li><strong>Composition:</strong> Use clean, modern layouts with negative space to convey precision.</li>
                 </ul>
+                
+                <div class="imagery-examples-grid">
+                    <div class="imagery-example">
+                        <h4 style="margin-bottom: var(--spacing-sm);">Motion & Light</h4>
+                        <div class="imagery-video-container">
+                            <video class="imagery-video" muted playsinline autoplay loop>
+                                <source src="assets/videos/white-bg-lens.mp4" type="video/mp4">
+                            </video>
+                        </div>
+                    </div>
+                    <div class="imagery-example">
+                        <h4 style="margin-bottom: var(--spacing-sm);">Product Photography</h4>
+                        <div style="border-radius: var(--radius-md); overflow: hidden; aspect-ratio: 16/9;">
+                            <img src="assets/images/marketing/marketing-sample-1.jpg" alt="Product Photography Example" style="width: 100%; height: 100%; object-fit: cover;" />
+                        </div>
+                    </div>
+                </div>
             </div>
         </section>
 
@@ -549,6 +544,9 @@
                 <button class="style-tab" data-style="glass-video">
                     Glass Video
                 </button>
+                <button class="style-tab" data-style="aurora">
+                    Aurora
+                </button>
             </div>
         </section>
 
@@ -568,7 +566,6 @@
                         </button>
                         <button class="btn-secondary">
                             <span>Learn More</span>
-                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="button-icon"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M17 14h4v-4" /><path d="M3 12c.887 1.284 2.48 2.033 4 2c1.52 .033 3.113 -.716 4 -2s2.48 -2.033 4 -2c1.52 -.033 3 1 4 2l2 2" /></svg>
                         </button>
                     </div>
                 </div>
@@ -640,10 +637,10 @@
         </div>
 
         <!-- Marketing Section 1 - Image Right -->
-        <div class="example-section">
+        <div class="example-section" id="precision-section">
             <div class="mock-info-section bg-light">
                 <div class="info-content">
-                    <h2>Precision Engineering</h2>
+                    <h2><span class="rainbow-text">Precision</span> Engineering</h2>
                     <p>Our optical systems are designed with meticulous attention to detail, combining cutting-edge technology with decades of expertise. We deliver solutions that meet the most demanding specifications while maintaining exceptional performance and reliability.</p>
                 </div>
                 <div class="info-image">
@@ -653,24 +650,30 @@
         </div>
 
         <!-- Marketing Section 2 - Image Left -->
-        <div class="example-section">
+        <div class="example-section" id="innovation-section">
             <div class="mock-info-section bg-light">
                 <div class="info-image">
                     <img src="assets/images/marketing/marketing-sample-2.jpg" alt="Innovation in Optics" />
                 </div>
                 <div class="info-content">
-                    <h2>Innovation in Optics</h2>
+                    <h2><span class="rainbow-text">Innovation</span> in Optics</h2>
                     <p>From prototype to production, we bring innovative optical solutions to life. Our team combines research, development, and manufacturing expertise to create products that push the boundaries of what's possible in AR and XR technology.</p>
                 </div>
             </div>
         </div>
 
         <!-- Marketing Section 3 - Image Right -->
-        <div class="example-section">
+        <div class="example-section" id="trusted-section">
             <div class="mock-info-section bg-light">
                 <div class="info-content">
-                    <h2>Trusted by Industry Leaders</h2>
+                    <h2><span class="rainbow-text">Trusted</span> by Industry Leaders</h2>
                     <p>Leading technology companies trust AlphaLum to deliver optical systems that power the next generation of augmented reality experiences. Our proven track record and commitment to excellence make us the partner of choice for cutting-edge projects.</p>
+                    <div style="margin-top: var(--spacing-md);">
+                        <button id="more-benefits-btn" class="btn-secondary">
+                            <span>More benefits</span>
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="button-icon"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M12 5l0 14" /><path d="M18 13l-6 6" /><path d="M6 13l6 6" /></svg>
+                        </button>
+                    </div>
                 </div>
                 <div class="info-image">
                     <img src="assets/images/marketing/marketing-sample-3.jpg" alt="Trusted by Industry Leaders" />
@@ -678,8 +681,27 @@
             </div>
         </div>
 
+        <!-- Benefits Cards Section (Hidden by default) -->
+        <div id="trusted-benefits-cards" class="cards-grid" style="display: none; padding: var(--spacing-xl) 10%; background: var(--brand-bg-1);">
+            <div class="sample-card">
+                <img src="assets/images/new-icons/icon-sample1.png" alt="Card icon" class="card-icon" />
+                <h4>Scalability</h4>
+                <p>Seamless scaling from prototype to mass production.</p>
+            </div>
+            <div class="sample-card">
+                <img src="assets/images/new-icons/icon-sample4.png" alt="Card icon" class="card-icon" />
+                <h4>Support</h4>
+                <p>Dedicated engineering support throughout the lifecycle.</p>
+            </div>
+            <div class="sample-card">
+                <img src="assets/images/new-icons/icon-sample3.png" alt="Card icon" class="card-icon" />
+                <h4>Quality</h4>
+                <p>Rigorous quality assurance at every production stage.</p>
+            </div>
+        </div>
+
         <!-- Gradient Background Example - Contact Form -->
-        <div class="example-section">
+        <div class="example-section" id="contact-section">
             <div class="mock-contact-section bg-gradient">
                 <video id="contact-video-background" class="stats-video-background" muted playsinline>
                     <source src="assets/videos/spectrum-gradient.mp4" type="video/mp4">
