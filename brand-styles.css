@@ -374,15 +374,16 @@ body {
   font-size: 7rem;
   color: var(--brand-font-primary);
   margin: 0 0 var(--spacing-sm) 0;
-  font-weight: 100;
+  font-weight: 300;
   line-height: 1.1;
   margin-top:5rem;
 }
 
 .brand-header .subtitle {
   font-size: 1.25rem;
-  color: var(--brand-font-secondary);
+  color: var(--brand-font-primary);
   margin: 0;
+  font-weight: 300;
 }
 
 /* Sections */
