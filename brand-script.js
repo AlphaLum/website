@@ -54,7 +54,9 @@ function initializeLogoGrid() {
         { filename: 'final-options/final-option-5.png', maxHeight: '55px' },
         { filename: 'final-options/final-option-6.png', maxHeight: '55px' },
         { filename: 'final-options/final-option-7.png', maxHeight: '55px' },
-        { filename: 'final-options/final-option-8.png', maxHeight: '55px' }
+        { filename: 'final-options/final-option-8.png', maxHeight: '55px' },
+        { filename: 'final-options/final-option-9.png', maxHeight: '55px' },
+        { filename: 'final-options/final-option-11.png', maxHeight: '55px' },
     ];
     
     // All other logos (explorations)
