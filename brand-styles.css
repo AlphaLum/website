@@ -118,7 +118,7 @@ body {
 }
 
 .sticky-nav-logo img {
-  max-height: 55px;
+  max-height: 45px;
   width: auto;
   object-fit: contain;
   transition: var(--transition);
