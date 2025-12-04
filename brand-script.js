@@ -45,23 +45,25 @@ document.addEventListener('DOMContentLoaded', function() {
 function initializeLogoGrid() {
     const logoGrid = document.getElementById('logo-grid');
     
-    // Top logos to show initially
+    // Top logos to show initially (final options) with custom max-heights
     const topLogos = [
-        'logo-q.png',
-        'logo-p.png',
-        'logo-l.png',
-        'logo-j.png',
-        'logo-k.png',
-        'logo-a.png',
-        'logo-z.png'
+        { filename: 'final-options/final-option-1.png', maxHeight: '55px' },
+        { filename: 'final-options/final-option-2.png', maxHeight: '55px' },
+        { filename: 'final-options/final-option-3.png', maxHeight: '55px' },
+        { filename: 'final-options/final-option-4.png', maxHeight: '55px' },
+        { filename: 'final-options/final-option-5.png', maxHeight: '55px' },
+        { filename: 'final-options/final-option-6.png', maxHeight: '55px' },
+        { filename: 'final-options/final-option-7.png', maxHeight: '55px' },
+        { filename: 'final-options/final-option-8.png', maxHeight: '55px' }
     ];
     
-    // All other logos
+    // All other logos (explorations)
     const additionalLogos = [
         'AlphaLum_logo.svg',
         'AlphaLum_logo.png',
         'light-full-logo.png',
         'light-symbol.png',
+        'logo-a.png',
         'logo-b.png',
         'logo-c.png',
         'logo-d.png',
@@ -70,14 +72,19 @@ function initializeLogoGrid() {
         'logo-g.png',
         'logo-h.png',
         'logo-i.png',
+        'logo-j.png',
+        'logo-k.png',
+        'logo-l.png',
         'logo-m.png',
         'logo-n.png',
         'logo-o.png',
+        'logo-p.png',
+        'logo-q.png',
         'logo-z.png'
     ];
     
     // Create logo items
-    function createLogoItem(filename, isTopLogo) {
+    function createLogoItem(filename, isTopLogo, maxHeight = null) {
         const logoItem = document.createElement('div');
         logoItem.className = isTopLogo ? 'logo-item logo-item-top' : 'logo-item logo-item-additional';
         logoItem.style.cursor = 'pointer';
@@ -85,6 +92,11 @@ function initializeLogoGrid() {
         const img = document.createElement('img');
         img.src = `assets/images/logo/${filename}`;
         img.alt = filename;
+        
+        // Apply custom max-height if provided
+        if (maxHeight) {
+            img.style.maxHeight = maxHeight;
+        }
         
         const name = document.createElement('div');
         name.className = 'logo-name';
@@ -102,8 +114,8 @@ function initializeLogoGrid() {
     }
     
     // Add top logos
-    topLogos.forEach(filename => {
-        const logoItem = createLogoItem(filename, true);
+    topLogos.forEach(logoData => {
+        const logoItem = createLogoItem(logoData.filename, true, logoData.maxHeight);
         logoGrid.appendChild(logoItem);
     });
     
@@ -118,7 +130,7 @@ function initializeLogoGrid() {
     const viewMoreBtn = document.createElement('button');
     viewMoreBtn.className = 'btn-secondary view-more-logos';
     viewMoreBtn.innerHTML = `
-        <span>View More Logos</span>
+        <span>View All Logo Explorations</span>
         <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="button-icon"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M6 9l6 6l6 -6" /></svg>
     `;
     
@@ -141,7 +153,7 @@ function initializeLogoGrid() {
                 item.style.display = 'none';
             });
             viewMoreBtn.innerHTML = `
-                <span>View More Logos</span>
+                <span>View All Logo Explorations</span>
                 <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="button-icon"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M6 9l6 6l6 -6" /></svg>
             `;
         }
