@@ -50,18 +50,19 @@ function initializeLogoGrid() {
         { filename: 'final-options/final-option-1.png', maxHeight: '55px' },
         { filename: 'final-options/final-option-2.png', maxHeight: '55px' },
         { filename: 'final-options/final-option-3.png', maxHeight: '55px' },
-        { filename: 'final-options/final-option-4.png', maxHeight: '55px' },
-        { filename: 'final-options/final-option-5.png', maxHeight: '55px' },
-        { filename: 'final-options/final-option-6.png', maxHeight: '55px' },
-        { filename: 'final-options/final-option-7.png', maxHeight: '55px' },
-        { filename: 'final-options/final-option-8.png', maxHeight: '55px' },
-        { filename: 'final-options/final-option-9.png', maxHeight: '55px' },
-        { filename: 'final-options/final-option-11.png', maxHeight: '55px' },
-        { filename: 'final-options/final-option-12.png', maxHeight: '55px' },
+        
     ];
     
     // All other logos (explorations)
     const additionalLogos = [
+        'final-options/final-option-4.png',
+        'final-options/final-option-5.png',
+        'final-options/final-option-6.png',
+        'final-options/final-option-7.png',
+        'final-options/final-option-8.png',
+        'final-options/final-option-9.png',
+        'final-options/final-option-11.png',
+        'final-options/final-option-12.png',
         'AlphaLum_logo.svg',
         'AlphaLum_logo.png',
         'light-full-logo.png',
