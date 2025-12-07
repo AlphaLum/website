@@ -51,6 +51,8 @@ function initializeLogoGrid() {
         { filename: 'final-options/final-option-2.png', maxHeight: '55px' },
         { filename: 'final-options/final-option-3.png', maxHeight: '55px' },
         { filename: 'final-options/final-option-4-2.png', maxHeight: '55px' },
+        { filename: 'final-options/logo-option-5-2.png', maxHeight: '55px' },
+        { filename: 'final-options/logo-option-6-2.png', maxHeight: '55px' },
         
     ];
     
