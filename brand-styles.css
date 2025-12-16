@@ -197,6 +197,9 @@ body {
   gap: var(--spacing-sm);
   align-items: center;
   flex-wrap: wrap;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  font-weight: 300;
 }
 
 .nav-link {
@@ -1325,10 +1328,11 @@ body {
 .sample-card h4 {
   font-family: var(--font-header);
   color: var(--brand-font-primary);
-  margin: 0 0 var(--spacing-sm) 0;
+  margin: var(--spacing-sm) 0 var(--spacing-sm) 0;
   padding-bottom: var(--spacing-xs);
-  border-bottom: 1px solid transparent;
-  border-image: var(--rainbow-gradient) 1;
+  text-transform: uppercase;
+  font-weight:300;
+  letter-spacing: 1.5px;
 }
 
 .sample-card p {
@@ -1611,7 +1615,7 @@ body {
 .hero-video-background {
   position: absolute;
   top: 50%;
-  left: 70%;
+  left: 50%;
   transform: translate(-50%, -50%);
   min-width: 100%;
   min-height: 100%;
@@ -1620,6 +1624,7 @@ body {
   object-fit: cover;
   z-index: 0;
   opacity: 1;
+  filter: blur(4px);
 }
 
 .mock-hero-content {
@@ -1645,14 +1650,16 @@ body {
   background-position: 0 88%;
   padding-bottom: 2px;
 }
-
+p {
+  font-weight: 300;
+}
 .mock-hero p {
   font-family: var(--font-body);
   font-size: 1.5rem;
   margin: 0 0 var(--spacing-xl) 0;
   line-height: 1.6;
   opacity: 0.95;
-  font-weight: 400;
+  font-weight: 300;
 }
 
 .hero-buttons {
@@ -1800,6 +1807,7 @@ body {
   padding: var(--spacing-xl) 10%;
   position: relative;
   overflow: hidden;
+  margin-top:4rem;
 }
 
 .mock-contact-section.bg-secondary {
@@ -1820,7 +1828,7 @@ body {
   height: 100%;
   object-fit: cover;
   opacity: 1;
-  opacity: 0.5;
+  opacity: 1;
   z-index: 0;
   pointer-events: none;
 }
@@ -1957,6 +1965,8 @@ body {
   justify-content: center;
   position: relative;
   overflow: hidden;
+  margin-top:4rem;
+  margin-bottom:4rem;
 }
 
 .stats-video-background {
@@ -2340,12 +2350,11 @@ body {
 /* Slide Logo Icon - Top Right */
 .ppt-slide-logo-icon {
   position: absolute;
-  top: calc(3px + 4%);
-  right: 4%;
-  width: clamp(24px, 4vw, 40px);
+  top: 1rem;
+  right: 1rem;
+  width: 45px;
   height: auto;
   z-index: 10;
-  opacity: 0.85;
 }
 
 /* ==========================================
@@ -2366,6 +2375,17 @@ body {
   opacity: 0.6;
   filter: blur(40px) saturate(150%);
   z-index: 0;
+}
+
+.ppt-image-background {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  z-index: 0;
+  opacity: 0.6;
 }
 
 /* Light variant for title slide */
@@ -2437,7 +2457,7 @@ body {
   left: 8%;
   right: 8%;
   display: flex;
-  justify-content: center;
+  justify-content: space-between;
   align-items: center;
 }
 
@@ -2452,6 +2472,18 @@ body {
   font-size: clamp(0.625rem, 1.5vw, 0.875rem);
   color: rgba(255, 255, 255, 0.7);
   font-weight: 400;
+}
+
+.ppt-author {
+  font-family: var(--font-body);
+  font-size: clamp(0.625rem, 1.5vw, 0.875rem);
+  color: rgba(255, 255, 255, 0.7);
+  font-weight: 400;
+}
+
+.ppt-slide-title.ppt-slide-title-light .ppt-author {
+  color: black;
+  opacity: 0.6;
 }
 
 /* ==========================================
@@ -2471,6 +2503,14 @@ body {
   font-size: clamp(1.25rem, 3.5vw, 2.5rem);
   font-weight: 300;
   color: var(--brand-font-primary);
+  margin: 0 0 var(--spacing-xs) 0;
+}
+
+.ppt-section-subtitle {
+  font-family: var(--font-body);
+  font-size: clamp(0.75rem, 1.5vw, 1rem);
+  font-weight: 400;
+  color: var(--brand-font-secondary);
   margin: 0 0 var(--spacing-lg) 0;
   text-align: left;
 }
@@ -2504,12 +2544,13 @@ body {
 .ppt-card h3 {
   font-family: var(--font-header);
   font-size: clamp(0.75rem, 2vw, 1.25rem);
-  font-weight: 600;
+  font-weight: 300;
   color: var(--brand-font-primary);
   margin: 0 0 var(--spacing-xs) 0;
   padding-bottom: var(--spacing-xs);
-  border-bottom: 1px solid transparent;
-  border-image: var(--rainbow-gradient) 1;
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+
 }
 
 .ppt-card p {
@@ -2522,7 +2563,54 @@ body {
 }
 
 /* ==========================================
-   Slide 3: Content / Bullet Points Slide
+   Slide 3: Section Title Slide
+   ========================================== */
+
+.ppt-slide-section-title {
+  background: var(--brand-bg-1);
+}
+
+.ppt-section-title-content {
+  justify-content: center;
+  align-items: flex-start;
+  text-align: left;
+  padding-left: 12%;
+}
+
+.ppt-section-title-number {
+  font-family: var(--font-header);
+  font-size: clamp(3rem, 10vw, 8rem);
+  font-weight: 200;
+  background: var(--rainbow-gradient);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  line-height: 1;
+  margin: 0 0 var(--spacing-sm) 0;
+  opacity: 0.9;
+}
+
+.ppt-section-title-heading {
+  font-family: var(--font-header);
+  font-size: clamp(1.5rem, 5vw, 3.5rem);
+  font-weight: 300;
+  color: var(--brand-font-primary);
+  margin: 0 0 var(--spacing-sm) 0;
+  line-height: 1.1;
+}
+
+.ppt-section-title-desc {
+  font-family: var(--font-body);
+  font-size: clamp(0.75rem, 2vw, 1.25rem);
+  font-weight: 400;
+  color: var(--brand-font-secondary);
+  margin: 0;
+  max-width: 60%;
+  line-height: 1.5;
+}
+
+/* ==========================================
+   Slide 4: Content / Bullet Points Slide
    ========================================== */
 
 .ppt-slide-content-layout {
@@ -2548,6 +2636,10 @@ body {
 }
 
 .ppt-column-text .ppt-section-title {
+  margin-bottom: var(--spacing-xs);
+}
+
+.ppt-column-text .ppt-section-subtitle {
   margin-bottom: var(--spacing-md);
 }
 
@@ -2593,6 +2685,54 @@ body {
   line-height: 1.4;
 }
 
+/* Numbered List Styles */
+.ppt-numbered-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-sm);
+  counter-reset: none;
+}
+
+.ppt-numbered-list li {
+  display: flex;
+  align-items: baseline;
+  gap: var(--spacing-sm);
+}
+
+.ppt-number-marker {
+  flex-shrink: 0;
+  background: var(--rainbow-gradient);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  font-family: var(--font-header);
+  font-size: clamp(0.75rem, 1.8vw, 1.125rem);
+  font-weight: 600;
+  line-height: 1.2;
+  min-width: clamp(14px, 1.8vw, 20px);
+}
+
+.ppt-numbered-list li strong {
+  font-family: var(--font-header);
+  font-size: clamp(0.75rem, 1.8vw, 1.125rem);
+  font-weight: 600;
+  color: var(--brand-font-primary);
+  display: block;
+  margin-bottom: 2px;
+}
+
+.ppt-numbered-list li p {
+  font-family: var(--font-body);
+  font-size: clamp(0.625rem, 1.4vw, 0.95rem);
+  font-weight: 400;
+  color: var(--brand-font-secondary);
+  margin: 0;
+  line-height: 1.4;
+}
+
 .ppt-column-image {
   height: 100%;
   border-radius: var(--border-radius);
@@ -2602,7 +2742,78 @@ body {
 .ppt-column-image img {
   width: 100%;
   height: 100%;
-  object-fit: cover;
+  object-fit: fit;
+}
+
+/* ==========================================
+   Take Away Section
+   ========================================== */
+
+.ppt-takeaway {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: color-mix(in srgb, var(--brand-secondary) 10%, transparent);
+  padding: var(--spacing-sm) 8%;
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-md);
+  z-index: 5;
+}
+
+.ppt-takeaway-label {
+  font-family: var(--font-header);
+  font-size: clamp(0.625rem, 1.2vw, 0.875rem);
+  font-weight: 300;
+  color: var(--brand-secondary);
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  margin: 0;
+  white-space: nowrap;
+}
+
+.ppt-takeaway-text {
+  font-family: var(--font-body);
+  font-size: clamp(0.625rem, 1.4vw, 0.95rem);
+  font-weight: 300;
+  color: var(--brand-font-primary);
+  margin: 0;
+  line-height: 1.4;
+}
+
+/* Summary Section (Primary Color Variant) */
+.ppt-summary {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: color-mix(in srgb, var(--brand-primary) 10%, transparent);
+  padding: var(--spacing-sm) 8%;
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-md);
+  z-index: 5;
+}
+
+.ppt-summary-label {
+  font-family: var(--font-header);
+  font-size: clamp(0.625rem, 1.2vw, 0.875rem);
+  font-weight: 300;
+  color: var(--brand-primary);
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  margin: 0;
+  white-space: nowrap;
+}
+
+.ppt-summary-text {
+  font-family: var(--font-body);
+  font-size: clamp(0.625rem, 1.4vw, 0.95rem);
+  font-weight: 400;
+  color: var(--brand-font-primary);
+  margin: 0;
+  line-height: 1.4;
 }
 
 /* ==========================================

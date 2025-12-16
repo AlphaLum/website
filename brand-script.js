@@ -47,14 +47,9 @@ function initializeLogoGrid() {
     
     // Top logos to show initially (final options) with custom max-heights
     const topLogos = [
-        { filename: 'final-options/final-option-1.png', maxHeight: '55px' },
         { filename: 'final-options/final-option-2.png', maxHeight: '55px' },
         { filename: 'final-options/final-option-3.png', maxHeight: '55px' },
-        { filename: 'final-options/final-option-4-2.png', maxHeight: '55px' },
-        { filename: 'final-options/logo-option-5-2.png', maxHeight: '55px' },
-        { filename: 'final-options/logo-option-6-2.png', maxHeight: '55px' },
         { filename: 'final-options/logo-option-22.png', maxHeight: '55px' },
-        { filename: 'final-options/logo-option-21.png', maxHeight: '55px' },
         
     ];
     
@@ -623,7 +618,9 @@ function initializeStickyNav() {
 // Hero Video Ping-Pong Loop Initialization
 function initializeHeroVideo() {
     // Initialize hero videos with ping-pong loop
-    initializeSingleVideo('hero-background-video');
+    // Hero video scrubs with scroll position
+    initScrollVideo('hero-background-video');
+    
     initializeSingleVideo('stats-video-background');
     initializeSingleVideo('contact-video-background');
     
@@ -631,7 +628,46 @@ function initializeHeroVideo() {
     initializeGlassButtonVideos();
 }
 
-function initializeSingleVideo(videoId) {
+// Scroll-driven video: video position is controlled by scroll
+function initScrollVideo(videoId) {
+    const video = document.getElementById(videoId);
+    if (!video) return;
+    
+    const heroSection = video.closest('.mock-hero') || video.closest('section') || video.parentElement;
+    
+    video.addEventListener('loadedmetadata', function() {
+        // Pause the video - we'll control it with scroll
+        video.pause();
+        video.currentTime = 0;
+        
+        // Update video position on scroll
+        function updateVideoOnScroll() {
+            const rect = heroSection.getBoundingClientRect();
+            const sectionHeight = heroSection.offsetHeight;
+            const windowHeight = window.innerHeight;
+            
+            // Calculate scroll progress through the hero section
+            // 0 = top of section at top of viewport
+            // 1 = bottom of section leaving viewport
+            const scrollProgress = Math.max(0, Math.min(1, 
+                (windowHeight - rect.top) / (windowHeight + sectionHeight)
+            ));
+            
+            // Map scroll progress to video time
+            if (video.duration && isFinite(video.duration)) {
+                video.currentTime = scrollProgress * video.duration;
+            }
+        }
+        
+        // Initial update
+        updateVideoOnScroll();
+        
+        // Listen to scroll events
+        window.addEventListener('scroll', updateVideoOnScroll, { passive: true });
+    });
+}
+
+function initializeSingleVideo(videoId, playbackRate = 1) {
     const video = document.getElementById(videoId);
     
     if (!video) return;
@@ -639,8 +675,12 @@ function initializeSingleVideo(videoId) {
     let playbackDirection = 1; // 1 for forward, -1 for backward
     let animationFrameId = null;
     
+    // Set playback rate
+    video.playbackRate = playbackRate;
+    
     // Wait for video metadata to load
     video.addEventListener('loadedmetadata', function() {
+        video.playbackRate = playbackRate;  // Ensure rate is set after metadata loads
         // Start playing forward
         video.play().catch(error => {
             console.log('Video autoplay was prevented:', error);
