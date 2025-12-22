@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="100px" height="100px" viewBox="0 0 100 100" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <title>alphalum-square-color-logo</title>
+    <defs>
+        <path d="M0,0 L100,0 L100,100 L0,100 L0,0 Z" id="path-1"></path>
+        <linearGradient x1="96.4511719%" y1="94.8886719%" x2="-23.5527344%" y2="-16.7695313%" id="linearGradient-2">
+            <stop stop-color="#00AAFF" offset="0%"></stop>
+            <stop stop-color="#FF3B51" offset="62.0681476%"></stop>
+            <stop stop-color="#FF0000" offset="100%"></stop>
+        </linearGradient>
+        <filter x="0.0%" y="0.0%" width="100.0%" height="100.0%" filterUnits="objectBoundingBox" id="filter-3">
+            <feGaussianBlur stdDeviation="0" in="SourceGraphic"></feGaussianBlur>
+        </filter>
+    </defs>
+    <g id="alphalum-square-color-logo" stroke="none" fill="none" xlink:href="#path-1" fill-rule="evenodd">
+        <use fill="#FFFFFF" xlink:href="#path-1"></use>
+        <g id="logo-option-5-2" stroke-width="1" transform="translate(-27, -16)">
+            <rect id="Rectangle-6" fill="url(#linearGradient-2)" filter="url(#filter-3)" x="27" y="16" width="100" height="100"></rect>
+            <g id="Group" transform="translate(40, 23)" fill="#FFFFFF" fill-rule="nonzero">
+                <g id="L" transform="translate(49, 0)">
+                    <polygon id="Path" points="21.9541016 65.1425781 6.22509766 65.1425781 6.22509766 17 2.02050781 17 2.02050781 69 21.9541016 69"></polygon>
+                </g>
+                <g transform="translate(0, 17)" id="Shape">
+                    <path d="M8.54503676,52 L14.6314338,35.0484581 L36.3290441,35.0484581 L42.4154412,52 L47,52 L27.6737132,0 L23.3262868,0 L4,52 L8.54503676,52 Z M25.5790441,5.15418502 L36.3329647,35.0482138 L14.6326353,35.0482138 L25.4209559,5.15418502 L25.5790441,5.15418502 Z"></path>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

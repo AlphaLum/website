@@ -326,7 +326,7 @@ function updateRainbowGradient() {
     const accent1 = computedStyle.getPropertyValue('--brand-accent-1').trim();
     
     // Create 3-color gradient: Primary → Accent 1 → Secondary
-    const gradient = `linear-gradient(90deg, ${primary} 10%, ${accent1} 50%, ${secondary} 90%)`;
+    const gradient = `linear-gradient(90deg, ${primary} -10%, ${accent1} 35%, ${secondary} 95%)`;
     
     // Update CSS variable
     root.style.setProperty('--rainbow-gradient', gradient);
@@ -336,7 +336,7 @@ function updateRainbowGradient() {
     const accent1Rgba = hexToRgba(accent1, 0.1);
     const secondaryRgba = hexToRgba(secondary, 0.1);
     
-    const gradientBg = `linear-gradient(90deg, ${primaryRgba} 0%, ${accent1Rgba} 50%, ${secondaryRgba} 100%)`;
+    const gradientBg = `linear-gradient(90deg, ${primaryRgba} 0%, ${accent1Rgba} 35%, ${secondaryRgba} 95%)`;
     root.style.setProperty('--rainbow-gradient-bg', gradientBg);
     
     // Update BG-3 swatch to show the gradient
@@ -885,4 +885,3 @@ window.exportBrandGuidelines = function() {
         typography: exportTypography()
     };
 };
-

@@ -3,11 +3,11 @@
 /* CSS Variables for Brand Colors */
 :root {
   --brand-primary: #ff4524;
-  --brand-secondary: #0095FF;
+  --brand-secondary: #00AAFF;
   --brand-bg-1: #fefefe;
   --brand-bg-2: #f4f4f6;
   --brand-bg-3: rgba(255, 69, 36, 0.1);
-  --brand-accent-1: #FF4FD8;
+  --brand-accent-1: #ff5e6c;
   --brand-accent-2: #67ffb0;
   --brand-button: #000000;
   --brand-font-primary: #1A1A1A;
@@ -18,21 +18,23 @@
   
   /* Rainbow Gradient (3 colors: Primary → Accent 1 → Secondary) */
   --rainbow-gradient: linear-gradient(90deg, 
-    var(--brand-primary) 0%, 
-    var(--brand-accent-1) 90%, 
-    var(--brand-secondary) 90%
+    var(--brand-primary) -10%, 
+    var(--brand-accent-1) 30%, 
+    var(--brand-secondary) 95%
   );
   
   /* Rainbow Gradient Background (10% opacity) */
   --rainbow-gradient-bg: linear-gradient(90deg, 
-    rgba(255, 69, 36, 0.1) 0%, 
-    rgba(255, 79, 216, 0.1) 50%, 
-    rgba(0, 149, 255, 0.1) 100%
+    rgba(255, 69, 36, 0.1) -10%, 
+    rgba(255, 59, 81, 0.1) 30%, 
+    rgba(0, 170, 255, 0.1) 95%
   );
   
   /* Typography */
   --font-header: 'Inter', sans-serif;
   --font-body: 'Inter', sans-serif;
+  --header-font-weight: 400;
+  --body-paragraph-weight: 400;
   
   /* Layout */
   --container-max-width: 1400px;
@@ -118,7 +120,7 @@ body {
 }
 
 .sticky-nav-logo img {
-  max-height: 45px;
+  max-height: 30px;
   width: auto;
   object-fit: contain;
   transition: var(--transition);
@@ -377,7 +379,7 @@ body {
   font-size: 7rem;
   color: var(--brand-font-primary);
   margin: 0 0 var(--spacing-sm) 0;
-  font-weight: 300;
+  font-weight: var(--header-font-weight);
   line-height: 1.1;
   margin-top:5rem;
 }
@@ -386,7 +388,7 @@ body {
   font-size: 1.25rem;
   color: var(--brand-font-primary);
   margin: 0;
-  font-weight: 300;
+  font-weight: var(--body-paragraph-weight);
 }
 
 /* Sections */
@@ -411,7 +413,7 @@ body {
   font-size: 2.5rem;
   color: var(--brand-font-primary);
   margin: 0 0 var(--spacing-sm) 0;
-  font-weight: 300;
+  font-weight: var(--header-font-weight);
 }
 
 .brand-section h3 {
@@ -419,7 +421,7 @@ body {
   font-size: 1.75rem;
   color: var(--brand-font-primary);
   margin: var(--spacing-lg) 0 var(--spacing-md) 0;
-  font-weight: 300;
+  font-weight: var(--header-font-weight);
 }
 
 .brand-section h4 {
@@ -427,7 +429,7 @@ body {
   font-size: 1.25rem;
   color: var(--brand-font-primary);
   margin: var(--spacing-md) 0 var(--spacing-sm) 0;
-  font-weight: 500;
+  font-weight: var(--header-font-weight);
 }
 
 .section-description {
@@ -485,6 +487,180 @@ body {
   display: inline-flex;
   align-items: center;
   gap: 8px;
+}
+
+/* Assets Section */
+.asset-category {
+  margin-bottom: var(--spacing-xl);
+}
+
+.asset-category:last-child {
+  margin-bottom: 0;
+}
+
+.asset-category h3 {
+  font-family: var(--font-header);
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: var(--brand-font-primary);
+  margin: 0 0 var(--spacing-md) 0;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.assets-list {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-xs);
+}
+
+.asset-item {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-md);
+  padding: var(--spacing-sm) var(--spacing-md);
+  background: var(--brand-bg-2);
+  border-radius: 0;
+  transition: var(--transition);
+  border-left: 2px solid transparent;
+}
+
+.asset-item:hover {
+  border-left-color: var(--brand-primary);
+  background: rgba(0, 0, 0, 0.03);
+}
+
+/* Asset Thumbnails */
+.asset-thumbnail {
+  width: 80px;
+  height: 50px;
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #f8f8f8;
+  border: 1px solid #e5e7eb;
+  overflow: hidden;
+}
+
+.asset-thumbnail img {
+  max-width: 100%;
+  max-height: 100%;
+  object-fit: contain;
+}
+
+/* Dark background for white logos */
+.asset-thumbnail-dark {
+  background: #1a1a1a;
+  border-color: #333;
+}
+
+/* Wide thumbnail for background images */
+.asset-thumbnail-wide {
+  width: 100px;
+  height: 56px;
+}
+
+.asset-thumbnail-wide img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.asset-info {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  flex: 1;
+  min-width: 0;
+}
+
+.asset-name {
+  font-family: var(--font-body);
+  font-size: 1rem;
+  font-weight: 500;
+  color: var(--brand-font-primary);
+}
+
+.asset-type {
+  font-family: var(--font-body);
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: var(--brand-font-secondary);
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+/* Download Button - Black Square Style */
+.btn-download {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  background: var(--brand-button);
+  color: white;
+  border: none;
+  border-radius: 0;
+  cursor: pointer;
+  transition: var(--transition);
+  text-decoration: none;
+  flex-shrink: 0;
+}
+
+.btn-download:hover {
+  filter: brightness(0.75);
+  transform: translateY(-1px);
+}
+
+.btn-download svg {
+  width: 20px;
+  height: 20px;
+  stroke: currentColor;
+}
+
+/* Responsive Assets */
+@media (max-width: 768px) {
+  .asset-item {
+    padding: var(--spacing-sm);
+    gap: var(--spacing-sm);
+  }
+  
+  .asset-thumbnail {
+    width: 60px;
+    height: 40px;
+  }
+  
+  .asset-thumbnail-wide {
+    width: 70px;
+    height: 40px;
+  }
+  
+  .asset-name {
+    font-size: 0.875rem;
+  }
+  
+  .btn-download {
+    width: 36px;
+    height: 36px;
+  }
+  
+  .btn-download svg {
+    width: 18px;
+    height: 18px;
+  }
+}
+
+@media (max-width: 480px) {
+  .asset-thumbnail {
+    width: 50px;
+    height: 32px;
+  }
+  
+  .asset-thumbnail-wide {
+    width: 56px;
+    height: 32px;
+  }
 }
 
 /* Color Controls */
@@ -634,7 +810,7 @@ body {
   font-family: var(--font-header);
   font-size: 6rem;
   margin: var(--spacing-md) 0;
-  font-weight: 300;
+  font-weight: var(--header-font-weight);
   line-height: 1.1;
 }
 
@@ -642,42 +818,42 @@ body {
   font-family: var(--font-header);
   font-size: 3rem;
   margin: var(--spacing-md) 0;
-  font-weight: 300;
+  font-weight: var(--header-font-weight);
 }
 
 .sample-h2 {
   font-family: var(--font-header);
   font-size: 2.5rem;
   margin: var(--spacing-md) 0;
-  font-weight: 300;
+  font-weight: var(--header-font-weight);
 }
 
 .sample-h3 {
   font-family: var(--font-header);
   font-size: 2rem;
   margin: var(--spacing-md) 0;
-  font-weight: 300;
+  font-weight: var(--header-font-weight);
 }
 
 .sample-h4 {
   font-family: var(--font-header);
   font-size: 1.5rem;
   margin: var(--spacing-md) 0;
-  font-weight: 600;
+  font-weight: var(--header-font-weight);
 }
 
 .sample-h5 {
   font-family: var(--font-header);
   font-size: 1.25rem;
   margin: var(--spacing-md) 0;
-  font-weight: 600;
+  font-weight: var(--header-font-weight);
 }
 
 .sample-h6 {
   font-family: var(--font-header);
   font-size: 1rem;
   margin: var(--spacing-md) 0;
-  font-weight: 600;
+  font-weight: var(--header-font-weight);
 }
 
 .sample-p-large {
@@ -685,7 +861,7 @@ body {
   font-size: 1.25rem;
   line-height: 1.8;
   margin: var(--spacing-md) 0;
-  font-weight: 400;
+  font-weight: var(--body-paragraph-weight);
 }
 
 .sample-p-regular {
@@ -693,7 +869,7 @@ body {
   font-size: 1rem;
   line-height: 1.6;
   margin: var(--spacing-md) 0;
-  font-weight: 400;
+  font-weight: var(--body-paragraph-weight);
 }
 
 .sample-p-small {
@@ -701,7 +877,7 @@ body {
   font-size: 0.875rem;
   line-height: 1.5;
   margin: var(--spacing-md) 0;
-  font-weight: 400;
+  font-weight: var(--body-paragraph-weight);
 }
 
 /* Components Showcase */
@@ -1331,7 +1507,7 @@ body {
   margin: var(--spacing-sm) 0 var(--spacing-sm) 0;
   padding-bottom: var(--spacing-xs);
   text-transform: uppercase;
-  font-weight:300;
+  font-weight: var(--header-font-weight);
   letter-spacing: 1.5px;
 }
 
@@ -1638,7 +1814,7 @@ body {
   font-family: var(--font-header);
   font-size: 4rem;
   margin: 0 0 var(--spacing-md) 0;
-  font-weight: 300;
+  font-weight: var(--header-font-weight);
   line-height: 1.1;
 }
 
@@ -1651,7 +1827,7 @@ body {
   padding-bottom: 2px;
 }
 p {
-  font-weight: 300;
+  font-weight: var(--body-paragraph-weight);
 }
 .mock-hero p {
   font-family: var(--font-body);
@@ -1659,7 +1835,7 @@ p {
   margin: 0 0 var(--spacing-xl) 0;
   line-height: 1.6;
   opacity: 0.95;
-  font-weight: 300;
+  font-weight: var(--body-paragraph-weight);
 }
 
 .hero-buttons {
@@ -1726,7 +1902,7 @@ p {
   font-family: var(--font-header);
   font-size: 3rem;
   margin: 0 0 var(--spacing-md) 0;
-  font-weight: 300;
+  font-weight: var(--header-font-weight);
 }
 
 
@@ -1759,7 +1935,7 @@ p {
   font-size: 1.25rem;
   line-height: 1.8;
   margin: 0;
-  font-weight: 400;
+  font-weight: var(--body-paragraph-weight);
 }
 
 .info-image {
@@ -1831,6 +2007,7 @@ p {
   opacity: 1;
   z-index: 0;
   pointer-events: none;
+  opacity: 0.5;
 }
 
 .contact-content {
@@ -1844,7 +2021,7 @@ p {
 .contact-content h2 {
   font-family: var(--font-header);
   font-size: 3rem;
-  font-weight: 300;
+  font-weight: var(--header-font-weight);
   color: white;
   margin: 0 0 var(--spacing-md) 0;
 }
@@ -1852,7 +2029,7 @@ p {
 .contact-content p {
   font-family: var(--font-body);
   font-size: 1.25rem;
-  font-weight: 400;
+  font-weight: var(--body-paragraph-weight);
   color: white;
   margin: 0;
   opacity: 0.95;
@@ -2019,7 +2196,7 @@ p {
 .metric-value {
   font-family: var(--font-header);
   font-size: 3.5rem;
-  font-weight: 300;
+  font-weight: var(--header-font-weight);
   color: white;
   margin: 0;
   line-height: 1;
@@ -2436,7 +2613,7 @@ p {
 .ppt-title {
   font-family: var(--font-header);
   font-size: clamp(1.5rem, 5vw, 3.5rem);
-  font-weight: 300;
+  font-weight: var(--header-font-weight);
   color: white;
   margin: 0 0 var(--spacing-md) 0;
   line-height: 1.1;
@@ -2446,7 +2623,7 @@ p {
 .ppt-subtitle {
   font-family: var(--font-body);
   font-size: clamp(0.875rem, 2vw, 1.5rem);
-  font-weight: 400;
+  font-weight: var(--body-paragraph-weight);
   color: rgba(255, 255, 255, 0.85);
   margin: 0;
 }
@@ -2501,7 +2678,7 @@ p {
 .ppt-section-title {
   font-family: var(--font-header);
   font-size: clamp(1.25rem, 3.5vw, 2.5rem);
-  font-weight: 300;
+  font-weight: var(--header-font-weight);
   color: var(--brand-font-primary);
   margin: 0 0 var(--spacing-xs) 0;
 }
@@ -2509,7 +2686,7 @@ p {
 .ppt-section-subtitle {
   font-family: var(--font-body);
   font-size: clamp(0.75rem, 1.5vw, 1rem);
-  font-weight: 400;
+  font-weight: var(--body-paragraph-weight);
   color: var(--brand-font-secondary);
   margin: 0 0 var(--spacing-lg) 0;
   text-align: left;
@@ -2544,7 +2721,7 @@ p {
 .ppt-card h3 {
   font-family: var(--font-header);
   font-size: clamp(0.75rem, 2vw, 1.25rem);
-  font-weight: 300;
+  font-weight: var(--header-font-weight);
   color: var(--brand-font-primary);
   margin: 0 0 var(--spacing-xs) 0;
   padding-bottom: var(--spacing-xs);
@@ -2556,7 +2733,7 @@ p {
 .ppt-card p {
   font-family: var(--font-body);
   font-size: clamp(0.625rem, 1.5vw, 1rem);
-  font-weight: 400;
+  font-weight: var(--body-paragraph-weight);
   color: var(--brand-font-secondary);
   margin: 0;
   line-height: 1.5;
@@ -2593,7 +2770,7 @@ p {
 .ppt-section-title-heading {
   font-family: var(--font-header);
   font-size: clamp(1.5rem, 5vw, 3.5rem);
-  font-weight: 300;
+  font-weight: var(--header-font-weight);
   color: var(--brand-font-primary);
   margin: 0 0 var(--spacing-sm) 0;
   line-height: 1.1;
@@ -2602,7 +2779,7 @@ p {
 .ppt-section-title-desc {
   font-family: var(--font-body);
   font-size: clamp(0.75rem, 2vw, 1.25rem);
-  font-weight: 400;
+  font-weight: var(--body-paragraph-weight);
   color: var(--brand-font-secondary);
   margin: 0;
   max-width: 60%;
@@ -2679,7 +2856,7 @@ p {
 .ppt-bullet-list li p {
   font-family: var(--font-body);
   font-size: clamp(0.625rem, 1.4vw, 0.95rem);
-  font-weight: 400;
+  font-weight: var(--body-paragraph-weight);
   color: var(--brand-font-secondary);
   margin: 0;
   line-height: 1.4;
@@ -2727,7 +2904,7 @@ p {
 .ppt-numbered-list li p {
   font-family: var(--font-body);
   font-size: clamp(0.625rem, 1.4vw, 0.95rem);
-  font-weight: 400;
+  font-weight: var(--body-paragraph-weight);
   color: var(--brand-font-secondary);
   margin: 0;
   line-height: 1.4;
@@ -2765,7 +2942,7 @@ p {
 .ppt-takeaway-label {
   font-family: var(--font-header);
   font-size: clamp(0.625rem, 1.2vw, 0.875rem);
-  font-weight: 300;
+  font-weight: var(--header-font-weight);
   color: var(--brand-secondary);
   text-transform: uppercase;
   letter-spacing: 1px;
@@ -2776,7 +2953,7 @@ p {
 .ppt-takeaway-text {
   font-family: var(--font-body);
   font-size: clamp(0.625rem, 1.4vw, 0.95rem);
-  font-weight: 300;
+  font-weight: var(--body-paragraph-weight);
   color: var(--brand-font-primary);
   margin: 0;
   line-height: 1.4;
@@ -2799,7 +2976,7 @@ p {
 .ppt-summary-label {
   font-family: var(--font-header);
   font-size: clamp(0.625rem, 1.2vw, 0.875rem);
-  font-weight: 300;
+  font-weight: var(--header-font-weight);
   color: var(--brand-primary);
   text-transform: uppercase;
   letter-spacing: 1px;
@@ -2810,7 +2987,7 @@ p {
 .ppt-summary-text {
   font-family: var(--font-body);
   font-size: clamp(0.625rem, 1.4vw, 0.95rem);
-  font-weight: 400;
+  font-weight: var(--body-paragraph-weight);
   color: var(--brand-font-primary);
   margin: 0;
   line-height: 1.4;
