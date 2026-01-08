@@ -885,3 +885,169 @@ window.exportBrandGuidelines = function() {
         typography: exportTypography()
     };
 };
+
+/* ==========================================
+   Corporate Website Navigation & Interactions
+   ========================================== */
+
+// Initialize corporate site features on page load
+document.addEventListener('DOMContentLoaded', function() {
+    initGlobalNav();
+    initMobileNav();
+    initExpandableGrids();
+    initSmoothScroll();
+    initFooterLogoReveal();
+});
+
+// Global Navigation with Dropdown
+function initGlobalNav() {
+    const dropdowns = document.querySelectorAll('.nav-dropdown');
+    
+    dropdowns.forEach(dropdown => {
+        const trigger = dropdown.querySelector('.nav-dropdown-trigger');
+        const menu = dropdown.querySelector('.nav-dropdown-menu');
+        
+        if (!trigger || !menu) return;
+        
+        // Handle hover for desktop
+        dropdown.addEventListener('mouseenter', function() {
+            dropdown.classList.add('active');
+        });
+        
+        dropdown.addEventListener('mouseleave', function() {
+            dropdown.classList.remove('active');
+        });
+        
+        // Handle click for touch devices
+        trigger.addEventListener('click', function(e) {
+            e.preventDefault();
+            dropdown.classList.toggle('active');
+        });
+    });
+    
+    // Close dropdowns when clicking outside
+    document.addEventListener('click', function(e) {
+        dropdowns.forEach(dropdown => {
+            if (!dropdown.contains(e.target)) {
+                dropdown.classList.remove('active');
+            }
+        });
+    });
+}
+
+// Mobile Navigation Toggle
+function initMobileNav() {
+    const toggle = document.querySelector('.mobile-nav-toggle');
+    const menu = document.querySelector('.mobile-nav-menu');
+    const mobileDropdowns = document.querySelectorAll('.mobile-dropdown-trigger');
+    
+    if (toggle && menu) {
+        toggle.addEventListener('click', function() {
+            toggle.classList.toggle('active');
+            menu.classList.toggle('active');
+            document.body.style.overflow = menu.classList.contains('active') ? 'hidden' : '';
+        });
+    }
+    
+    // Mobile dropdown toggles
+    mobileDropdowns.forEach(trigger => {
+        trigger.addEventListener('click', function(e) {
+            e.preventDefault();
+            const parent = trigger.closest('.mobile-nav-item');
+            const items = parent.querySelector('.mobile-dropdown-items');
+            
+            if (items) {
+                trigger.classList.toggle('active');
+                items.classList.toggle('active');
+            }
+        });
+    });
+    
+    // Close mobile menu on link click
+    const mobileLinks = document.querySelectorAll('.mobile-nav-menu a:not(.mobile-dropdown-trigger)');
+    mobileLinks.forEach(link => {
+        link.addEventListener('click', function() {
+            if (toggle && menu) {
+                toggle.classList.remove('active');
+                menu.classList.remove('active');
+                document.body.style.overflow = '';
+            }
+        });
+    });
+}
+
+// Expandable Feature Grids
+function initExpandableGrids() {
+    const expandTriggers = document.querySelectorAll('.expand-trigger');
+    
+    expandTriggers.forEach(trigger => {
+        trigger.addEventListener('click', function() {
+            const grid = trigger.previousElementSibling;
+            
+            if (grid && grid.classList.contains('expandable-grid')) {
+                grid.classList.toggle('collapsed');
+                trigger.classList.toggle('expanded');
+                
+                // Update button text
+                const isExpanded = !grid.classList.contains('collapsed');
+                trigger.innerHTML = isExpanded 
+                    ? `<span>View Less</span>
+                       <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 15l-6-6-6 6"/></svg>`
+                    : `<span>View More</span>
+                       <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6 6-6"/></svg>`;
+            }
+        });
+    });
+}
+
+// Smooth Scroll for Anchor Links
+function initSmoothScroll() {
+    const scrollLinks = document.querySelectorAll('a[href^="#"], button[data-scroll-to]');
+    
+    scrollLinks.forEach(link => {
+        link.addEventListener('click', function(e) {
+            const href = link.getAttribute('href') || link.dataset.scrollTo;
+            
+            if (href && href.startsWith('#') && href.length > 1) {
+                const target = document.querySelector(href);
+                
+                if (target) {
+                    e.preventDefault();
+                    
+                    // Get nav height for offset
+                    const nav = document.querySelector('.global-nav');
+                    const navHeight = nav ? nav.offsetHeight : 70;
+                    
+                    const targetPosition = target.getBoundingClientRect().top + window.pageYOffset - navHeight;
+                    
+                    window.scrollTo({
+                        top: targetPosition,
+                        behavior: 'smooth'
+                    });
+                }
+            }
+        });
+    });
+}
+
+// Footer Large Logo Reveal on Scroll
+function initFooterLogoReveal() {
+    const logoContainer = document.querySelector('.global-footer-large-logo');
+    
+    if (!logoContainer) return;
+    
+    // Create Intersection Observer
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                // Add revealed class when logo comes into view
+                logoContainer.classList.add('revealed');
+            }
+        });
+    }, {
+        threshold: 0.1, // Trigger when 10% of the element is visible
+        rootMargin: '0px 0px -50px 0px' // Trigger slightly before fully in view
+    });
+    
+    observer.observe(logoContainer);
+}
