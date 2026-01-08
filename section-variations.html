@@ -1,0 +1,1405 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>Foundation Section Variations - AlphaLum</title>
+
+    <!-- Favicons -->
+    <link rel="icon" href="assets/images/logo/AlphaLum_logo.svg" type="image/svg+xml"/>
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com"/>
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet"/>
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="reset.css"/>
+    <link rel="stylesheet" href="brand-styles.css"/>
+    
+    <style>
+        /* Variation Page Layout */
+        .variation-wrapper {
+            padding: 60px 0;
+            border-bottom: 1px solid #eee;
+        }
+        
+        .variation-label {
+            text-align: center;
+            padding: 20px;
+            background: #1a1a1a;
+            color: white;
+            font-size: 0.875rem;
+            font-weight: 600;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+        
+        /* ==========================================
+           VARIATION 1 - Dark Glassmorphism
+           ========================================== */
+        .foundation-v1 {
+            padding: 100px 10%;
+            background: linear-gradient(135deg, #0d0d0d 0%, #1a1a1a 50%, #0f1419 100%);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .foundation-v1::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -25%;
+            width: 80%;
+            height: 100%;
+            background: radial-gradient(ellipse, rgba(255, 69, 36, 0.15) 0%, transparent 60%);
+            pointer-events: none;
+        }
+        
+        .foundation-v1::after {
+            content: '';
+            position: absolute;
+            bottom: -30%;
+            right: -20%;
+            width: 60%;
+            height: 80%;
+            background: radial-gradient(ellipse, rgba(0, 170, 255, 0.1) 0%, transparent 60%);
+            pointer-events: none;
+        }
+        
+        .foundation-v1 .v1-header {
+            text-align: center;
+            max-width: 900px;
+            margin: 0 auto 60px;
+            position: relative;
+            z-index: 1;
+        }
+        
+        .foundation-v1 .v1-header h2 {
+            font-family: var(--font-header);
+            font-size: clamp(2rem, 4vw, 2.75rem);
+            font-weight: 300;
+            color: #ffffff;
+            margin-bottom: 20px;
+            line-height: 1.2;
+        }
+        
+        .foundation-v1 .v1-subtitle {
+            font-size: 1.25rem;
+            color: rgba(255, 255, 255, 0.6);
+            line-height: 1.6;
+        }
+        
+        .foundation-v1 .v1-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 32px;
+            position: relative;
+            z-index: 1;
+        }
+        
+        .foundation-v1 .v1-card {
+            background: rgba(255, 255, 255, 0.03);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            border-radius: 16px;
+            padding: 48px;
+            position: relative;
+            overflow: hidden;
+            transition: all 0.4s ease;
+        }
+        
+        .foundation-v1 .v1-card:hover {
+            background: rgba(255, 255, 255, 0.05);
+            border-color: rgba(255, 255, 255, 0.15);
+            transform: translateY(-4px);
+        }
+        
+        .foundation-v1 .v1-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 2px;
+            background: var(--rainbow-gradient);
+        }
+        
+        .foundation-v1 .v1-card h3 {
+            font-family: var(--font-header);
+            font-size: 1.5rem;
+            font-weight: 500;
+            color: #ffffff;
+            margin-bottom: 20px;
+        }
+        
+        .foundation-v1 .v1-card p {
+            font-size: 1rem;
+            color: rgba(255, 255, 255, 0.65);
+            line-height: 1.8;
+        }
+        
+        /* ==========================================
+           VARIATION 2 - Large Numbers Accent
+           ========================================== */
+        .foundation-v2 {
+            padding: 100px 10%;
+            background: #ffffff;
+        }
+        
+        .foundation-v2 .v2-header {
+            text-align: center;
+            max-width: 900px;
+            margin: 0 auto 80px;
+        }
+        
+        .foundation-v2 .v2-header h2 {
+            font-family: var(--font-header);
+            font-size: clamp(2rem, 4vw, 2.75rem);
+            font-weight: 300;
+            color: var(--brand-font-primary);
+            margin-bottom: 20px;
+            line-height: 1.2;
+        }
+        
+        .foundation-v2 .v2-subtitle {
+            font-size: 1.25rem;
+            color: var(--brand-font-secondary);
+            line-height: 1.6;
+        }
+        
+        .foundation-v2 .v2-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 48px;
+        }
+        
+        .foundation-v2 .v2-card {
+            position: relative;
+            padding-left: 100px;
+        }
+        
+        .foundation-v2 .v2-number {
+            position: absolute;
+            left: 0;
+            top: -10px;
+            font-family: var(--font-header);
+            font-size: 6rem;
+            font-weight: 700;
+            line-height: 1;
+            background: var(--rainbow-gradient);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            opacity: 0.25;
+        }
+        
+        .foundation-v2 .v2-card h3 {
+            font-family: var(--font-header);
+            font-size: 1.375rem;
+            font-weight: 500;
+            color: var(--brand-font-primary);
+            margin-bottom: 16px;
+            position: relative;
+        }
+        
+        .foundation-v2 .v2-card h3::after {
+            content: '';
+            display: block;
+            width: 40px;
+            height: 3px;
+            background: var(--rainbow-gradient);
+            margin-top: 12px;
+        }
+        
+        .foundation-v2 .v2-card p {
+            font-size: 1rem;
+            color: var(--brand-font-secondary);
+            line-height: 1.8;
+        }
+        
+        /* ==========================================
+           VARIATION 3 - Full Width Stacked Cards
+           ========================================== */
+        .foundation-v3 {
+            padding: 100px 0;
+            background: linear-gradient(180deg, #f8f9fa 0%, #ffffff 100%);
+        }
+        
+        .foundation-v3 .v3-header {
+            text-align: center;
+            max-width: 900px;
+            margin: 0 auto 60px;
+            padding: 0 10%;
+        }
+        
+        .foundation-v3 .v3-header h2 {
+            font-family: var(--font-header);
+            font-size: clamp(2rem, 4vw, 2.75rem);
+            font-weight: 300;
+            color: var(--brand-font-primary);
+            margin-bottom: 20px;
+            line-height: 1.2;
+        }
+        
+        .foundation-v3 .v3-subtitle {
+            font-size: 1.25rem;
+            color: var(--brand-font-secondary);
+            line-height: 1.6;
+        }
+        
+        .foundation-v3 .v3-stack {
+            display: flex;
+            flex-direction: column;
+            gap: 0;
+        }
+        
+        .foundation-v3 .v3-card {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            min-height: 300px;
+        }
+        
+        .foundation-v3 .v3-card:nth-child(odd) {
+            background: #ffffff;
+        }
+        
+        .foundation-v3 .v3-card:nth-child(even) {
+            background: var(--brand-bg-2);
+        }
+        
+        .foundation-v3 .v3-card-accent {
+            background: var(--rainbow-gradient);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 40px;
+        }
+        
+        .foundation-v3 .v3-card:nth-child(1) .v3-card-accent {
+            background: linear-gradient(135deg, #ff4524 0%, #ff5e6c 100%);
+        }
+        
+        .foundation-v3 .v3-card:nth-child(2) .v3-card-accent {
+            background: linear-gradient(135deg, #00AAFF 0%, #67ffb0 100%);
+            order: 2;
+        }
+        
+        .foundation-v3 .v3-card-accent span {
+            font-family: var(--font-header);
+            font-size: 7rem;
+            font-weight: 700;
+            color: rgba(255, 255, 255, 0.3);
+        }
+        
+        .foundation-v3 .v3-card-content {
+            padding: 60px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+        
+        .foundation-v3 .v3-card h3 {
+            font-family: var(--font-header);
+            font-size: 1.75rem;
+            font-weight: 500;
+            color: var(--brand-font-primary);
+            margin-bottom: 20px;
+        }
+        
+        .foundation-v3 .v3-card p {
+            font-size: 1.0625rem;
+            color: var(--brand-font-secondary);
+            line-height: 1.8;
+        }
+        
+        /* ==========================================
+           VARIATION 4 - Split Layout with Visual
+           ========================================== */
+        .foundation-v4 {
+            padding: 0;
+            background: #ffffff;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            min-height: 700px;
+        }
+        
+        .foundation-v4 .v4-visual {
+            background: linear-gradient(135deg, #0d0d0d 0%, #1a1a1a 100%);
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+        }
+        
+        .foundation-v4 .v4-visual::before {
+            content: '';
+            position: absolute;
+            width: 300px;
+            height: 300px;
+            border-radius: 50%;
+            background: radial-gradient(circle, rgba(255, 69, 36, 0.4) 0%, transparent 70%);
+            top: 20%;
+            left: 10%;
+            filter: blur(60px);
+        }
+        
+        .foundation-v4 .v4-visual::after {
+            content: '';
+            position: absolute;
+            width: 250px;
+            height: 250px;
+            border-radius: 50%;
+            background: radial-gradient(circle, rgba(0, 170, 255, 0.35) 0%, transparent 70%);
+            bottom: 20%;
+            right: 15%;
+            filter: blur(50px);
+        }
+        
+        .foundation-v4 .v4-visual-text {
+            position: relative;
+            z-index: 1;
+            color: white;
+            text-align: center;
+            padding: 40px;
+        }
+        
+        .foundation-v4 .v4-visual-text h2 {
+            font-family: var(--font-header);
+            font-size: clamp(2rem, 3.5vw, 2.5rem);
+            font-weight: 300;
+            line-height: 1.3;
+            margin-bottom: 20px;
+        }
+        
+        .foundation-v4 .v4-visual-text p {
+            font-size: 1.125rem;
+            color: rgba(255, 255, 255, 0.7);
+            line-height: 1.6;
+            max-width: 400px;
+        }
+        
+        .foundation-v4 .v4-content {
+            padding: 80px 60px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            gap: 40px;
+        }
+        
+        .foundation-v4 .v4-card {
+            padding: 32px;
+            border-left: 4px solid transparent;
+            border-image: var(--rainbow-gradient) 1;
+            background: var(--brand-bg-2);
+            transition: all 0.3s ease;
+        }
+        
+        .foundation-v4 .v4-card:hover {
+            transform: translateX(8px);
+        }
+        
+        .foundation-v4 .v4-card h3 {
+            font-family: var(--font-header);
+            font-size: 1.25rem;
+            font-weight: 500;
+            color: var(--brand-font-primary);
+            margin-bottom: 12px;
+        }
+        
+        .foundation-v4 .v4-card p {
+            font-size: 0.9375rem;
+            color: var(--brand-font-secondary);
+            line-height: 1.7;
+        }
+        
+        /* ==========================================
+           VARIATION 5 - Floating Cards on Gradient
+           ========================================== */
+        .foundation-v5 {
+            padding: 120px 10%;
+            background: linear-gradient(135deg, 
+                rgba(255, 69, 36, 0.03) 0%, 
+                rgba(255, 94, 108, 0.05) 50%,
+                rgba(0, 170, 255, 0.04) 100%
+            );
+            position: relative;
+        }
+        
+        .foundation-v5 .v5-header {
+            text-align: center;
+            max-width: 800px;
+            margin: 0 auto 80px;
+        }
+        
+        .foundation-v5 .v5-header h2 {
+            font-family: var(--font-header);
+            font-size: clamp(2rem, 4vw, 2.75rem);
+            font-weight: 300;
+            color: var(--brand-font-primary);
+            margin-bottom: 20px;
+            line-height: 1.2;
+        }
+        
+        .foundation-v5 .v5-subtitle {
+            font-size: 1.25rem;
+            color: var(--brand-font-secondary);
+            line-height: 1.6;
+        }
+        
+        .foundation-v5 .v5-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 40px;
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+        
+        .foundation-v5 .v5-card {
+            background: #ffffff;
+            border-radius: 20px;
+            padding: 48px;
+            box-shadow: 
+                0 4px 6px rgba(0, 0, 0, 0.02),
+                0 12px 24px rgba(0, 0, 0, 0.04),
+                0 24px 48px rgba(0, 0, 0, 0.03);
+            position: relative;
+            overflow: hidden;
+            transition: all 0.4s ease;
+        }
+        
+        .foundation-v5 .v5-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 
+                0 8px 12px rgba(0, 0, 0, 0.03),
+                0 20px 40px rgba(0, 0, 0, 0.06),
+                0 40px 80px rgba(0, 0, 0, 0.04);
+        }
+        
+        .foundation-v5 .v5-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: var(--rainbow-gradient);
+            border-radius: 20px 20px 0 0;
+        }
+        
+        .foundation-v5 .v5-icon {
+            width: 56px;
+            height: 56px;
+            border-radius: 12px;
+            background: linear-gradient(135deg, rgba(255, 69, 36, 0.1) 0%, rgba(0, 170, 255, 0.1) 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 24px;
+        }
+        
+        .foundation-v5 .v5-icon svg {
+            width: 28px;
+            height: 28px;
+            stroke: var(--brand-primary);
+        }
+        
+        .foundation-v5 .v5-card:nth-child(2) .v5-icon svg {
+            stroke: var(--brand-secondary);
+        }
+        
+        .foundation-v5 .v5-card h3 {
+            font-family: var(--font-header);
+            font-size: 1.375rem;
+            font-weight: 500;
+            color: var(--brand-font-primary);
+            margin-bottom: 16px;
+        }
+        
+        .foundation-v5 .v5-card p {
+            font-size: 1rem;
+            color: var(--brand-font-secondary);
+            line-height: 1.8;
+        }
+        
+        /* ==========================================
+           VARIATION 6 - Minimal Line Accent
+           ========================================== */
+        .foundation-v6 {
+            padding: 120px 10%;
+            background: #ffffff;
+        }
+        
+        .foundation-v6 .v6-container {
+            max-width: 1100px;
+            margin: 0 auto;
+        }
+        
+        .foundation-v6 .v6-header {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 80px;
+            align-items: end;
+            margin-bottom: 80px;
+            padding-bottom: 40px;
+            border-bottom: 1px solid #eee;
+        }
+        
+        .foundation-v6 .v6-header h2 {
+            font-family: var(--font-header);
+            font-size: clamp(2rem, 4vw, 2.75rem);
+            font-weight: 300;
+            color: var(--brand-font-primary);
+            line-height: 1.2;
+        }
+        
+        .foundation-v6 .v6-subtitle {
+            font-size: 1.125rem;
+            color: var(--brand-font-secondary);
+            line-height: 1.7;
+        }
+        
+        .foundation-v6 .v6-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 80px;
+        }
+        
+        .foundation-v6 .v6-card {
+            position: relative;
+        }
+        
+        .foundation-v6 .v6-card::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 0;
+            width: 60px;
+            height: 2px;
+            background: var(--brand-primary);
+        }
+        
+        .foundation-v6 .v6-card:nth-child(2)::before {
+            background: var(--brand-secondary);
+        }
+        
+        .foundation-v6 .v6-card h3 {
+            font-family: var(--font-header);
+            font-size: 1.25rem;
+            font-weight: 500;
+            color: var(--brand-font-primary);
+            margin: 24px 0 16px;
+        }
+        
+        .foundation-v6 .v6-card p {
+            font-size: 1rem;
+            color: var(--brand-font-secondary);
+            line-height: 1.8;
+        }
+        
+        /* ==========================================
+           VARIATION 7 - Pill Badge Cards
+           ========================================== */
+        .foundation-v7 {
+            padding: 100px 10%;
+            background: #ffffff;
+        }
+        
+        .foundation-v7 .v7-header {
+            text-align: center;
+            max-width: 900px;
+            margin: 0 auto 70px;
+        }
+        
+        .foundation-v7 .v7-header h2 {
+            font-family: var(--font-header);
+            font-size: clamp(2rem, 4vw, 2.75rem);
+            font-weight: 300;
+            color: var(--brand-font-primary);
+            margin-bottom: 20px;
+            line-height: 1.2;
+        }
+        
+        .foundation-v7 .v7-subtitle {
+            font-size: 1.25rem;
+            color: var(--brand-font-secondary);
+            line-height: 1.6;
+        }
+        
+        .foundation-v7 .v7-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 32px;
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+        
+        .foundation-v7 .v7-card {
+            background: #ffffff;
+            border: 1px solid #e5e7eb;
+            border-radius: 12px;
+            padding: 40px;
+            position: relative;
+            transition: all 0.3s ease;
+        }
+        
+        .foundation-v7 .v7-card:hover {
+            border-color: #d1d5db;
+            box-shadow: 0 8px 30px rgba(0, 0, 0, 0.06);
+        }
+        
+        .foundation-v7 .v7-badge {
+            position: absolute;
+            top: -12px;
+            left: 32px;
+            background: var(--rainbow-gradient);
+            color: white;
+            font-size: 0.75rem;
+            font-weight: 600;
+            padding: 6px 16px;
+            border-radius: 20px;
+            letter-spacing: 1px;
+        }
+        
+        .foundation-v7 .v7-card h3 {
+            font-family: var(--font-header);
+            font-size: 1.375rem;
+            font-weight: 500;
+            color: var(--brand-font-primary);
+            margin-bottom: 16px;
+            margin-top: 8px;
+        }
+        
+        .foundation-v7 .v7-card p {
+            font-size: 1rem;
+            color: var(--brand-font-secondary);
+            line-height: 1.8;
+        }
+        
+        /* ==========================================
+           VARIATION 8 - Timeline Connected
+           ========================================== */
+        .foundation-v8 {
+            padding: 100px 10%;
+            background: var(--brand-bg-2);
+        }
+        
+        .foundation-v8 .v8-header {
+            text-align: center;
+            max-width: 900px;
+            margin: 0 auto 80px;
+        }
+        
+        .foundation-v8 .v8-header h2 {
+            font-family: var(--font-header);
+            font-size: clamp(2rem, 4vw, 2.75rem);
+            font-weight: 300;
+            color: var(--brand-font-primary);
+            margin-bottom: 20px;
+            line-height: 1.2;
+        }
+        
+        .foundation-v8 .v8-subtitle {
+            font-size: 1.25rem;
+            color: var(--brand-font-secondary);
+            line-height: 1.6;
+        }
+        
+        .foundation-v8 .v8-timeline {
+            display: flex;
+            align-items: flex-start;
+            gap: 0;
+            max-width: 1100px;
+            margin: 0 auto;
+            position: relative;
+        }
+        
+        .foundation-v8 .v8-timeline::before {
+            content: '';
+            position: absolute;
+            top: 40px;
+            left: 0;
+            right: 0;
+            height: 3px;
+            background: var(--rainbow-gradient);
+            z-index: 0;
+        }
+        
+        .foundation-v8 .v8-card {
+            flex: 1;
+            background: #ffffff;
+            padding: 40px;
+            position: relative;
+            z-index: 1;
+            margin-top: 60px;
+        }
+        
+        .foundation-v8 .v8-card:first-child {
+            border-radius: 12px 0 0 12px;
+        }
+        
+        .foundation-v8 .v8-card:last-child {
+            border-radius: 0 12px 12px 0;
+        }
+        
+        .foundation-v8 .v8-dot {
+            position: absolute;
+            top: -40px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+            background: #ffffff;
+            border: 4px solid var(--brand-primary);
+            z-index: 2;
+        }
+        
+        .foundation-v8 .v8-card:nth-child(2) .v8-dot {
+            border-color: var(--brand-secondary);
+        }
+        
+        .foundation-v8 .v8-card h3 {
+            font-family: var(--font-header);
+            font-size: 1.375rem;
+            font-weight: 500;
+            color: var(--brand-font-primary);
+            margin-bottom: 16px;
+        }
+        
+        .foundation-v8 .v8-card p {
+            font-size: 1rem;
+            color: var(--brand-font-secondary);
+            line-height: 1.8;
+        }
+        
+        /* ==========================================
+           VARIATION 9 - Offset Overlapping Cards
+           ========================================== */
+        .foundation-v9 {
+            padding: 120px 10%;
+            background: #ffffff;
+            position: relative;
+        }
+        
+        .foundation-v9 .v9-header {
+            text-align: left;
+            max-width: 500px;
+            margin-bottom: 80px;
+        }
+        
+        .foundation-v9 .v9-header h2 {
+            font-family: var(--font-header);
+            font-size: clamp(2rem, 4vw, 2.75rem);
+            font-weight: 300;
+            color: var(--brand-font-primary);
+            margin-bottom: 20px;
+            line-height: 1.2;
+        }
+        
+        .foundation-v9 .v9-subtitle {
+            font-size: 1.25rem;
+            color: var(--brand-font-secondary);
+            line-height: 1.6;
+        }
+        
+        .foundation-v9 .v9-cards {
+            position: relative;
+            min-height: 450px;
+            max-width: 1000px;
+        }
+        
+        .foundation-v9 .v9-card {
+            position: absolute;
+            background: #ffffff;
+            padding: 48px;
+            border-radius: 16px;
+            box-shadow: 0 25px 50px rgba(0, 0, 0, 0.08);
+            transition: all 0.4s ease;
+            width: 55%;
+        }
+        
+        .foundation-v9 .v9-card:nth-child(1) {
+            top: 0;
+            left: 0;
+            z-index: 2;
+            border-left: 4px solid var(--brand-primary);
+        }
+        
+        .foundation-v9 .v9-card:nth-child(2) {
+            top: 80px;
+            right: 0;
+            left: auto;
+            z-index: 1;
+            border-left: 4px solid var(--brand-secondary);
+        }
+        
+        .foundation-v9 .v9-card:hover {
+            z-index: 3;
+            transform: scale(1.02);
+            box-shadow: 0 35px 70px rgba(0, 0, 0, 0.12);
+        }
+        
+        .foundation-v9 .v9-card h3 {
+            font-family: var(--font-header);
+            font-size: 1.5rem;
+            font-weight: 500;
+            color: var(--brand-font-primary);
+            margin-bottom: 20px;
+        }
+        
+        .foundation-v9 .v9-card p {
+            font-size: 1rem;
+            color: var(--brand-font-secondary);
+            line-height: 1.8;
+        }
+        
+        /* ==========================================
+           VARIATION 10 - Dot Grid Background
+           ========================================== */
+        .foundation-v10 {
+            padding: 100px 10%;
+            background: 
+                radial-gradient(circle at 1px 1px, #e5e7eb 1px, transparent 1px);
+            background-size: 24px 24px;
+            background-color: #fafafa;
+        }
+        
+        .foundation-v10 .v10-header {
+            text-align: center;
+            max-width: 900px;
+            margin: 0 auto 70px;
+        }
+        
+        .foundation-v10 .v10-header h2 {
+            font-family: var(--font-header);
+            font-size: clamp(2rem, 4vw, 2.75rem);
+            font-weight: 300;
+            color: var(--brand-font-primary);
+            margin-bottom: 20px;
+            line-height: 1.2;
+        }
+        
+        .foundation-v10 .v10-subtitle {
+            font-size: 1.25rem;
+            color: var(--brand-font-secondary);
+            line-height: 1.6;
+        }
+        
+        .foundation-v10 .v10-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 40px;
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+        
+        .foundation-v10 .v10-card {
+            background: #ffffff;
+            padding: 48px;
+            border-radius: 8px;
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+            border: 1px solid #f0f0f0;
+            position: relative;
+        }
+        
+        .foundation-v10 .v10-card::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            height: 3px;
+            background: var(--rainbow-gradient);
+            border-radius: 0 0 8px 8px;
+        }
+        
+        .foundation-v10 .v10-number {
+            font-family: var(--font-header);
+            font-size: 0.875rem;
+            font-weight: 600;
+            color: var(--brand-font-secondary);
+            letter-spacing: 2px;
+            margin-bottom: 16px;
+        }
+        
+        .foundation-v10 .v10-card h3 {
+            font-family: var(--font-header);
+            font-size: 1.375rem;
+            font-weight: 500;
+            color: var(--brand-font-primary);
+            margin-bottom: 16px;
+        }
+        
+        .foundation-v10 .v10-card p {
+            font-size: 1rem;
+            color: var(--brand-font-secondary);
+            line-height: 1.8;
+        }
+        
+        /* ==========================================
+           VARIATION 11 - Animated Gradient Border
+           ========================================== */
+        .foundation-v11 {
+            padding: 100px 10%;
+            background: linear-gradient(180deg, #0f0f0f 0%, #1a1a1a 100%);
+        }
+        
+        .foundation-v11 .v11-header {
+            text-align: center;
+            max-width: 900px;
+            margin: 0 auto 70px;
+        }
+        
+        .foundation-v11 .v11-header h2 {
+            font-family: var(--font-header);
+            font-size: clamp(2rem, 4vw, 2.75rem);
+            font-weight: 300;
+            color: #ffffff;
+            margin-bottom: 20px;
+            line-height: 1.2;
+        }
+        
+        .foundation-v11 .v11-subtitle {
+            font-size: 1.25rem;
+            color: rgba(255, 255, 255, 0.6);
+            line-height: 1.6;
+        }
+        
+        .foundation-v11 .v11-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 32px;
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+        
+        .foundation-v11 .v11-card-wrapper {
+            position: relative;
+            padding: 2px;
+            border-radius: 16px;
+            background: linear-gradient(135deg, var(--brand-primary), var(--brand-accent-1), var(--brand-secondary), var(--brand-accent-1), var(--brand-primary));
+            background-size: 300% 300%;
+            animation: gradientShift 6s ease infinite;
+        }
+        
+        @keyframes gradientShift {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+        
+        .foundation-v11 .v11-card {
+            background: #1a1a1a;
+            padding: 48px;
+            border-radius: 14px;
+        }
+        
+        .foundation-v11 .v11-card h3 {
+            font-family: var(--font-header);
+            font-size: 1.5rem;
+            font-weight: 500;
+            color: #ffffff;
+            margin-bottom: 20px;
+        }
+        
+        .foundation-v11 .v11-card p {
+            font-size: 1rem;
+            color: rgba(255, 255, 255, 0.65);
+            line-height: 1.8;
+        }
+        
+        /* ==========================================
+           Responsive Adjustments
+           ========================================== */
+        @media (max-width: 1024px) {
+            .foundation-v4 {
+                grid-template-columns: 1fr;
+            }
+            
+            .foundation-v4 .v4-visual {
+                min-height: 400px;
+            }
+        }
+        
+        @media (max-width: 900px) {
+            .foundation-v1 .v1-grid,
+            .foundation-v2 .v2-grid,
+            .foundation-v5 .v5-grid,
+            .foundation-v6 .v6-grid,
+            .foundation-v7 .v7-grid,
+            .foundation-v10 .v10-grid,
+            .foundation-v11 .v11-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .foundation-v3 .v3-card {
+                grid-template-columns: 1fr;
+            }
+            
+            .foundation-v3 .v3-card:nth-child(2) .v3-card-accent {
+                order: 0;
+            }
+            
+            .foundation-v3 .v3-card-accent {
+                min-height: 200px;
+            }
+            
+            .foundation-v6 .v6-header {
+                grid-template-columns: 1fr;
+                gap: 24px;
+            }
+            
+            .foundation-v8 .v8-timeline {
+                flex-direction: column;
+                gap: 24px;
+            }
+            
+            .foundation-v8 .v8-timeline::before {
+                display: none;
+            }
+            
+            .foundation-v8 .v8-card {
+                margin-top: 0;
+                border-radius: 12px;
+            }
+            
+            .foundation-v8 .v8-dot {
+                display: none;
+            }
+            
+            .foundation-v9 .v9-cards {
+                position: static;
+                display: flex;
+                flex-direction: column;
+                gap: 24px;
+                min-height: auto;
+            }
+            
+            .foundation-v9 .v9-card {
+                position: static;
+                width: 100%;
+            }
+        }
+        
+        @media (max-width: 600px) {
+            .foundation-v2 .v2-card {
+                padding-left: 0;
+            }
+            
+            .foundation-v2 .v2-number {
+                position: relative;
+                font-size: 4rem;
+                margin-bottom: 16px;
+            }
+            
+            .foundation-v3 .v3-card-content {
+                padding: 40px 24px;
+            }
+            
+            .foundation-v4 .v4-content {
+                padding: 40px 24px;
+            }
+            
+            .foundation-v7 .v7-card,
+            .foundation-v10 .v10-card,
+            .foundation-v11 .v11-card {
+                padding: 32px;
+            }
+            
+            .foundation-v9 .v9-card {
+                padding: 32px;
+            }
+        }
+    </style>
+</head>
+
+<body style="padding-top: 0;">
+
+    <!-- Page Header -->
+    <div style="background: #1a1a1a; color: white; padding: 60px 10%; text-align: center;">
+        <h1 style="font-weight: 300; font-size: 2rem; margin-bottom: 12px;">Foundation Section Variations</h1>
+        <p style="opacity: 0.7; font-size: 1rem;">11 different design explorations for the "Key Building Block" section</p>
+    </div>
+
+    <!-- VARIATION 1 -->
+    <div class="variation-label">Variation 1 — Dark Glassmorphism</div>
+    <div class="variation-wrapper" style="padding: 0;">
+        <section class="foundation-v1">
+            <div class="v1-header">
+                <h2>Key Building Block of Our <span class="rainbow-text">Display Architectures</span></h2>
+                <p class="v1-subtitle">Our transparent displays are built on advanced Volume Phase Holograms (VPHs) designed and engineered in-house.</p>
+            </div>
+            <div class="v1-grid">
+                <div class="v1-card">
+                    <h3>The VPH Film</h3>
+                    <p>High-efficiency multiplexed holographic films embedded in the optical combiner enable multiple complex optical functions while maximizing light transfer efficiency.</p>
+                </div>
+                <div class="v1-card">
+                    <h3>The Combiner Architecture</h3>
+                    <p>Leveraging these films as primary building blocks, we have developed proprietary display architectures. By integrating industry-proven optical components we've created a flexible architecture that scales from lightweight AI eyewear to high-performance immersive AR.</p>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <!-- VARIATION 2 -->
+    <div class="variation-label">Variation 2 — Large Number Accents</div>
+    <div class="variation-wrapper" style="padding: 0;">
+        <section class="foundation-v2">
+            <div class="v2-header">
+                <h2>Key Building Block of Our <span class="rainbow-text">Display Architectures</span></h2>
+                <p class="v2-subtitle">Our transparent displays are built on advanced Volume Phase Holograms (VPHs) designed and engineered in-house.</p>
+            </div>
+            <div class="v2-grid">
+                <div class="v2-card">
+                    <span class="v2-number">01</span>
+                    <h3>The VPH Film</h3>
+                    <p>High-efficiency multiplexed holographic films embedded in the optical combiner enable multiple complex optical functions while maximizing light transfer efficiency.</p>
+                </div>
+                <div class="v2-card">
+                    <span class="v2-number">02</span>
+                    <h3>The Combiner Architecture</h3>
+                    <p>Leveraging these films as primary building blocks, we have developed proprietary display architectures. By integrating industry-proven optical components we've created a flexible architecture that scales from lightweight AI eyewear to high-performance immersive AR.</p>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <!-- VARIATION 3 -->
+    <div class="variation-label">Variation 3 — Full-Width Stacked Cards</div>
+    <div class="variation-wrapper" style="padding: 0;">
+        <section class="foundation-v3">
+            <div class="v3-header">
+                <h2>Key Building Block of Our <span class="rainbow-text">Display Architectures</span></h2>
+                <p class="v3-subtitle">Our transparent displays are built on advanced Volume Phase Holograms (VPHs) designed and engineered in-house.</p>
+            </div>
+            <div class="v3-stack">
+                <div class="v3-card">
+                    <div class="v3-card-accent">
+                        <span>01</span>
+                    </div>
+                    <div class="v3-card-content">
+                        <h3>The VPH Film</h3>
+                        <p>High-efficiency multiplexed holographic films embedded in the optical combiner enable multiple complex optical functions while maximizing light transfer efficiency.</p>
+                    </div>
+                </div>
+                <div class="v3-card">
+                    <div class="v3-card-accent">
+                        <span>02</span>
+                    </div>
+                    <div class="v3-card-content">
+                        <h3>The Combiner Architecture</h3>
+                        <p>Leveraging these films as primary building blocks, we have developed proprietary display architectures. By integrating industry-proven optical components we've created a flexible architecture that scales from lightweight AI eyewear to high-performance immersive AR.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <!-- VARIATION 4 -->
+    <div class="variation-label">Variation 4 — Split Layout with Visual</div>
+    <div class="variation-wrapper" style="padding: 0;">
+        <section class="foundation-v4">
+            <div class="v4-visual">
+                <div class="v4-visual-text">
+                    <h2>Key Building Block of Our <span class="rainbow-text">Display Architectures</span></h2>
+                    <p>Our transparent displays are built on advanced Volume Phase Holograms (VPHs) designed and engineered in-house.</p>
+                </div>
+            </div>
+            <div class="v4-content">
+                <div class="v4-card">
+                    <h3>The VPH Film</h3>
+                    <p>High-efficiency multiplexed holographic films embedded in the optical combiner enable multiple complex optical functions while maximizing light transfer efficiency.</p>
+                </div>
+                <div class="v4-card">
+                    <h3>The Combiner Architecture</h3>
+                    <p>Leveraging these films as primary building blocks, we have developed proprietary display architectures. By integrating industry-proven optical components we've created a flexible architecture that scales from lightweight AI eyewear to high-performance immersive AR.</p>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <!-- VARIATION 5 -->
+    <div class="variation-label">Variation 5 — Floating Cards with Icons</div>
+    <div class="variation-wrapper" style="padding: 0;">
+        <section class="foundation-v5">
+            <div class="v5-header">
+                <h2>Key Building Block of Our <span class="rainbow-text">Display Architectures</span></h2>
+                <p class="v5-subtitle">Our transparent displays are built on advanced Volume Phase Holograms (VPHs) designed and engineered in-house.</p>
+            </div>
+            <div class="v5-grid">
+                <div class="v5-card">
+                    <div class="v5-icon">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                            <rect x="2" y="6" width="20" height="12" rx="2"/>
+                            <path d="M12 12h.01"/>
+                            <path d="M17 12h.01"/>
+                            <path d="M7 12h.01"/>
+                        </svg>
+                    </div>
+                    <h3>The VPH Film</h3>
+                    <p>High-efficiency multiplexed holographic films embedded in the optical combiner enable multiple complex optical functions while maximizing light transfer efficiency.</p>
+                </div>
+                <div class="v5-card">
+                    <div class="v5-icon">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M12 3L2 12h3v9h6v-6h2v6h6v-9h3L12 3z"/>
+                        </svg>
+                    </div>
+                    <h3>The Combiner Architecture</h3>
+                    <p>Leveraging these films as primary building blocks, we have developed proprietary display architectures. By integrating industry-proven optical components we've created a flexible architecture that scales from lightweight AI eyewear to high-performance immersive AR.</p>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <!-- VARIATION 6 -->
+    <div class="variation-label">Variation 6 — Minimal with Line Accents</div>
+    <div class="variation-wrapper" style="padding: 0;">
+        <section class="foundation-v6">
+            <div class="v6-container">
+                <div class="v6-header">
+                    <h2>Key Building Block of Our <span class="rainbow-text">Display Architectures</span></h2>
+                    <p class="v6-subtitle">Our transparent displays are built on advanced Volume Phase Holograms (VPHs) designed and engineered in-house.</p>
+                </div>
+                <div class="v6-grid">
+                    <div class="v6-card">
+                        <h3>The VPH Film</h3>
+                        <p>High-efficiency multiplexed holographic films embedded in the optical combiner enable multiple complex optical functions while maximizing light transfer efficiency.</p>
+                    </div>
+                    <div class="v6-card">
+                        <h3>The Combiner Architecture</h3>
+                        <p>Leveraging these films as primary building blocks, we have developed proprietary display architectures. By integrating industry-proven optical components we've created a flexible architecture that scales from lightweight AI eyewear to high-performance immersive AR.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <!-- VARIATION 7 -->
+    <div class="variation-label">Variation 7 — Pill Badge Cards</div>
+    <div class="variation-wrapper" style="padding: 0;">
+        <section class="foundation-v7">
+            <div class="v7-header">
+                <h2>Key Building Block of Our <span class="rainbow-text">Display Architectures</span></h2>
+                <p class="v7-subtitle">Our transparent displays are built on advanced Volume Phase Holograms (VPHs) designed and engineered in-house.</p>
+            </div>
+            <div class="v7-grid">
+                <div class="v7-card">
+                    <span class="v7-badge">FILM</span>
+                    <h3>The VPH Film</h3>
+                    <p>High-efficiency multiplexed holographic films embedded in the optical combiner enable multiple complex optical functions while maximizing light transfer efficiency.</p>
+                </div>
+                <div class="v7-card">
+                    <span class="v7-badge">ARCHITECTURE</span>
+                    <h3>The Combiner Architecture</h3>
+                    <p>Leveraging these films as primary building blocks, we have developed proprietary display architectures. By integrating industry-proven optical components we've created a flexible architecture that scales from lightweight AI eyewear to high-performance immersive AR.</p>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <!-- VARIATION 8 -->
+    <div class="variation-label">Variation 8 — Timeline Connected</div>
+    <div class="variation-wrapper" style="padding: 0;">
+        <section class="foundation-v8">
+            <div class="v8-header">
+                <h2>Key Building Block of Our <span class="rainbow-text">Display Architectures</span></h2>
+                <p class="v8-subtitle">Our transparent displays are built on advanced Volume Phase Holograms (VPHs) designed and engineered in-house.</p>
+            </div>
+            <div class="v8-timeline">
+                <div class="v8-card">
+                    <div class="v8-dot"></div>
+                    <h3>The VPH Film</h3>
+                    <p>High-efficiency multiplexed holographic films embedded in the optical combiner enable multiple complex optical functions while maximizing light transfer efficiency.</p>
+                </div>
+                <div class="v8-card">
+                    <div class="v8-dot"></div>
+                    <h3>The Combiner Architecture</h3>
+                    <p>Leveraging these films as primary building blocks, we have developed proprietary display architectures. By integrating industry-proven optical components we've created a flexible architecture that scales from lightweight AI eyewear to high-performance immersive AR.</p>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <!-- VARIATION 9 -->
+    <div class="variation-label">Variation 9 — Offset Overlapping Cards</div>
+    <div class="variation-wrapper" style="padding: 0;">
+        <section class="foundation-v9">
+            <div class="v9-header">
+                <h2>Key Building Block of Our <span class="rainbow-text">Display Architectures</span></h2>
+                <p class="v9-subtitle">Our transparent displays are built on advanced Volume Phase Holograms (VPHs) designed and engineered in-house.</p>
+            </div>
+            <div class="v9-cards">
+                <div class="v9-card">
+                    <h3>The VPH Film</h3>
+                    <p>High-efficiency multiplexed holographic films embedded in the optical combiner enable multiple complex optical functions while maximizing light transfer efficiency.</p>
+                </div>
+                <div class="v9-card">
+                    <h3>The Combiner Architecture</h3>
+                    <p>Leveraging these films as primary building blocks, we have developed proprietary display architectures. By integrating industry-proven optical components we've created a flexible architecture that scales from lightweight AI eyewear to high-performance immersive AR.</p>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <!-- VARIATION 10 -->
+    <div class="variation-label">Variation 10 — Dot Grid Background</div>
+    <div class="variation-wrapper" style="padding: 0;">
+        <section class="foundation-v10">
+            <div class="v10-header">
+                <h2>Key Building Block of Our <span class="rainbow-text">Display Architectures</span></h2>
+                <p class="v10-subtitle">Our transparent displays are built on advanced Volume Phase Holograms (VPHs) designed and engineered in-house.</p>
+            </div>
+            <div class="v10-grid">
+                <div class="v10-card">
+                    <div class="v10-number">01</div>
+                    <h3>The VPH Film</h3>
+                    <p>High-efficiency multiplexed holographic films embedded in the optical combiner enable multiple complex optical functions while maximizing light transfer efficiency.</p>
+                </div>
+                <div class="v10-card">
+                    <div class="v10-number">02</div>
+                    <h3>The Combiner Architecture</h3>
+                    <p>Leveraging these films as primary building blocks, we have developed proprietary display architectures. By integrating industry-proven optical components we've created a flexible architecture that scales from lightweight AI eyewear to high-performance immersive AR.</p>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <!-- VARIATION 11 -->
+    <div class="variation-label">Variation 11 — Animated Gradient Border</div>
+    <div class="variation-wrapper" style="padding: 0;">
+        <section class="foundation-v11">
+            <div class="v11-header">
+                <h2>Key Building Block of Our <span class="rainbow-text">Display Architectures</span></h2>
+                <p class="v11-subtitle">Our transparent displays are built on advanced Volume Phase Holograms (VPHs) designed and engineered in-house.</p>
+            </div>
+            <div class="v11-grid">
+                <div class="v11-card-wrapper">
+                    <div class="v11-card">
+                        <h3>The VPH Film</h3>
+                        <p>High-efficiency multiplexed holographic films embedded in the optical combiner enable multiple complex optical functions while maximizing light transfer efficiency.</p>
+                    </div>
+                </div>
+                <div class="v11-card-wrapper">
+                    <div class="v11-card">
+                        <h3>The Combiner Architecture</h3>
+                        <p>Leveraging these films as primary building blocks, we have developed proprietary display architectures. By integrating industry-proven optical components we've created a flexible architecture that scales from lightweight AI eyewear to high-performance immersive AR.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <!-- Footer spacer -->
+    <div style="height: 100px; background: #f8f9fa;"></div>
+
+</body>
+</html>
+

@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <meta name="description" content="About AlphaLum - We develop advanced optical solutions that push the frontiers of smart glasses backed by decades of expertise."/>
+    <title>About Us - AlphaLum</title>
+
+    <!-- Favicons -->
+    <link rel="icon" href="assets/images/logo/AlphaLum_logo.svg" type="image/svg+xml"/>
+    <link rel="shortcut icon" href="assets/images/logo/favicon-32x32.png"/>
+    <link rel="icon" type="image/png" sizes="32x32" href="assets/images/logo/favicon-32x32.png"/>
+    <link rel="icon" type="image/png" sizes="16x16" href="assets/images/logo/favicon-16x16.png"/>
+    <link rel="apple-touch-icon" sizes="180x180" href="assets/images/logo/apple-touch-icon.png"/>
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com"/>
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet"/>
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="reset.css"/>
+    <link rel="stylesheet" href="brand-styles.css"/>
+    
+    <style>
+        .about-page {
+            width: 100vw;
+            margin-left: calc(-50vw + 50%);
+            padding: calc(70px + var(--spacing-xl)) 10% var(--spacing-xl);
+            background: var(--brand-bg-1);
+            min-height: calc(100vh - 70px);
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+        
+        .about-content {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        .about-content h1 {
+            font-family: var(--font-header);
+            font-size: clamp(2.5rem, 5vw, 4rem);
+            font-weight: var(--header-font-weight);
+            color: var(--brand-font-primary);
+            margin: 0 0 var(--spacing-lg) 0;
+            line-height: 1.1;
+        }
+        
+        .about-content p {
+            font-size: 1.125rem;
+            color: var(--brand-font-secondary);
+            line-height: 1.8;
+            margin-bottom: var(--spacing-md);
+        }
+        
+        .about-content p:last-of-type {
+            margin-bottom: 0;
+        }
+        
+        .about-content .mission {
+            margin-top: var(--spacing-lg);
+            padding-top: var(--spacing-lg);
+            border-top: 1px solid rgba(0, 0, 0, 0.08);
+        }
+        
+        .about-content .mission strong {
+            background: var(--rainbow-gradient);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            font-weight: 500;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Global Navigation -->
+    <nav class="global-nav">
+        <div class="global-nav-content">
+            <div class="global-nav-logo">
+                <a href="home.html">
+                    <img src="assets/download/final-logo/alphalum-logo-png.png" alt="AlphaLum"/>
+                </a>
+            </div>
+            
+            <div class="global-nav-links">
+                <div class="nav-dropdown">
+                    <a href="#" class="global-nav-link nav-dropdown-trigger">
+                        Technology
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6 6-6"/></svg>
+                    </a>
+                    <div class="nav-dropdown-menu">
+                        <a href="technology-holographic.html" class="nav-dropdown-item">
+                            Holographic Display
+                            <span>Ultra-efficient transparent displays</span>
+                        </a>
+                        <a href="technology-smi.html" class="nav-dropdown-item">
+                            SMI Sensing
+                            <span>AI-powered optical motion intelligence</span>
+                        </a>
+                    </div>
+                </div>
+                
+                <a href="about.html" class="global-nav-link active">About</a>
+                <a href="careers.html" class="global-nav-link">Careers</a>
+            </div>
+            
+            <div class="global-nav-cta">
+                <a href="contact.html" class="btn-secondary-sm">
+                    <span>Contact</span>
+                </a>
+            </div>
+            
+            <button class="mobile-nav-toggle" aria-label="Toggle navigation">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </div>
+    </nav>
+    
+    <!-- Mobile Navigation Menu -->
+    <div class="mobile-nav-menu">
+        <div class="mobile-nav-item">
+            <a href="#" class="mobile-nav-link mobile-dropdown-trigger">
+                Technology
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6 6-6"/></svg>
+            </a>
+            <div class="mobile-dropdown-items">
+                <a href="technology-holographic.html" class="mobile-dropdown-item">Holographic Display</a>
+                <a href="technology-smi.html" class="mobile-dropdown-item">SMI Sensing</a>
+            </div>
+        </div>
+        <a href="about.html" class="mobile-nav-link">About</a>
+        <a href="careers.html" class="mobile-nav-link">Careers</a>
+        <a href="contact.html" class="mobile-nav-link">Contact</a>
+    </div>
+
+    <!-- About Section -->
+    <section class="about-page">
+        <div class="about-content">
+            <h1>About <span class="rainbow-text">AlphaLum</span></h1>
+            <p>AlphaLum develops advanced optical solutions that push the frontiers of augmented and mixed reality. We design high-performance systems that deliver precision, efficiency, and seamless integration backed by decades of expertise in optics, electronics, software, and AI.</p>
+            <p>Our proven track record of bringing complex optical technologies to market enables us to help leading companies turn ideas into reliable, high-impact products – speeding time to market, reducing development risk, and freeing resources for continuous innovation.</p>
+            <p class="mission"><strong>Our mission:</strong> to design transformative optical systems that not only redefine how people see and sense the world but also empower their interactions and everyday tasks.</p>
+        </div>
+    </section>
+
+    <!-- Global Footer -->
+    <footer class="global-footer">
+        <div class="global-footer-content">
+            <div class="global-footer-main">
+                <div class="global-footer-column">
+                    <h4>Technology</h4>
+                    <div class="global-footer-links">
+                        <a href="technology-holographic.html" class="global-footer-link">Holographic Display</a>
+                        <a href="technology-smi.html" class="global-footer-link">SMI Sensing</a>
+                    </div>
+                </div>
+                
+                <div class="global-footer-column">
+                    <h4>Company</h4>
+                    <div class="global-footer-links">
+                        <a href="about.html" class="global-footer-link">About Us</a>
+                        <a href="careers.html" class="global-footer-link">Careers</a>
+                        <a href="contact.html" class="global-footer-link">Contact</a>
+                    </div>
+                </div>
+                
+                <div class="global-footer-column">
+                    <h4>News</h4>
+                    <div class="global-footer-links">
+                        <a href="#" class="global-footer-link">New Partnership Announcement</a>
+                        <a href="#" class="global-footer-link">Breaking Efficiency Records</a>
+                        <a href="#" class="global-footer-link">Pilotline Expansion Complete</a>
+                    </div>
+                </div>
+                
+                <div class="global-footer-column">
+                    <h4>Get in Touch</h4>
+                    <div class="global-footer-links">
+                        <a href="contact.html" class="global-footer-link">Request Demo</a>
+                        <a href="mailto:info@alphalum.com" class="global-footer-link">info@alphalum.com</a>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Large Logo Reveal -->
+            <div class="global-footer-large-logo">
+                <img src="assets/download/final-logo/alphalum-white-logo-png.png" alt="AlphaLum"/>
+            </div>
+            
+            <div class="global-footer-bottom">
+                <p class="global-footer-copyright">&copy; 2025 AlphaLum SA. All rights reserved.</p>
+                <div class="global-footer-legal">
+                    <a href="#">Privacy Policy</a>
+                    <a href="#">Terms of Service</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- JavaScript -->
+    <script src="brand-script.js"></script>
+</body>
+</html>

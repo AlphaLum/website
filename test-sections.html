@@ -1,0 +1,1042 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <meta name="description" content="AlphaLum - Section Style Tests"/>
+    <title>AlphaLum - Section Style Tests</title>
+
+    <!-- Favicons -->
+    <link rel="icon" href="assets/images/logo/AlphaLum_logo.svg" type="image/svg+xml"/>
+    <link rel="shortcut icon" href="assets/images/logo/favicon-32x32.png"/>
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com"/>
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet"/>
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="reset.css"/>
+    <link rel="stylesheet" href="brand-styles.css"/>
+    
+    <style>
+        /* Test Page Specific Styles */
+        .test-page-nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            background: rgba(0, 0, 0, 0.9);
+            backdrop-filter: blur(10px);
+            padding: 16px 5%;
+            z-index: 1000;
+            display: flex;
+            align-items: center;
+            gap: 24px;
+            flex-wrap: wrap;
+        }
+        
+        .test-page-nav h1 {
+            font-size: 1rem;
+            font-weight: 600;
+            color: white;
+            margin: 0;
+        }
+        
+        .test-page-nav a {
+            color: rgba(255,255,255,0.7);
+            font-size: 0.875rem;
+            text-decoration: none;
+            transition: color 0.2s;
+        }
+        
+        .test-page-nav a:hover {
+            color: white;
+        }
+        
+        .section-divider {
+            padding: 80px 10%;
+            background: var(--brand-bg-2);
+            text-align: center;
+            border-top: 1px solid rgba(0,0,0,0.1);
+        }
+        
+        .section-divider h2 {
+            font-size: 1.5rem;
+            font-weight: 600;
+            margin-bottom: 8px;
+            color: var(--font-primary);
+        }
+        
+        .section-divider p {
+            color: var(--font-secondary);
+            font-size: 1rem;
+        }
+        
+        /* Hero Style 1: Current - Video Background with Centered Text */
+        .hero-style-1 {
+            position: relative;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+            background: var(--brand-bg-1);
+        }
+        
+        .hero-style-1 .hero-video {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            z-index: 0;
+        }
+        
+        .hero-style-1 .hero-content {
+            position: relative;
+            z-index: 1;
+            text-align: center;
+            max-width: 900px;
+            padding: 120px 5% 80px;
+        }
+        
+        .hero-style-1 h1 {
+            font-size: clamp(2.5rem, 5vw, 4rem);
+            font-weight: 300;
+            line-height: 1.1;
+            margin-bottom: 24px;
+            color: var(--font-primary);
+        }
+        
+        .hero-style-1 p {
+            font-size: 1.25rem;
+            color: var(--font-secondary);
+            margin-bottom: 32px;
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        
+        /* Hero Style 2: Split Layout - Text Left, Video Right */
+        .hero-style-2 {
+            min-height: 100vh;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            background: var(--brand-bg-1);
+            padding-top: 80px;
+        }
+        
+        .hero-style-2 .hero-text {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            padding: 80px 5% 80px 10%;
+        }
+        
+        .hero-style-2 h1 {
+            font-size: clamp(2.5rem, 4vw, 3.5rem);
+            font-weight: 300;
+            line-height: 1.1;
+            margin-bottom: 24px;
+            color: var(--font-primary);
+        }
+        
+        .hero-style-2 p {
+            font-size: 1.125rem;
+            color: var(--font-secondary);
+            margin-bottom: 32px;
+            max-width: 500px;
+        }
+        
+        .hero-style-2 .hero-media {
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .hero-style-2 .hero-media video {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        
+        @media (max-width: 900px) {
+            .hero-style-2 {
+                grid-template-columns: 1fr;
+            }
+            .hero-style-2 .hero-text {
+                padding: 120px 5% 60px;
+                text-align: center;
+            }
+            .hero-style-2 p {
+                margin-left: auto;
+                margin-right: auto;
+            }
+            .hero-style-2 .hero-media {
+                height: 50vh;
+            }
+        }
+        
+        /* Hero Style 3: Dark Mode with Gradient Accents */
+        .hero-style-3 {
+            position: relative;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            background: linear-gradient(180deg, #0a0a0a 0%, #1a1a2e 100%);
+            overflow: hidden;
+            padding-top: 80px;
+        }
+        
+        .hero-style-3::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 3px;
+            background: var(--rainbow-gradient);
+        }
+        
+        .hero-style-3::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            right: 0;
+            width: 60%;
+            height: 60%;
+            background: radial-gradient(ellipse at bottom right, rgba(255, 69, 36, 0.15) 0%, transparent 60%);
+            pointer-events: none;
+        }
+        
+        .hero-style-3 .hero-content {
+            position: relative;
+            z-index: 1;
+            width: 100%;
+            max-width: var(--container-max-width);
+            margin: 0 auto;
+            padding: 80px 10%;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            align-items: center;
+        }
+        
+        .hero-style-3 .hero-text h1 {
+            font-size: clamp(2.5rem, 4vw, 3.5rem);
+            font-weight: 300;
+            line-height: 1.1;
+            margin-bottom: 24px;
+            color: var(--font-light);
+        }
+        
+        .hero-style-3 .hero-text p {
+            font-size: 1.125rem;
+            color: rgba(255,255,255,0.7);
+            margin-bottom: 32px;
+            max-width: 500px;
+        }
+        
+        .hero-style-3 .hero-visual {
+            position: relative;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        
+        .hero-style-3 .hero-visual video {
+            width: 100%;
+            max-width: 500px;
+            border-radius: 12px;
+            box-shadow: 0 40px 80px rgba(0,0,0,0.5);
+        }
+        
+        .hero-style-3 .stat-badges {
+            display: flex;
+            gap: 24px;
+            margin-top: 40px;
+        }
+        
+        .hero-style-3 .stat-badge {
+            text-align: center;
+        }
+        
+        .hero-style-3 .stat-badge .value {
+            font-size: 2rem;
+            font-weight: 300;
+            background: var(--rainbow-gradient);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        
+        .hero-style-3 .stat-badge .label {
+            font-size: 0.75rem;
+            color: rgba(255,255,255,0.5);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+        
+        @media (max-width: 900px) {
+            .hero-style-3 .hero-content {
+                grid-template-columns: 1fr;
+                text-align: center;
+            }
+            .hero-style-3 .hero-text p {
+                margin-left: auto;
+                margin-right: auto;
+            }
+            .hero-style-3 .stat-badges {
+                justify-content: center;
+            }
+        }
+        
+        /* Hero Style 4: Minimal with Giant Typography */
+        .hero-style-4 {
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            background: var(--brand-bg-1);
+            padding: 120px 10% 80px;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .hero-style-4::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            right: -10%;
+            width: 50%;
+            height: 80%;
+            background: var(--rainbow-gradient-bg);
+            border-radius: 50%;
+            filter: blur(100px);
+            transform: translateY(-50%);
+            opacity: 0.5;
+            pointer-events: none;
+        }
+        
+        .hero-style-4 .hero-content {
+            position: relative;
+            z-index: 1;
+            max-width: 1000px;
+        }
+        
+        .hero-style-4 .eyebrow {
+            font-size: 0.875rem;
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            color: var(--font-secondary);
+            margin-bottom: 24px;
+        }
+        
+        .hero-style-4 h1 {
+            font-size: clamp(3rem, 8vw, 6rem);
+            font-weight: 200;
+            line-height: 1;
+            margin-bottom: 40px;
+            color: var(--font-primary);
+        }
+        
+        .hero-style-4 h1 .highlight {
+            display: block;
+            background: var(--rainbow-gradient);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        
+        .hero-style-4 p {
+            font-size: 1.25rem;
+            color: var(--font-secondary);
+            margin-bottom: 40px;
+            max-width: 600px;
+        }
+        
+        .hero-style-4 .hero-cta {
+            display: flex;
+            gap: 16px;
+            flex-wrap: wrap;
+        }
+        
+        /* Hero Style 5: Card-Based with Stats Integration */
+        .hero-style-5 {
+            min-height: 100vh;
+            background: linear-gradient(135deg, #fafafa 0%, #f0f0f5 100%);
+            padding: 120px 10% 80px;
+            display: flex;
+            align-items: center;
+        }
+        
+        .hero-style-5 .hero-container {
+            width: 100%;
+            max-width: var(--container-max-width);
+            margin: 0 auto;
+        }
+        
+        .hero-style-5 .hero-top {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+        
+        .hero-style-5 h1 {
+            font-size: clamp(2.5rem, 5vw, 4rem);
+            font-weight: 300;
+            line-height: 1.1;
+            margin-bottom: 24px;
+            color: var(--font-primary);
+        }
+        
+        .hero-style-5 .hero-top p {
+            font-size: 1.25rem;
+            color: var(--font-secondary);
+            max-width: 700px;
+            margin: 0 auto 32px;
+        }
+        
+        .hero-style-5 .hero-cards {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 24px;
+        }
+        
+        .hero-style-5 .hero-card {
+            background: white;
+            border-radius: 16px;
+            padding: 40px 32px;
+            position: relative;
+            overflow: hidden;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.05);
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+        
+        .hero-style-5 .hero-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 12px 40px rgba(0,0,0,0.1);
+        }
+        
+        .hero-style-5 .hero-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 3px;
+            background: var(--rainbow-gradient);
+        }
+        
+        .hero-style-5 .hero-card .card-icon {
+            width: 48px;
+            height: 48px;
+            margin-bottom: 20px;
+        }
+        
+        .hero-style-5 .hero-card h3 {
+            font-size: 1.25rem;
+            font-weight: 500;
+            margin-bottom: 12px;
+            color: var(--font-primary);
+        }
+        
+        .hero-style-5 .hero-card p {
+            font-size: 0.9375rem;
+            color: var(--font-secondary);
+            line-height: 1.6;
+        }
+        
+        .hero-style-5 .hero-card .stat-value {
+            font-size: 2.5rem;
+            font-weight: 200;
+            background: var(--rainbow-gradient);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: 8px;
+        }
+        
+        @media (max-width: 900px) {
+            .hero-style-5 .hero-cards {
+                grid-template-columns: 1fr;
+            }
+        }
+        
+        /* Hero Style 6: Asymmetric with Floating Elements */
+        .hero-style-6 {
+            min-height: 100vh;
+            background: var(--brand-bg-1);
+            position: relative;
+            overflow: hidden;
+            display: flex;
+            align-items: center;
+            padding-top: 80px;
+        }
+        
+        .hero-style-6 .hero-bg-element {
+            position: absolute;
+            top: -20%;
+            right: -10%;
+            width: 70%;
+            height: 140%;
+            background: var(--rainbow-gradient-bg);
+            border-radius: 0 0 0 50%;
+            opacity: 0.4;
+            pointer-events: none;
+        }
+        
+        .hero-style-6 .hero-content {
+            position: relative;
+            z-index: 1;
+            width: 100%;
+            max-width: var(--container-max-width);
+            margin: 0 auto;
+            padding: 80px 10%;
+            display: grid;
+            grid-template-columns: 1.2fr 1fr;
+            gap: 80px;
+            align-items: center;
+        }
+        
+        .hero-style-6 .hero-text h1 {
+            font-size: clamp(2.5rem, 4.5vw, 4rem);
+            font-weight: 300;
+            line-height: 1.05;
+            margin-bottom: 32px;
+            color: var(--font-primary);
+        }
+        
+        .hero-style-6 .hero-text p {
+            font-size: 1.125rem;
+            color: var(--font-secondary);
+            margin-bottom: 40px;
+            max-width: 500px;
+        }
+        
+        .hero-style-6 .floating-card {
+            background: white;
+            border-radius: 20px;
+            padding: 48px;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.1);
+            position: relative;
+        }
+        
+        .hero-style-6 .floating-card::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            border-radius: 20px;
+            padding: 2px;
+            background: var(--rainbow-gradient);
+            -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+            mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+            -webkit-mask-composite: xor;
+            mask-composite: exclude;
+            pointer-events: none;
+        }
+        
+        .hero-style-6 .floating-card video {
+            width: 100%;
+            border-radius: 12px;
+            margin-bottom: 24px;
+        }
+        
+        .hero-style-6 .floating-card .card-title {
+            font-size: 1rem;
+            font-weight: 600;
+            margin-bottom: 8px;
+            color: var(--font-primary);
+        }
+        
+        .hero-style-6 .floating-card .card-desc {
+            font-size: 0.875rem;
+            color: var(--font-secondary);
+        }
+        
+        @media (max-width: 900px) {
+            .hero-style-6 .hero-content {
+                grid-template-columns: 1fr;
+                gap: 40px;
+            }
+            .hero-style-6 .hero-text {
+                text-align: center;
+            }
+            .hero-style-6 .hero-text p {
+                margin-left: auto;
+                margin-right: auto;
+            }
+        }
+        
+        /* Hero Style 7: Giant Left-Aligned Typography with Video BG */
+        .hero-style-7 {
+            position: relative;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            overflow: hidden;
+            background: var(--brand-bg-1);
+        }
+        
+        .hero-style-7 .hero-video {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            z-index: 0;
+            opacity: 0.3;
+        }
+        
+        .hero-style-7 .hero-content {
+            position: relative;
+            z-index: 1;
+            padding: 120px 10% 80px;
+        }
+        
+        .hero-style-7 .eyebrow {
+            font-size: 0.875rem;
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            color: var(--font-secondary);
+            margin-bottom: 24px;
+        }
+        
+        .hero-style-7 h1 {
+            font-size: clamp(3rem, 8vw, 6rem);
+            font-weight: 200;
+            line-height: 1;
+            margin-bottom: 40px;
+            color: var(--font-primary);
+        }
+        
+        .hero-style-7 h1 .gradient-line {
+            display: block;
+            background: var(--rainbow-gradient);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        
+        .hero-style-7 h1 .normal-line {
+            display: block;
+            color: var(--font-primary);
+        }
+        
+        .hero-style-7 p {
+            font-size: 1.25rem;
+            color: var(--font-secondary);
+            margin-bottom: 40px;
+            max-width: 600px;
+        }
+        
+        .hero-style-7 .hero-cta {
+            display: flex;
+            gap: 16px;
+            flex-wrap: wrap;
+        }
+        
+        @media (max-width: 768px) {
+            .hero-style-7 .hero-content {
+                padding: 100px 5% 60px;
+            }
+        }
+        
+        /* Hero Style 8: Dark Gradient Fade to White */
+        .hero-style-8 {
+            position: relative;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            background: linear-gradient(135deg, 
+                color-mix(in srgb, var(--brand-primary) 75%, #0a0a0a) 0%, 
+                color-mix(in srgb, var(--brand-accent-1) 79%, #0a0a0a) 35%, 
+                color-mix(in srgb, var(--brand-secondary) 75%, #0a0a0a) 100%
+            );
+            overflow: hidden;
+        }
+        
+        .hero-style-8::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            height: 40%;
+            background: linear-gradient(to bottom, transparent 0%, white 100%);
+            pointer-events: none;
+            z-index: 1;
+        }
+        
+        .hero-style-8 .hero-content {
+            position: relative;
+            z-index: 2;
+            max-width: 1000px;
+            padding: 120px 10% 160px;
+        }
+        
+        .hero-style-8 .eyebrow {
+            font-size: 0.875rem;
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            color: rgba(255,255,255,0.6);
+            margin-bottom: 24px;
+        }
+        
+        .hero-style-8 h1 {
+            font-size: clamp(3rem, 8vw, 6rem);
+            font-weight: 200;
+            line-height: 1;
+            margin-bottom: 40px;
+            color: var(--font-light);
+        }
+        
+        .hero-style-8 h1 .gradient-line {
+            display: block;
+            background: linear-gradient(90deg, #fff 0%, rgba(255,255,255,0.8) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        
+        .hero-style-8 h1 .normal-line {
+            display: block;
+            color: var(--font-light);
+        }
+        
+        .hero-style-8 p {
+            font-size: 1.25rem;
+            color: rgba(255,255,255,0.7);
+            margin-bottom: 40px;
+            max-width: 600px;
+        }
+        
+        .hero-style-8 .hero-cta {
+            display: flex;
+            gap: 16px;
+            flex-wrap: wrap;
+        }
+        
+        .hero-style-8 .hero-cta .btn-primary {
+            background: white;
+            color: #1a1a1a;
+        }
+        
+        .hero-style-8 .hero-cta .btn-primary:hover {
+            background: rgba(255,255,255,0.9);
+        }
+        
+        .hero-style-8 .hero-cta .btn-secondary {
+            border-color: rgba(255,255,255,0.4);
+            color: white;
+        }
+        
+        .hero-style-8 .hero-cta .btn-secondary:hover {
+            border-color: white;
+            background: rgba(255,255,255,0.1);
+        }
+        
+        .hero-style-8-body {
+            background: white;
+            padding: 80px 10%;
+            text-align: center;
+        }
+        
+        .hero-style-8-body h3 {
+            font-size: 1.5rem;
+            font-weight: 500;
+            margin-bottom: 16px;
+            color: var(--font-primary);
+        }
+        
+        .hero-style-8-body p {
+            color: var(--font-secondary);
+            max-width: 600px;
+            margin: 0 auto;
+        }
+        
+        @media (max-width: 768px) {
+            .hero-style-8 .hero-content {
+                padding: 100px 5% 120px;
+            }
+        }
+    </style>
+</head>
+
+<body style="padding-top: 60px;">
+    <!-- Test Page Navigation -->
+    <div class="test-page-nav">
+        <h1>Hero Style Tests</h1>
+        <a href="#style-1">1. Centered Video</a>
+        <a href="#style-2">2. Split</a>
+        <a href="#style-3">3. Dark</a>
+        <a href="#style-4">4. Giant</a>
+        <a href="#style-5">5. Cards</a>
+        <a href="#style-6">6. Float</a>
+        <a href="#style-7" style="color: #10B981;">7. Giant Left + Video</a>
+        <a href="#style-8" style="color: #10B981;">8. Gradient Fade</a>
+        <a href="home.html" style="margin-left: auto; color: var(--brand-primary);">← Back to Home</a>
+    </div>
+
+    <!-- Style 1: Current - Centered with Video Background -->
+    <div id="style-1" class="section-divider">
+        <h2>Style 1: Centered with Video Background</h2>
+        <p>Current approach - Clean, centered text with subtle video movement behind</p>
+    </div>
+    
+    <section class="hero-style-1">
+        <video class="hero-video" autoplay muted loop playsinline>
+            <source src="assets/download/video/bg-video-1-regular.mp4" type="video/mp4">
+        </video>
+        <div class="hero-content">
+            <h1>The world's most efficient <span class="rainbow-text">holographic displays</span> and optical sensors.</h1>
+            <p>Volume hologram combiners and ultra-low-power interferometric laser sensors for wearable smart glasses and intelligent systems.</p>
+            <div class="hero-cta">
+                <button class="btn-primary">
+                    <span>Our Technology</span>
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 5l0 14"/><path d="M18 13l-6 6"/><path d="M6 13l6 6"/></svg>
+                </button>
+                <button class="btn-secondary">
+                    <span>Contact Us</span>
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Style 2: Split Layout - Text Left, Video Right -->
+    <div id="style-2" class="section-divider">
+        <h2>Style 2: Split Layout</h2>
+        <p>Half text, half video - More visual impact with clear content hierarchy</p>
+    </div>
+    
+    <section class="hero-style-2">
+        <div class="hero-text">
+            <h1>The world's most efficient <span class="rainbow-text">holographic displays</span> and optical sensors.</h1>
+            <p>Volume hologram combiners and ultra-low-power interferometric laser sensors for wearable smart glasses and intelligent systems.</p>
+            <div class="hero-cta">
+                <button class="btn-primary">
+                    <span>Our Technology</span>
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 5l0 14"/><path d="M18 13l-6 6"/><path d="M6 13l6 6"/></svg>
+                </button>
+                <button class="btn-secondary">
+                    <span>Contact Us</span>
+                </button>
+            </div>
+        </div>
+        <div class="hero-media">
+            <video autoplay muted loop playsinline>
+                <source src="assets/videos/white-bg-lens.mp4" type="video/mp4">
+            </video>
+        </div>
+    </section>
+
+    <!-- Style 3: Dark Mode with Gradient Accents -->
+    <div id="style-3" class="section-divider">
+        <h2>Style 3: Dark Mode with Gradient Accents</h2>
+        <p>Premium dark aesthetic with rainbow gradient accents and stat badges</p>
+    </div>
+    
+    <section class="hero-style-3">
+        <div class="hero-content">
+            <div class="hero-text">
+                <h1><span class="rainbow-text">Mastering</span> the Language of Light</h1>
+                <p>The world's most efficient holographic displays and optical sensors for wearable smart glasses and intelligent systems.</p>
+                <div class="hero-cta">
+                    <button class="btn-primary">
+                        <span>Our Technology</span>
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 5l0 14"/><path d="M18 13l-6 6"/><path d="M6 13l6 6"/></svg>
+                    </button>
+                    <button class="btn-secondary">
+                        <span>Contact Us</span>
+                    </button>
+                </div>
+                <div class="stat-badges">
+                    <div class="stat-badge">
+                        <div class="value">17</div>
+                        <div class="label">PhDs</div>
+                    </div>
+                    <div class="stat-badge">
+                        <div class="value">30+</div>
+                        <div class="label">Patents</div>
+                    </div>
+                    <div class="stat-badge">
+                        <div class="value">220+</div>
+                        <div class="label">Publications</div>
+                    </div>
+                </div>
+            </div>
+            <div class="hero-visual">
+                <video autoplay muted loop playsinline>
+                    <source src="assets/videos/dark-bg-lens.mp4" type="video/mp4">
+                </video>
+            </div>
+        </div>
+    </section>
+
+    <!-- Style 4: Minimal with Giant Typography -->
+    <div id="style-4" class="section-divider">
+        <h2>Style 4: Giant Typography</h2>
+        <p>Bold, oversized text with subtle gradient background - Maximum impact</p>
+    </div>
+    
+    <section class="hero-style-4">
+        <div class="hero-content">
+            <p class="eyebrow">Advanced Optical Technology</p>
+            <h1>
+                Holographic displays.
+                <span class="highlight">Optical sensors.</span>
+            </h1>
+            <p>Volume hologram combiners and ultra-low-power interferometric laser sensors for wearable smart glasses and intelligent systems.</p>
+            <div class="hero-cta">
+                <button class="btn-primary">
+                    <span>Explore Technology</span>
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 14h4v-4"/><path d="M3 12c.887 1.284 2.48 2.033 4 2c1.52 .033 3.113 -.716 4 -2s2.48 -2.033 4 -2c1.52 -.033 3 1 4 2l2 2"/></svg>
+                </button>
+                <button class="btn-tertiary">
+                    <span>Contact Us</span>
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Style 5: Card-Based with Stats Integration -->
+    <div id="style-5" class="section-divider">
+        <h2>Style 5: Card-Based Layout</h2>
+        <p>Feature cards with stats - Immediately communicates value propositions</p>
+    </div>
+    
+    <section class="hero-style-5">
+        <div class="hero-container">
+            <div class="hero-top">
+                <h1>The world's most efficient <span class="rainbow-text">holographic displays</span></h1>
+                <p>Volume hologram combiners and ultra-low-power sensors for wearable smart glasses and intelligent systems.</p>
+                <div class="hero-cta" style="justify-content: center;">
+                    <button class="btn-primary">
+                        <span>Our Technology</span>
+                    </button>
+                    <button class="btn-secondary">
+                        <span>Contact Us</span>
+                    </button>
+                </div>
+            </div>
+            <div class="hero-cards">
+                <div class="hero-card">
+                    <div class="stat-value">80%</div>
+                    <h3>Energy Efficient</h3>
+                    <p>Our holographic displays consume up to 80% less power than conventional systems.</p>
+                </div>
+                <div class="hero-card">
+                    <div class="stat-value">5×</div>
+                    <h3>Smaller Footprint</h3>
+                    <p>Compact optical design enables sleeker, more comfortable wearable devices.</p>
+                </div>
+                <div class="hero-card">
+                    <div class="stat-value">20×</div>
+                    <h3>Contrast Ratio</h3>
+                    <p>Superior image quality with dramatically improved contrast for vivid AR experiences.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Style 6: Asymmetric with Floating Card -->
+    <div id="style-6" class="section-divider">
+        <h2>Style 6: Asymmetric with Floating Card</h2>
+        <p>Dynamic layout with floating product showcase card</p>
+    </div>
+    
+    <section class="hero-style-6">
+        <div class="hero-bg-element"></div>
+        <div class="hero-content">
+            <div class="hero-text">
+                <h1>The world's most efficient <span class="rainbow-text">holographic displays</span> and optical sensors.</h1>
+                <p>Volume hologram combiners and ultra-low-power interferometric laser sensors for wearable smart glasses and intelligent systems.</p>
+                <div class="hero-cta">
+                    <button class="btn-primary">
+                        <span>Our Technology</span>
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 5l0 14"/><path d="M18 13l-6 6"/><path d="M6 13l6 6"/></svg>
+                    </button>
+                    <button class="btn-secondary">
+                        <span>Contact Us</span>
+                    </button>
+                </div>
+            </div>
+            <div class="floating-card">
+                <video autoplay muted loop playsinline>
+                    <source src="assets/videos/white-bg-lens.mp4" type="video/mp4">
+                </video>
+                <p class="card-title">Holographic Display Technology</p>
+                <p class="card-desc">Ultra-efficient waveguide optics for next-generation AR experiences.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Style 7: Giant Left-Aligned Typography with Video BG (Mix of 1 + 4) -->
+    <div id="style-7" class="section-divider">
+        <h2>Style 7: Giant Left-Aligned + Video Background</h2>
+        <p>Combines the bold typography of Style 4 with the video background of Style 1</p>
+    </div>
+    
+    <section class="hero-style-7">
+        <video class="hero-video" autoplay muted loop playsinline>
+            <source src="assets/download/video/bg-video-1-regular.mp4" type="video/mp4">
+        </video>
+        <div class="hero-content">
+            <p class="eyebrow">Advanced Optical Technology</p>
+            <h1>
+                <span class="gradient-line">The World's Most Efficient</span>
+                <span class="normal-line">Holographic Displays</span>
+                <span class="normal-line">& Optical Sensors.</span>
+            </h1>
+            <p>Volume hologram combiners and ultra-low-power interferometric laser sensors for wearable smart glasses and intelligent systems.</p>
+            <div class="hero-cta">
+                <button class="btn-primary">
+                    <span>Explore Technology</span>
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 14h4v-4"/><path d="M3 12c.887 1.284 2.48 2.033 4 2c1.52 .033 3.113 -.716 4 -2s2.48 -2.033 4 -2c1.52 -.033 3 1 4 2l2 2"/></svg>
+                </button>
+                <button class="btn-tertiary">
+                    <span>Contact Us</span>
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Style 8: Dark Gradient Fade to White -->
+    <div id="style-8" class="section-divider">
+        <h2>Style 8: Dark Gradient Fade to White</h2>
+        <p>Uses the footer's darkened rainbow gradient, fading to white for the page body</p>
+    </div>
+    
+    <section class="hero-style-8">
+        <div class="hero-content">
+            <p class="eyebrow">Advanced Optical Technology</p>
+            <h1>
+                <span class="gradient-line">The World's Most Efficient</span>
+                <span class="normal-line">Holographic Displays</span>
+                <span class="normal-line">& Optical Sensors.</span>
+            </h1>
+            <p>Volume hologram combiners and ultra-low-power interferometric laser sensors for wearable smart glasses and intelligent systems.</p>
+            <div class="hero-cta">
+                <button class="btn-primary">
+                    <span>Explore Technology</span>
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 14h4v-4"/><path d="M3 12c.887 1.284 2.48 2.033 4 2c1.52 .033 3.113 -.716 4 -2s2.48 -2.033 4 -2c1.52 -.033 3 1 4 2l2 2"/></svg>
+                </button>
+                <button class="btn-secondary">
+                    <span>Contact Us</span>
+                </button>
+            </div>
+        </div>
+    </section>
+    <div class="hero-style-8-body">
+        <h3>This is where the page content continues...</h3>
+        <p>The gradient hero smoothly transitions into a clean white background for the rest of the page content.</p>
+    </div>
+
+    <!-- Footer spacer -->
+    <div style="height: 100px; background: var(--brand-bg-2);"></div>
+
+    <script src="brand-script.js"></script>
+</body>
+</html>
+

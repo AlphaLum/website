@@ -3,9 +3,9 @@
     <title>alphalum-square-color-logo</title>
     <defs>
         <path d="M0,0 L100,0 L100,100 L0,100 L0,0 Z" id="path-1"></path>
-        <linearGradient x1="96.4511719%" y1="94.8886719%" x2="-23.5527344%" y2="-16.7695313%" id="linearGradient-2">
-            <stop stop-color="#00AAFF" offset="0%"></stop>
-            <stop stop-color="#FF3B51" offset="62.0681476%"></stop>
+        <linearGradient x1="100%" y1="100%" x2="-5.16015625%" y2="2.35401976e-13%" id="linearGradient-2">
+            <stop stop-color="#0096FF" offset="0%"></stop>
+            <stop stop-color="#FF6677" offset="62.0333705%"></stop>
             <stop stop-color="#FF0000" offset="100%"></stop>
         </linearGradient>
         <filter x="0.0%" y="0.0%" width="100.0%" height="100.0%" filterUnits="objectBoundingBox" id="filter-3">
@@ -16,12 +16,12 @@
         <use fill="#FFFFFF" xlink:href="#path-1"></use>
         <g id="logo-option-5-2" stroke-width="1" transform="translate(-27, -16)">
             <rect id="Rectangle-6" fill="url(#linearGradient-2)" filter="url(#filter-3)" x="27" y="16" width="100" height="100"></rect>
-            <g id="Group" transform="translate(40, 23)" fill="#FFFFFF" fill-rule="nonzero">
+            <g id="Group" transform="translate(37, 23)" fill="#FFFFFF" fill-rule="nonzero">
                 <g id="L" transform="translate(49, 0)">
-                    <polygon id="Path" points="21.9541016 65.1425781 6.22509766 65.1425781 6.22509766 17 2.02050781 17 2.02050781 69 21.9541016 69"></polygon>
+                    <polygon id="Path" points="29.0458984 65.25 6.22509766 65.1425781 6.22509766 17 2.02050781 17 2.02050781 69 29 69"></polygon>
                 </g>
                 <g transform="translate(0, 17)" id="Shape">
-                    <path d="M8.54503676,52 L14.6314338,35.0484581 L36.3290441,35.0484581 L42.4154412,52 L47,52 L27.6737132,0 L23.3262868,0 L4,52 L8.54503676,52 Z M25.5790441,5.15418502 L36.3329647,35.0482138 L14.6326353,35.0482138 L25.4209559,5.15418502 L25.5790441,5.15418502 Z"></path>
+                    <path d="M6.54503676,52 L12.6314338,35.0484581 L34.3290441,35.0484581 L40.4154412,52 L45,52 L25.6737132,0 L21.3262868,0 L2,52 L6.54503676,52 Z M23.5790441,5.15418502 L34.3329647,35.0482138 L12.6326353,35.0482138 L23.4209559,5.15418502 L23.5790441,5.15418502 Z"></path>
                 </g>
             </g>
         </g>
