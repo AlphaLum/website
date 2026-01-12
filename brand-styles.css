@@ -2514,9 +2514,19 @@ p {
   }
   
   .mock-info-section {
-    grid-template-columns: 1fr;
+    display: flex;
+    flex-direction: column;
     padding: var(--spacing-lg) 5%;
     gap: var(--spacing-md);
+  }
+  
+  /* Ensure text always appears before image on mobile */
+  .mock-info-section .info-content {
+    order: 1;
+  }
+  
+  .mock-info-section .info-image {
+    order: 2;
   }
   
   .mock-metrics-section {
@@ -2574,10 +2584,6 @@ p {
   }
   
   .color-controls-grid {
-    grid-template-columns: 1fr;
-  }
-  
-  .mock-info-section {
     grid-template-columns: 1fr;
   }
   
@@ -5434,6 +5440,7 @@ a.tech-split-panel:hover {
   letter-spacing: 1px;
   margin-bottom: 24px;
   color: var(--brand-font-secondary);
+  min-height: 3.5rem; /* Ensures both titles take equal vertical space */
 }
 
 .product-section-5 .comparison-card.alphalum h4 {
