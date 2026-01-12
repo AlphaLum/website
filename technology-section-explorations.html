@@ -1,0 +1,1268 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <meta name="description" content="AlphaLum - Technology Section Design Explorations"/>
+    <title>AlphaLum - Technology Section Explorations</title>
+
+    <!-- Favicons -->
+    <link rel="icon" href="assets/download/final-logo/alphalum-square-color-logo-png.png" type="image/png"/>
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com"/>
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet"/>
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="reset.css"/>
+    <link rel="stylesheet" href="brand-styles.css"/>
+    
+    <style>
+        /* ==========================================
+           EXPLORATION PAGE STYLES
+           ========================================== */
+        
+        .exploration-nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            background: rgba(26, 26, 26, 0.95);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            z-index: 1000;
+            padding: 1rem 2rem;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        
+        .exploration-nav-content {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+        
+        .exploration-nav h1 {
+            font-size: 1rem;
+            font-weight: 400;
+            color: white;
+            margin: 0;
+            letter-spacing: 0.05em;
+        }
+        
+        .exploration-nav-links {
+            display: flex;
+            gap: 1rem;
+            flex-wrap: wrap;
+        }
+        
+        .exploration-nav-links a {
+            color: rgba(255, 255, 255, 0.7);
+            text-decoration: none;
+            font-size: 0.875rem;
+            padding: 0.5rem 1rem;
+            border-radius: 0;
+            border: 1px solid transparent;
+            transition: all 0.3s ease;
+        }
+        
+        .exploration-nav-links a:hover {
+            color: white;
+            border-color: rgba(255, 255, 255, 0.3);
+        }
+        
+        .exploration-divider {
+            width: 100%;
+            padding: 4rem 2rem;
+            background: var(--brand-bg-2);
+            text-align: center;
+        }
+        
+        .exploration-divider h2 {
+            font-family: var(--font-header);
+            font-size: 1rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.2em;
+            color: var(--brand-font-secondary);
+            margin: 0 0 0.5rem 0;
+        }
+        
+        .exploration-divider p {
+            font-size: 0.875rem;
+            color: var(--brand-font-secondary);
+            margin: 0;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+        
+        .exploration-spacer {
+            height: 80px;
+        }
+
+        /* ==========================================
+           VARIATION 1: DARK DRAMATIC
+           Charcoal background with glowing borders
+           ========================================== */
+        
+        .tech-v1 {
+            background: linear-gradient(180deg, #0a0a0f 0%, #141420 50%, #0a0a0f 100%);
+            padding: 6rem 5%;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .tech-v1::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80%;
+            height: 1px;
+            background: var(--rainbow-gradient);
+            opacity: 0.5;
+        }
+        
+        .tech-v1 h2 {
+            font-family: var(--font-header);
+            font-size: clamp(3rem, 8vw, 6rem);
+            font-weight: 200;
+            color: white;
+            text-align: center;
+            margin: 0 0 4rem 0;
+            letter-spacing: -0.02em;
+        }
+        
+        .tech-v1 h2 span {
+            background: var(--rainbow-gradient);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        
+        .tech-v1-cards {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 3rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        .tech-v1-card {
+            position: relative;
+            background: rgba(255, 255, 255, 0.02);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            overflow: hidden;
+            transition: all 0.4s ease;
+        }
+        
+        .tech-v1-card::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            padding: 1px;
+            background: var(--rainbow-gradient);
+            -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+            mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+            -webkit-mask-composite: xor;
+            mask-composite: exclude;
+            opacity: 0;
+            transition: opacity 0.4s ease;
+        }
+        
+        .tech-v1-card:hover::before {
+            opacity: 1;
+        }
+        
+        .tech-v1-card:hover {
+            background: rgba(255, 255, 255, 0.04);
+            transform: translateY(-8px);
+            box-shadow: 
+                0 20px 60px rgba(255, 69, 36, 0.1),
+                0 10px 30px rgba(0, 170, 255, 0.05);
+        }
+        
+        .tech-v1-card-image {
+            aspect-ratio: 16/10;
+            overflow: hidden;
+            position: relative;
+        }
+        
+        .tech-v1-card-image::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            height: 50%;
+            background: linear-gradient(to top, rgba(10, 10, 15, 0.9), transparent);
+        }
+        
+        .tech-v1-card-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.6s ease;
+        }
+        
+        .tech-v1-card:hover .tech-v1-card-image img {
+            transform: scale(1.05);
+        }
+        
+        .tech-v1-card-content {
+            padding: 2rem;
+        }
+        
+        .tech-v1-card-content h3 {
+            font-family: var(--font-header);
+            font-size: 1.75rem;
+            font-weight: 300;
+            color: white;
+            margin: 0 0 1rem 0;
+        }
+        
+        .tech-v1-card-content p {
+            font-size: 1rem;
+            color: rgba(255, 255, 255, 0.6);
+            line-height: 1.7;
+            margin: 0 0 1.5rem 0;
+        }
+        
+        .tech-v1-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            color: white;
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 0.9375rem;
+            padding: 0.75rem 1.5rem;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            transition: all 0.3s ease;
+        }
+        
+        .tech-v1-btn:hover {
+            background: var(--rainbow-gradient);
+            border-color: transparent;
+        }
+        
+        .tech-v1-btn svg {
+            transition: transform 0.3s ease;
+        }
+        
+        .tech-v1-btn:hover svg {
+            transform: translateX(4px);
+        }
+
+        /* ==========================================
+           VARIATION 2: GRADIENT GLOW CARDS
+           Dark gradient background (from footer) with glowing cards
+           ========================================== */
+        
+        .tech-v2 {
+            background: linear-gradient(135deg, 
+                color-mix(in srgb, var(--brand-primary) 75%, #0a0a0a) 0%, 
+                color-mix(in srgb, var(--brand-accent-1) 79%, #0a0a0a) 35%, 
+                color-mix(in srgb, var(--brand-secondary) 75%, #0a0a0a) 100%
+            );
+            padding: 6rem 5%;
+            position: relative;
+        }
+        
+        .tech-v2 h2 {
+            font-family: var(--font-header);
+            font-size: clamp(3rem, 8vw, 6rem);
+            font-weight: 200;
+            color: white;
+            text-align: center;
+            margin: 0 0 1rem 0;
+        }
+        
+        .tech-v2-subtitle {
+            text-align: center;
+            font-size: 1.125rem;
+            color: rgba(255, 255, 255, 0.7);
+            max-width: 600px;
+            margin: 0 auto 4rem auto;
+        }
+        
+        .tech-v2-cards {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 3rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        .tech-v2-card {
+            position: relative;
+            background: rgba(255, 255, 255, 0.95);
+            border-radius: 0;
+            overflow: hidden;
+            box-shadow: 0 8px 60px rgba(0, 0, 0, 0.3);
+            transition: all 0.4s ease;
+        }
+        
+        .tech-v2-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: var(--rainbow-gradient);
+            transform: scaleX(0);
+            transform-origin: left;
+            transition: transform 0.4s ease;
+        }
+        
+        .tech-v2-card:hover::before {
+            transform: scaleX(1);
+        }
+        
+        .tech-v2-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 
+                0 25px 80px rgba(0, 0, 0, 0.4),
+                0 0 60px rgba(255, 69, 36, 0.15);
+        }
+        
+        .tech-v2-card-image {
+            aspect-ratio: 16/10;
+            overflow: hidden;
+            position: relative;
+        }
+        
+        .tech-v2-card-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.6s ease;
+        }
+        
+        .tech-v2-card:hover .tech-v2-card-image img {
+            transform: scale(1.08);
+        }
+        
+        .tech-v2-card-tag {
+            position: absolute;
+            top: 1rem;
+            left: 1rem;
+            background: var(--rainbow-gradient);
+            color: white;
+            font-size: 0.75rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            padding: 0.5rem 1rem;
+        }
+        
+        .tech-v2-card-content {
+            padding: 2rem;
+        }
+        
+        .tech-v2-card-content h3 {
+            font-family: var(--font-header);
+            font-size: 1.75rem;
+            font-weight: 300;
+            color: var(--brand-font-primary);
+            margin: 0 0 1rem 0;
+        }
+        
+        .tech-v2-card-content p {
+            font-size: 1rem;
+            color: var(--brand-font-secondary);
+            line-height: 1.7;
+            margin: 0 0 1.5rem 0;
+        }
+        
+        .tech-v2-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            background: var(--brand-button);
+            color: white;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 0.9375rem;
+            padding: 0.875rem 1.75rem;
+            border: 2px solid var(--brand-button);
+            transition: all 0.3s ease;
+        }
+        
+        .tech-v2-btn span {
+            transition: all 0.3s ease;
+        }
+        
+        .tech-v2-btn:hover span {
+            background: var(--rainbow-gradient);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        
+        .tech-v2-btn svg {
+            stroke: white;
+            transition: all 0.3s ease;
+        }
+        
+        .tech-v2-btn:hover svg {
+            stroke: var(--brand-secondary);
+            transform: translateX(4px);
+        }
+
+        /* ==========================================
+           VARIATION 3: HORIZONTAL CARDS
+           Full-width horizontal layout with large imagery
+           ========================================== */
+        
+        .tech-v3 {
+            background: var(--brand-bg-1);
+            padding: 6rem 0;
+        }
+        
+        .tech-v3-header {
+            text-align: center;
+            padding: 0 5%;
+            margin-bottom: 4rem;
+        }
+        
+        .tech-v3-header h2 {
+            font-family: var(--font-header);
+            font-size: clamp(3rem, 8vw, 6rem);
+            font-weight: 200;
+            color: var(--brand-font-primary);
+            margin: 0;
+        }
+        
+        .tech-v3-card {
+            display: grid;
+            grid-template-columns: 1.2fr 1fr;
+            min-height: 500px;
+            border-top: 1px solid #e5e7eb;
+            border-bottom: 1px solid #e5e7eb;
+        }
+        
+        .tech-v3-card:nth-child(odd) {
+            direction: rtl;
+        }
+        
+        .tech-v3-card:nth-child(odd) > * {
+            direction: ltr;
+        }
+        
+        .tech-v3-card + .tech-v3-card {
+            border-top: none;
+        }
+        
+        .tech-v3-card-image {
+            overflow: hidden;
+            position: relative;
+        }
+        
+        .tech-v3-card-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.8s ease;
+        }
+        
+        .tech-v3-card:hover .tech-v3-card-image img {
+            transform: scale(1.05);
+        }
+        
+        .tech-v3-card-content {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            padding: 4rem 6%;
+            background: var(--brand-bg-1);
+            position: relative;
+        }
+        
+        .tech-v3-card-content::before {
+            content: '';
+            position: absolute;
+            top: 2rem;
+            left: 0;
+            width: 60px;
+            height: 3px;
+            background: var(--rainbow-gradient);
+        }
+        
+        .tech-v3-card:nth-child(odd) .tech-v3-card-content::before {
+            left: auto;
+            right: 0;
+        }
+        
+        .tech-v3-card-number {
+            font-size: 0.875rem;
+            font-weight: 600;
+            color: var(--brand-primary);
+            text-transform: uppercase;
+            letter-spacing: 0.15em;
+            margin: 0 0 1.5rem 0;
+        }
+        
+        .tech-v3-card-content h3 {
+            font-family: var(--font-header);
+            font-size: 2.5rem;
+            font-weight: 300;
+            color: var(--brand-font-primary);
+            margin: 0 0 1.5rem 0;
+            line-height: 1.2;
+        }
+        
+        .tech-v3-card-content p {
+            font-size: 1.0625rem;
+            color: var(--brand-font-secondary);
+            line-height: 1.8;
+            margin: 0 0 2rem 0;
+        }
+        
+        .tech-v3-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.75rem;
+            color: var(--brand-font-primary);
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 1rem;
+            transition: all 0.3s ease;
+        }
+        
+        .tech-v3-btn span {
+            position: relative;
+        }
+        
+        .tech-v3-btn span::after {
+            content: '';
+            position: absolute;
+            bottom: -2px;
+            left: 0;
+            width: 100%;
+            height: 2px;
+            background: var(--rainbow-gradient);
+            transform: scaleX(0);
+            transform-origin: right;
+            transition: transform 0.3s ease;
+        }
+        
+        .tech-v3-btn:hover span::after {
+            transform: scaleX(1);
+            transform-origin: left;
+        }
+        
+        .tech-v3-btn svg {
+            transition: transform 0.3s ease;
+        }
+        
+        .tech-v3-btn:hover svg {
+            transform: translateX(6px);
+        }
+
+        /* ==========================================
+           VARIATION 4: IMMERSIVE HERO BLOCKS
+           Full-width sections with overlay content
+           ========================================== */
+        
+        .tech-v4 {
+            background: var(--brand-bg-1);
+        }
+        
+        .tech-v4-header {
+            padding: 6rem 5%;
+            text-align: center;
+        }
+        
+        .tech-v4-header h2 {
+            font-family: var(--font-header);
+            font-size: clamp(3rem, 8vw, 6rem);
+            font-weight: 200;
+            color: var(--brand-font-primary);
+            margin: 0;
+        }
+        
+        .tech-v4-block {
+            position: relative;
+            height: 80vh;
+            min-height: 600px;
+            max-height: 900px;
+            overflow: hidden;
+        }
+        
+        .tech-v4-block-bg {
+            position: absolute;
+            inset: 0;
+        }
+        
+        .tech-v4-block-bg img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        
+        .tech-v4-block-overlay {
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(90deg, 
+                rgba(0, 0, 0, 0.85) 0%, 
+                rgba(0, 0, 0, 0.6) 40%,
+                rgba(0, 0, 0, 0.2) 100%
+            );
+        }
+        
+        .tech-v4-block:nth-child(odd) .tech-v4-block-overlay {
+            background: linear-gradient(270deg, 
+                rgba(0, 0, 0, 0.85) 0%, 
+                rgba(0, 0, 0, 0.6) 40%,
+                rgba(0, 0, 0, 0.2) 100%
+            );
+        }
+        
+        .tech-v4-block-content {
+            position: relative;
+            z-index: 1;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            height: 100%;
+            padding: 4rem 8%;
+            max-width: 600px;
+        }
+        
+        .tech-v4-block:nth-child(odd) .tech-v4-block-content {
+            margin-left: auto;
+        }
+        
+        .tech-v4-tag {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            font-size: 0.75rem;
+            font-weight: 600;
+            color: var(--brand-primary);
+            text-transform: uppercase;
+            letter-spacing: 0.15em;
+            margin-bottom: 1.5rem;
+        }
+        
+        .tech-v4-tag::before {
+            content: '';
+            width: 30px;
+            height: 2px;
+            background: var(--rainbow-gradient);
+        }
+        
+        .tech-v4-block-content h3 {
+            font-family: var(--font-header);
+            font-size: clamp(2rem, 4vw, 3.5rem);
+            font-weight: 300;
+            color: white;
+            margin: 0 0 1.5rem 0;
+            line-height: 1.15;
+        }
+        
+        .tech-v4-block-content p {
+            font-size: 1.0625rem;
+            color: rgba(255, 255, 255, 0.75);
+            line-height: 1.8;
+            margin: 0 0 2rem 0;
+        }
+        
+        .tech-v4-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.75rem;
+            background: transparent;
+            color: white;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 1rem;
+            padding: 1rem 2rem;
+            border: 2px solid white;
+            transition: all 0.3s ease;
+            width: fit-content;
+        }
+        
+        .tech-v4-btn:hover {
+            background: white;
+            color: var(--brand-font-primary);
+        }
+        
+        .tech-v4-btn svg {
+            transition: transform 0.3s ease;
+        }
+        
+        .tech-v4-btn:hover svg {
+            transform: translateX(4px);
+        }
+
+        /* ==========================================
+           VARIATION 5: SPLIT SCREEN INTERACTIVE
+           50/50 split with animated interactions
+           ========================================== */
+        
+        .tech-v5 {
+            background: var(--brand-bg-1);
+        }
+        
+        .tech-v5-header {
+            padding: 6rem 5%;
+            text-align: center;
+            background: linear-gradient(180deg, var(--brand-bg-2) 0%, var(--brand-bg-1) 100%);
+        }
+        
+        .tech-v5-header-tag {
+            display: inline-block;
+            font-size: 0.75rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.2em;
+            background: var(--rainbow-gradient);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: 1rem;
+        }
+        
+        .tech-v5-header h2 {
+            font-family: var(--font-header);
+            font-size: clamp(3rem, 8vw, 6rem);
+            font-weight: 200;
+            color: var(--brand-font-primary);
+            margin: 0;
+        }
+        
+        .tech-v5-split {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            min-height: 70vh;
+        }
+        
+        .tech-v5-panel {
+            position: relative;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            padding: 4rem;
+            cursor: pointer;
+            transition: all 0.5s ease;
+            overflow: hidden;
+        }
+        
+        .tech-v5-panel-left {
+            background: linear-gradient(135deg, 
+                color-mix(in srgb, var(--brand-primary) 75%, #0a0a0a) 0%, 
+                color-mix(in srgb, var(--brand-accent-1) 79%, #0a0a0a) 35%, 
+                color-mix(in srgb, var(--brand-secondary) 75%, #0a0a0a) 100%
+            );
+        }
+        
+        .tech-v5-panel-right {
+            background: linear-gradient(135deg, 
+                rgba(255, 69, 36, 0.03) 0%, 
+                rgba(255, 59, 81, 0.06) 35%, 
+                rgba(0, 170, 255, 0.06) 95%
+            );
+        }
+        
+        .tech-v5-panel::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            opacity: 0;
+            transition: opacity 0.5s ease;
+            pointer-events: none;
+        }
+        
+        .tech-v5-panel-left::before {
+            background: linear-gradient(135deg, 
+                rgba(255, 255, 255, 0.05) 0%, 
+                rgba(255, 255, 255, 0.02) 100%
+            );
+        }
+        
+        .tech-v5-panel-right::before {
+            background: linear-gradient(135deg, 
+                rgba(255, 69, 36, 0.08) 0%, 
+                rgba(0, 170, 255, 0.08) 100%
+            );
+        }
+        
+        .tech-v5-panel:hover::before {
+            opacity: 1;
+        }
+        
+        .tech-v5-panel-image {
+            width: 100%;
+            aspect-ratio: 16/10;
+            overflow: hidden;
+            margin-bottom: 2rem;
+            position: relative;
+        }
+        
+        .tech-v5-panel-image::after {
+            content: '';
+            position: absolute;
+            inset: 0;
+            border: 1px solid transparent;
+            transition: border-color 0.3s ease;
+        }
+        
+        .tech-v5-panel:hover .tech-v5-panel-image::after {
+            border-image: var(--rainbow-gradient) 1;
+        }
+        
+        .tech-v5-panel-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.6s ease;
+        }
+        
+        .tech-v5-panel:hover .tech-v5-panel-image img {
+            transform: scale(1.05);
+        }
+        
+        .tech-v5-panel-number {
+            font-size: 4rem;
+            font-weight: 200;
+            line-height: 1;
+            margin-bottom: 1rem;
+            transition: all 0.5s ease;
+        }
+        
+        .tech-v5-panel-left .tech-v5-panel-number {
+            color: rgba(255, 255, 255, 0.1);
+        }
+        
+        .tech-v5-panel-right .tech-v5-panel-number {
+            color: rgba(0, 0, 0, 0.06);
+        }
+        
+        .tech-v5-panel:hover .tech-v5-panel-number {
+            background: var(--rainbow-gradient);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        
+        .tech-v5-panel h3 {
+            font-family: var(--font-header);
+            font-size: 2rem;
+            font-weight: 300;
+            margin: 0 0 1rem 0;
+            transition: all 0.3s ease;
+        }
+        
+        .tech-v5-panel-left h3 {
+            color: white;
+        }
+        
+        .tech-v5-panel-right h3 {
+            color: var(--brand-font-primary);
+        }
+        
+        .tech-v5-panel p {
+            font-size: 1rem;
+            line-height: 1.7;
+            margin: 0 0 2rem 0;
+        }
+        
+        .tech-v5-panel-left p {
+            color: rgba(255, 255, 255, 0.6);
+        }
+        
+        .tech-v5-panel-right p {
+            color: var(--brand-font-secondary);
+        }
+        
+        .tech-v5-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.75rem;
+            font-weight: 600;
+            font-size: 1rem;
+            text-decoration: none;
+            padding: 1rem 2rem;
+            transition: all 0.3s ease;
+            width: fit-content;
+        }
+        
+        .tech-v5-btn-light {
+            color: white;
+            border: 2px solid rgba(255, 255, 255, 0.3);
+        }
+        
+        .tech-v5-btn-light:hover {
+            background: white;
+            color: var(--brand-font-primary);
+            border-color: white;
+        }
+        
+        .tech-v5-btn-dark {
+            color: var(--brand-font-primary);
+            border: 2px solid var(--brand-font-primary);
+        }
+        
+        .tech-v5-btn-dark:hover {
+            background: var(--brand-font-primary);
+            color: white;
+        }
+        
+        .tech-v5-btn svg {
+            transition: transform 0.3s ease;
+        }
+        
+        .tech-v5-btn:hover svg {
+            transform: translateX(4px);
+        }
+        
+        /* ==========================================
+           RESPONSIVE ADJUSTMENTS
+           ========================================== */
+        
+        @media (max-width: 1024px) {
+            .tech-v1-cards,
+            .tech-v2-cards {
+                grid-template-columns: 1fr;
+                max-width: 600px;
+            }
+            
+            .tech-v3-card {
+                grid-template-columns: 1fr;
+                min-height: auto;
+            }
+            
+            .tech-v3-card:nth-child(odd) {
+                direction: ltr;
+            }
+            
+            .tech-v3-card-image {
+                height: 300px;
+            }
+            
+            .tech-v3-card-content::before {
+                left: 0 !important;
+                right: auto !important;
+            }
+            
+            .tech-v4-block {
+                height: auto;
+                min-height: 500px;
+            }
+            
+            .tech-v4-block-overlay {
+                background: linear-gradient(0deg, 
+                    rgba(0, 0, 0, 0.9) 0%, 
+                    rgba(0, 0, 0, 0.4) 100%
+                ) !important;
+            }
+            
+            .tech-v4-block-content {
+                max-width: none;
+                justify-content: flex-end;
+                padding-bottom: 3rem;
+                margin-left: 0 !important;
+            }
+            
+            .tech-v5-split {
+                grid-template-columns: 1fr;
+            }
+            
+            .tech-v5-panel {
+                padding: 3rem 5%;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .exploration-nav-content {
+                flex-direction: column;
+                gap: 1rem;
+            }
+            
+            .exploration-nav-links {
+                justify-content: center;
+            }
+            
+            .exploration-spacer {
+                height: 140px;
+            }
+            
+            .tech-v1,
+            .tech-v2 {
+                padding: 4rem 5%;
+            }
+            
+            .tech-v3-card-content {
+                padding: 3rem 5%;
+            }
+            
+            .tech-v3-card-content h3 {
+                font-size: 2rem;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Exploration Navigation -->
+    <nav class="exploration-nav">
+        <div class="exploration-nav-content">
+            <h1>Technology Section Explorations</h1>
+            <div class="exploration-nav-links">
+                <a href="#v1">V1: Dark Dramatic</a>
+                <a href="#v2">V2: Gradient Glow</a>
+                <a href="#v3">V3: Horizontal</a>
+                <a href="#v4">V4: Immersive Hero</a>
+                <a href="#v5">V5: Split Screen</a>
+            </div>
+        </div>
+    </nav>
+    
+    <div class="exploration-spacer"></div>
+
+    <!-- ==========================================
+         VARIATION 1: DARK DRAMATIC
+         ========================================== -->
+    <div class="exploration-divider" id="v1">
+        <h2>Variation 1: Dark Dramatic</h2>
+        <p>Charcoal background with glowing rainbow borders and elevated hover states. Creates a premium, high-tech feel.</p>
+    </div>
+    
+    <section class="tech-v1">
+        <h2>Our <span>Technologies</span></h2>
+        <div class="tech-v1-cards">
+            <!-- Card 1: AR Displays -->
+            <div class="tech-v1-card">
+                <div class="tech-v1-card-image">
+                    <img src="assets/product/holigraphic-display.jpg" alt="Ultra-efficient AR Displays"/>
+                </div>
+                <div class="tech-v1-card-content">
+                    <h3>Ultra-efficient AR Displays</h3>
+                    <p>Wearable AR is fundamentally constrained by the low efficiency of transparent display technologies. Built on a decade of developments and industrialization expertise, our technology leverages Volume Phase Holograms (VPH) as optical building blocks.</p>
+                    <a href="technology-holographic.html" class="tech-v1-btn">
+                        <span>Learn More</span>
+                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="M12 5l7 7-7 7"/></svg>
+                    </a>
+                </div>
+            </div>
+            
+            <!-- Card 2: SMI Sensing -->
+            <div class="tech-v1-card">
+                <div class="tech-v1-card-image">
+                    <img src="assets/product/smi-sand.jpg" alt="Low-Power SMI Sensing"/>
+                </div>
+                <div class="tech-v1-card-content">
+                    <h3>Low-Power SMI Sensing</h3>
+                    <p>Always-on sensing in wearables and robotics is fundamentally constrained by the power and latency limits of vision-based systems. Our physics-first Self-Mixing Interferometry (SMI) technology encodes motion and distance directly into the laser signal.</p>
+                    <a href="technology-smi.html" class="tech-v1-btn">
+                        <span>Learn More</span>
+                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="M12 5l7 7-7 7"/></svg>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ==========================================
+         VARIATION 2: GRADIENT GLOW CARDS
+         ========================================== -->
+    <div class="exploration-divider" id="v2">
+        <h2>Variation 2: Dark Gradient Glow</h2>
+        <p>Dark rainbow gradient background (matching footer) with bright floating cards. Animated gradient top-border on hover creates a premium glow effect.</p>
+    </div>
+    
+    <section class="tech-v2">
+        <h2>Our Technologies</h2>
+        <p class="tech-v2-subtitle">Breakthrough innovations in transparent displays and optical sensing</p>
+        <div class="tech-v2-cards">
+            <!-- Card 1: AR Displays -->
+            <div class="tech-v2-card">
+                <div class="tech-v2-card-image">
+                    <img src="assets/product/holigraphic-display.jpg" alt="Ultra-efficient AR Displays"/>
+                    <span class="tech-v2-card-tag">AR Display</span>
+                </div>
+                <div class="tech-v2-card-content">
+                    <h3>Ultra-efficient AR Displays</h3>
+                    <p>Wearable AR is fundamentally constrained by the low efficiency of transparent display technologies. Built on a decade of developments and industrialization expertise, our technology leverages Volume Phase Holograms (VPH) as optical building blocks.</p>
+                    <a href="technology-holographic.html" class="tech-v2-btn">
+                        <span>Learn More</span>
+                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="M12 5l7 7-7 7"/></svg>
+                    </a>
+                </div>
+            </div>
+            
+            <!-- Card 2: SMI Sensing -->
+            <div class="tech-v2-card">
+                <div class="tech-v2-card-image">
+                    <img src="assets/product/smi-sand.jpg" alt="Low-Power SMI Sensing"/>
+                    <span class="tech-v2-card-tag">SMI Sensing</span>
+                </div>
+                <div class="tech-v2-card-content">
+                    <h3>Low-Power SMI Sensing</h3>
+                    <p>Always-on sensing in wearables and robotics is fundamentally constrained by the power and latency limits of vision-based systems. Our physics-first Self-Mixing Interferometry (SMI) technology encodes motion and distance directly into the laser signal.</p>
+                    <a href="technology-smi.html" class="tech-v2-btn">
+                        <span>Learn More</span>
+                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="M12 5l7 7-7 7"/></svg>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ==========================================
+         VARIATION 3: HORIZONTAL CARDS
+         ========================================== -->
+    <div class="exploration-divider" id="v3">
+        <h2>Variation 3: Horizontal Layout</h2>
+        <p>Full-width horizontal cards with alternating image positions. More editorial, storytelling approach with gradient accent bars.</p>
+    </div>
+    
+    <section class="tech-v3">
+        <div class="tech-v3-header">
+            <h2>Our Technologies</h2>
+        </div>
+        
+        <!-- Card 1: AR Displays -->
+        <div class="tech-v3-card">
+            <div class="tech-v3-card-image">
+                <img src="assets/product/holigraphic-display.jpg" alt="Ultra-efficient AR Displays"/>
+            </div>
+            <div class="tech-v3-card-content">
+                <p class="tech-v3-card-number">01 — AR Display</p>
+                <h3>Ultra-efficient AR Displays</h3>
+                <p>Wearable AR is fundamentally constrained by the low efficiency of transparent display technologies. Built on a decade of developments and industrialization expertise, our technology leverages Volume Phase Holograms (VPH) as optical building blocks. We enable the full spectrum of transparent displays.</p>
+                <a href="technology-holographic.html" class="tech-v3-btn">
+                    <span>Explore AR Display</span>
+                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="M12 5l7 7-7 7"/></svg>
+                </a>
+            </div>
+        </div>
+        
+        <!-- Card 2: SMI Sensing -->
+        <div class="tech-v3-card">
+            <div class="tech-v3-card-image">
+                <img src="assets/product/smi-sand.jpg" alt="Low-Power SMI Sensing"/>
+            </div>
+            <div class="tech-v3-card-content">
+                <p class="tech-v3-card-number">02 — SMI Sensing</p>
+                <h3>Low-Power SMI Sensing</h3>
+                <p>Always-on sensing in wearables and robotics is fundamentally constrained by the power and latency limits of vision-based systems. Our physics-first Self-Mixing Interferometry (SMI) technology encodes motion and distance directly into the laser signal. Enhanced by machine learning.</p>
+                <a href="technology-smi.html" class="tech-v3-btn">
+                    <span>Explore SMI Sensing</span>
+                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="M12 5l7 7-7 7"/></svg>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- ==========================================
+         VARIATION 4: IMMERSIVE HERO BLOCKS
+         ========================================== -->
+    <div class="exploration-divider" id="v4">
+        <h2>Variation 4: Immersive Hero Blocks</h2>
+        <p>Full-viewport hero images with dramatic gradient overlays. High visual impact, cinematic storytelling approach.</p>
+    </div>
+    
+    <section class="tech-v4">
+        <div class="tech-v4-header">
+            <h2>Our Technologies</h2>
+        </div>
+        
+        <!-- Block 1: AR Displays -->
+        <div class="tech-v4-block">
+            <div class="tech-v4-block-bg">
+                <img src="assets/product/holigraphic-display.jpg" alt="Ultra-efficient AR Displays"/>
+            </div>
+            <div class="tech-v4-block-overlay"></div>
+            <div class="tech-v4-block-content">
+                <span class="tech-v4-tag">AR Display Technology</span>
+                <h3>Ultra-efficient AR Displays</h3>
+                <p>Wearable AR is fundamentally constrained by the low efficiency of transparent display technologies. Built on a decade of developments and industrialization expertise, our technology leverages Volume Phase Holograms (VPH) as optical building blocks.</p>
+                <a href="technology-holographic.html" class="tech-v4-btn">
+                    <span>Explore AR Display</span>
+                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="M12 5l7 7-7 7"/></svg>
+                </a>
+            </div>
+        </div>
+        
+        <!-- Block 2: SMI Sensing -->
+        <div class="tech-v4-block">
+            <div class="tech-v4-block-bg">
+                <img src="assets/product/smi-sand.jpg" alt="Low-Power SMI Sensing"/>
+            </div>
+            <div class="tech-v4-block-overlay"></div>
+            <div class="tech-v4-block-content">
+                <span class="tech-v4-tag">SMI Sensing Technology</span>
+                <h3>Low-Power SMI Sensing</h3>
+                <p>Always-on sensing in wearables and robotics is fundamentally constrained by the power and latency limits of vision-based systems. Our physics-first Self-Mixing Interferometry (SMI) technology encodes motion and distance directly into the laser signal.</p>
+                <a href="technology-smi.html" class="tech-v4-btn">
+                    <span>Explore SMI Sensing</span>
+                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="M12 5l7 7-7 7"/></svg>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- ==========================================
+         VARIATION 5: SPLIT SCREEN INTERACTIVE
+         ========================================== -->
+    <div class="exploration-divider" id="v5">
+        <h2>Variation 5: Split Screen</h2>
+        <p>Bold 50/50 split with dark rainbow gradient (left) and light rainbow gradient (right). Interactive hover states with gradient number reveals. Modern, app-like feel.</p>
+    </div>
+    
+    <section class="tech-v5">
+        <div class="tech-v5-header">
+            <span class="tech-v5-header-tag">Core Technologies</span>
+            <h2>Our Technologies</h2>
+        </div>
+        
+        <div class="tech-v5-split">
+            <!-- Panel 1: AR Displays (Dark) -->
+            <div class="tech-v5-panel tech-v5-panel-left">
+                <div class="tech-v5-panel-image">
+                    <img src="assets/product/holigraphic-display.jpg" alt="Ultra-efficient AR Displays"/>
+                </div>
+                <span class="tech-v5-panel-number">01</span>
+                <h3>Ultra-efficient AR Displays</h3>
+                <p>Built on a decade of developments and industrialization expertise, our technology leverages Volume Phase Holograms (VPH) as optical building blocks for the full spectrum of transparent displays.</p>
+                <a href="technology-holographic.html" class="tech-v5-btn tech-v5-btn-light">
+                    <span>Explore AR Display</span>
+                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="M12 5l7 7-7 7"/></svg>
+                </a>
+            </div>
+            
+            <!-- Panel 2: SMI Sensing (Light) -->
+            <div class="tech-v5-panel tech-v5-panel-right">
+                <div class="tech-v5-panel-image">
+                    <img src="assets/product/smi-sand.jpg" alt="Low-Power SMI Sensing"/>
+                </div>
+                <span class="tech-v5-panel-number">02</span>
+                <h3>Low-Power SMI Sensing</h3>
+                <p>Our physics-first Self-Mixing Interferometry (SMI) technology encodes motion and distance directly into the laser signal. Enhanced by machine learning for always-on AR eye-motion tracking.</p>
+                <a href="technology-smi.html" class="tech-v5-btn tech-v5-btn-dark">
+                    <span>Explore SMI Sensing</span>
+                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="M12 5l7 7-7 7"/></svg>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Back to Home -->
+    <div class="exploration-divider">
+        <h2>End of Explorations</h2>
+        <p style="margin-bottom: 1.5rem;">Review the variations above and let us know which direction resonates.</p>
+        <a href="home.html" class="btn-primary">
+            <span>Back to Home</span>
+        </a>
+    </div>
+
+</body>
+</html>
+

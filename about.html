@@ -7,11 +7,9 @@
     <title>About Us - AlphaLum</title>
 
     <!-- Favicons -->
-    <link rel="icon" href="assets/images/logo/AlphaLum_logo.svg" type="image/svg+xml"/>
-    <link rel="shortcut icon" href="assets/images/logo/favicon-32x32.png"/>
-    <link rel="icon" type="image/png" sizes="32x32" href="assets/images/logo/favicon-32x32.png"/>
-    <link rel="icon" type="image/png" sizes="16x16" href="assets/images/logo/favicon-16x16.png"/>
-    <link rel="apple-touch-icon" sizes="180x180" href="assets/images/logo/apple-touch-icon.png"/>
+    <link rel="icon" href="assets/download/final-logo/alphalum-square-color-logo-png.png" type="image/png"/>
+    <link rel="shortcut icon" href="assets/download/final-logo/alphalum-square-color-logo-png.png"/>
+    <link rel="apple-touch-icon" sizes="180x180" href="assets/download/final-logo/alphalum-square-color-logo-png.png"/>
 
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com"/>
@@ -72,6 +70,146 @@
             background-clip: text;
             font-weight: 500;
         }
+        
+        /* Leadership Team Section */
+        .leadership-section {
+            width: 100vw;
+            margin-left: calc(-50vw + 50%);
+            padding: var(--spacing-xl) 10%;
+            background: var(--rainbow-gradient-bg);
+        }
+        
+        .leadership-section h2 {
+            font-family: var(--font-header);
+            font-size: clamp(2rem, 4vw, 2.5rem);
+            font-weight: var(--header-font-weight);
+            color: var(--brand-font-primary);
+            margin: 0 0 var(--spacing-sm) 0;
+            text-align: center;
+        }
+        
+        .leadership-intro {
+            font-size: 1.125rem;
+            color: var(--brand-font-secondary);
+            text-align: center;
+            max-width: 700px;
+            margin: 0 auto var(--spacing-xl) auto;
+            line-height: 1.7;
+        }
+        
+        .team-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: var(--spacing-lg);
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        .team-card {
+            background: var(--brand-bg-1);
+            border: 1px solid transparent;
+            border-image: var(--rainbow-gradient) 1;
+            padding: 0;
+            transition: var(--transition);
+            overflow: hidden;
+        }
+        
+        .team-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 12px 40px rgba(0, 0, 0, 0.1);
+        }
+        
+        .team-card-image {
+            width: 100%;
+            aspect-ratio: 1;
+            overflow: hidden;
+            background: var(--brand-bg-2);
+        }
+        
+        .team-card-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            filter: grayscale(20%);
+            transition: var(--transition);
+        }
+        
+        .team-card:hover .team-card-image img {
+            filter: grayscale(0%);
+            transform: scale(1.02);
+        }
+        
+        .team-card-content {
+            padding: var(--spacing-md);
+        }
+        
+        .team-card-name {
+            font-family: var(--font-header);
+            font-size: 1.25rem;
+            font-weight: 500;
+            color: var(--brand-font-primary);
+            margin: 0 0 4px 0;
+        }
+        
+        .team-card-title {
+            font-size: 0.875rem;
+            font-weight: 500;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            background: var(--rainbow-gradient);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin: 0 0 var(--spacing-sm) 0;
+        }
+        
+        .team-card-list {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+        
+        .team-card-list li {
+            font-size: 0.875rem;
+            color: var(--brand-font-secondary);
+            line-height: 1.6;
+            padding-left: 1rem;
+            position: relative;
+            margin-bottom: 6px;
+        }
+        
+        .team-card-list li::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 8px;
+            width: 4px;
+            height: 4px;
+            background: var(--brand-primary);
+            border-radius: 50%;
+        }
+        
+        .team-card-list li:last-child {
+            margin-bottom: 0;
+        }
+        
+        /* Responsive Team Grid */
+        @media (max-width: 1024px) {
+            .team-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+        
+        @media (max-width: 640px) {
+            .team-grid {
+                grid-template-columns: 1fr;
+                max-width: 400px;
+            }
+            
+            .leadership-section {
+                padding: var(--spacing-lg) 5%;
+            }
+        }
     </style>
 </head>
 
@@ -93,7 +231,7 @@
                     </a>
                     <div class="nav-dropdown-menu">
                         <a href="technology-holographic.html" class="nav-dropdown-item">
-                            Holographic Display
+                            AR Display
                             <span>Ultra-efficient transparent displays</span>
                         </a>
                         <a href="technology-smi.html" class="nav-dropdown-item">
@@ -129,7 +267,7 @@
                 <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6 6-6"/></svg>
             </a>
             <div class="mobile-dropdown-items">
-                <a href="technology-holographic.html" class="mobile-dropdown-item">Holographic Display</a>
+                <a href="technology-holographic.html" class="mobile-dropdown-item">AR Display</a>
                 <a href="technology-smi.html" class="mobile-dropdown-item">SMI Sensing</a>
             </div>
         </div>
@@ -148,6 +286,108 @@
         </div>
     </section>
 
+    <!-- Leadership Team Section -->
+    <section class="leadership-section">
+        <h2>Leadership</h2>
+        <p class="leadership-intro">Our founding team brings together decades of combined expertise with a proven track record of successful collaboration.</p>
+        
+        <div class="team-grid">
+            <article class="team-card">
+                <div class="team-card-image">
+                    <img src="assets/images/team/leadership/markus_rossi.jpeg" alt="Markus Rossi" loading="lazy"/>
+                </div>
+                <div class="team-card-content">
+                    <h3 class="team-card-name">Markus Rossi</h3>
+                    <p class="team-card-title">CEO</p>
+                    <ul class="team-card-list">
+                        <li>25+ years in micro-optics and photonics</li>
+                        <li>Co-founder & CTO/CIO, Heptagon (acquired by ams)</li>
+                        <li>Former VP & Head of Innovation Office, ams OSRAM</li>
+                        <li>Ph.D. in Micro-Optics (EPFL)</li>
+                    </ul>
+                </div>
+            </article>
+            
+            <article class="team-card">
+                <div class="team-card-image">
+                    <img src="assets/images/team/leadership/eric_tremblay.jpeg" alt="Eric Tremblay" loading="lazy"/>
+                </div>
+                <div class="team-card-content">
+                    <h3 class="team-card-name">Eric Tremblay</h3>
+                    <p class="team-card-title">CTO</p>
+                    <ul class="team-card-list">
+                        <li>14+ years in optical engineering and system architecture</li>
+                        <li>Technical Project Lead & Co-founder, Composyt Light Labs (acquired by Intel)</li>
+                        <li>Ph.D. in Electrical Engineering (UC San Diego)</li>
+                    </ul>
+                </div>
+            </article>
+            
+            <article class="team-card">
+                <div class="team-card-image">
+                    <img src="assets/images/team/leadership/tim_de_reyck.jpeg" alt="Tim De Reyck" loading="lazy"/>
+                </div>
+                <div class="team-card-content">
+                    <h3 class="team-card-name">Tim De Reyck</h3>
+                    <p class="team-card-title">CFO</p>
+                    <ul class="team-card-list">
+                        <li>Finance executive with 15+ years of leadership experience across high-tech and deep-tech sectors</li>
+                        <li>Co-founder & CFO of 7 Sensing Software, acquired by Analog Devices & ams OSRAM</li>
+                        <li>M.Sc. in Business Engineering (Maastricht University)</li>
+                    </ul>
+                </div>
+            </article>
+            
+            <article class="team-card">
+                <div class="team-card-image">
+                    <img src="assets/images/team/leadership/tanja_koch.jpeg" alt="Tanja Koch" loading="lazy"/>
+                </div>
+                <div class="team-card-content">
+                    <h3 class="team-card-name">Tanja Koch</h3>
+                    <p class="team-card-title">CBO</p>
+                    <ul class="team-card-list">
+                        <li>9+ years experience as start-up founder (AR space), venture capitalist & innovation strategist</li>
+                        <li>Deep expertise in design thinking and user-driven innovation</li>
+                        <li>Previously Senior Product Manager at ams OSRAM</li>
+                        <li>M.Sc. in Management (TMU)</li>
+                    </ul>
+                </div>
+            </article>
+            
+            <article class="team-card">
+                <div class="team-card-image">
+                    <img src="assets/images/team/leadership/carlos_macias.jpeg" alt="Carlos Macias" loading="lazy"/>
+                </div>
+                <div class="team-card-content">
+                    <h3 class="team-card-name">Carlos Macias</h3>
+                    <p class="team-card-title">Director of R&D</p>
+                    <ul class="team-card-list">
+                        <li>15+ years experience in research and engineering</li>
+                        <li>Led engineering projects for high-volume consumer and industrial optics at Magic Leap and ams OSRAM</li>
+                        <li>Track record of guiding products from R&D to mass production</li>
+                        <li>Ph.D. in Physics (Imperial College London)</li>
+                    </ul>
+                </div>
+            </article>
+            
+            <article class="team-card">
+                <div class="team-card-image">
+                    <img src="assets/images/team/leadership/volker_zagolla.jpeg" alt="Volker Zagolla" loading="lazy"/>
+                </div>
+                <div class="team-card-content">
+                    <h3 class="team-card-name">Volker Zagolla</h3>
+                    <p class="team-card-title">Director of Engineering</p>
+                    <ul class="team-card-list">
+                        <li>9+ years advancing AR display, combiner, and eye-tracking technologies</li>
+                        <li>Lead engineer at Intel, Magic Leap and ams OSRAM</li>
+                        <li>Expertise in taking prototypes from PoC to full industrialization</li>
+                        <li>Ph.D. in Optics & Photonics (EPFL)</li>
+                    </ul>
+                </div>
+            </article>
+        </div>
+    </section>
+
     <!-- Global Footer -->
     <footer class="global-footer">
         <div class="global-footer-content">
@@ -155,7 +395,7 @@
                 <div class="global-footer-column">
                     <h4>Technology</h4>
                     <div class="global-footer-links">
-                        <a href="technology-holographic.html" class="global-footer-link">Holographic Display</a>
+                        <a href="technology-holographic.html" class="global-footer-link">AR Display</a>
                         <a href="technology-smi.html" class="global-footer-link">SMI Sensing</a>
                     </div>
                 </div>

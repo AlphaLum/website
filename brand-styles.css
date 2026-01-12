@@ -212,6 +212,10 @@ body {
   transition: opacity 0.3s ease;
   position: relative;
   opacity: 0.7;
+  background: none;
+  -webkit-background-clip: initial;
+  -webkit-text-fill-color: var(--brand-font-primary);
+  background-clip: initial;
 }
 
 .nav-link:hover {
@@ -221,6 +225,7 @@ body {
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   color: transparent;
+  transition: opacity 0.3s ease;
 }
 
 .nav-link.active {
@@ -958,6 +963,15 @@ body {
   border-color: var(--brand-button);
 }
 
+.btn-primary span {
+  background: none;
+  -webkit-background-clip: initial;
+  -webkit-text-fill-color: white;
+  background-clip: initial;
+  color: white;
+  transition: none;
+}
+
 .btn-primary:hover span {
   background: var(--rainbow-gradient);
   -webkit-background-clip: text;
@@ -993,6 +1007,15 @@ body {
 
 .btn-secondary:hover {
   background: var(--brand-button);
+}
+
+.btn-secondary span {
+  background: none;
+  -webkit-background-clip: initial;
+  -webkit-text-fill-color: var(--brand-button);
+  background-clip: initial;
+  color: var(--brand-button);
+  transition: none;
 }
 
 .btn-secondary:hover span {
@@ -1086,6 +1109,15 @@ body {
   border-color: var(--brand-button);
 }
 
+.btn-primary-sm span {
+  background: none;
+  -webkit-background-clip: initial;
+  -webkit-text-fill-color: white;
+  background-clip: initial;
+  color: white;
+  transition: none;
+}
+
 .btn-primary-sm:hover span {
   background: var(--rainbow-gradient);
   -webkit-background-clip: text;
@@ -1109,6 +1141,15 @@ body {
 
 .btn-secondary-sm:hover {
   background: var(--brand-button);
+}
+
+.btn-secondary-sm span {
+  background: none;
+  -webkit-background-clip: initial;
+  -webkit-text-fill-color: var(--brand-button);
+  background-clip: initial;
+  color: var(--brand-button);
+  transition: none;
 }
 
 .btn-secondary-sm:hover span {
@@ -3257,6 +3298,10 @@ p {
   position: relative;
   transition: opacity 0.3s ease;
   opacity: 0.7;
+  background: none;
+  -webkit-background-clip: initial;
+  -webkit-text-fill-color: var(--brand-font-primary);
+  background-clip: initial;
 }
 
 .global-nav-link:hover {
@@ -3266,6 +3311,7 @@ p {
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   color: transparent;
+  transition: opacity 0.3s ease;
 }
 
 .nav-dropdown-trigger:hover svg,
@@ -3343,6 +3389,10 @@ p {
   transition: var(--transition);
   text-transform: none;
   letter-spacing: 0;
+  background: none;
+  -webkit-background-clip: initial;
+  -webkit-text-fill-color: var(--brand-font-primary);
+  background-clip: initial;
 }
 
 .nav-dropdown-item:hover {
@@ -3350,6 +3400,7 @@ p {
   background-clip: text;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
+  transition: none;
 }
 
 .nav-dropdown-item span {
@@ -3691,6 +3742,252 @@ p {
   
   .twin-feature-card-content h3 {
     font-size: 1.25rem;
+  }
+}
+
+/* ==========================================
+   Split Screen Technology Section
+   ========================================== */
+
+.tech-split-section {
+  width: 100vw;
+  margin-left: calc(-50vw + 50%);
+  background: var(--brand-bg-1);
+}
+
+.tech-split-header {
+  padding: var(--spacing-xl) 5%;
+  text-align: center;
+  background: linear-gradient(180deg, var(--brand-bg-2) 0%, var(--brand-bg-1) 100%);
+}
+
+.tech-split-header-tag {
+  display: inline-block;
+  font-size: 0.75rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.2em;
+  background: var(--rainbow-gradient);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  margin-bottom: 1rem;
+}
+
+.tech-split-header h2 {
+  font-family: var(--font-header);
+  font-size: clamp(3rem, 8vw, 5rem);
+  font-weight: var(--header-font-weight);
+  color: var(--brand-font-primary);
+  margin: 0;
+}
+
+.tech-split-panels {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  min-height: 70vh;
+}
+
+.tech-split-panel {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 4rem;
+  cursor: pointer;
+  transition: all 0.5s ease;
+  overflow: hidden;
+  text-decoration: none;
+}
+
+a.tech-split-panel:hover {
+  text-decoration: none;
+}
+
+.tech-split-panel-left {
+  background: linear-gradient(135deg, 
+    color-mix(in srgb, var(--brand-primary) 75%, #0a0a0a) 0%, 
+    color-mix(in srgb, var(--brand-accent-1) 79%, #0a0a0a) 35%, 
+    color-mix(in srgb, var(--brand-secondary) 75%, #0a0a0a) 100%
+  );
+}
+
+.tech-split-panel-right {
+  background: linear-gradient(135deg, 
+    rgba(255, 69, 36, 0.03) 0%, 
+    rgba(255, 59, 81, 0.06) 35%, 
+    rgba(0, 170, 255, 0.06) 95%
+  );
+}
+
+.tech-split-panel::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  opacity: 0;
+  transition: opacity 0.5s ease;
+  pointer-events: none;
+}
+
+.tech-split-panel-left::before {
+  background: linear-gradient(135deg, 
+    rgba(255, 255, 255, 0.05) 0%, 
+    rgba(255, 255, 255, 0.02) 100%
+  );
+}
+
+.tech-split-panel-right::before {
+  background: linear-gradient(135deg, 
+    rgba(255, 69, 36, 0.08) 0%, 
+    rgba(0, 170, 255, 0.08) 100%
+  );
+}
+
+.tech-split-panel:hover::before {
+  opacity: 1;
+}
+
+.tech-split-panel-image {
+  width: 100%;
+  aspect-ratio: 16/10;
+  overflow: hidden;
+  margin-bottom: 2rem;
+  position: relative;
+  -webkit-mask-image: radial-gradient(ellipse 70% 70% at center, black 40%, transparent 100%);
+  mask-image: radial-gradient(ellipse 70% 70% at center, black 40%, transparent 100%);
+}
+
+.tech-split-panel-image::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border: 1px solid transparent;
+  transition: border-color 0.3s ease;
+}
+
+.tech-split-panel:hover .tech-split-panel-image::after {
+  border-image: var(--rainbow-gradient) 1;
+}
+
+.tech-split-panel-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.6s ease;
+}
+
+.tech-split-panel:hover .tech-split-panel-image img {
+  transform: scale(1.05);
+}
+
+.tech-split-panel-number {
+  font-size: 4rem;
+  font-weight: 200;
+  line-height: 1;
+  margin-bottom: 1rem;
+}
+
+.tech-split-panel-left .tech-split-panel-number {
+  color: rgba(255, 255, 255, 0.1);
+}
+
+.tech-split-panel-right .tech-split-panel-number {
+  color: rgba(0, 0, 0, 0.06);
+}
+
+.tech-split-panel h3 {
+  font-family: var(--font-header);
+  font-size: 2rem;
+  font-weight: var(--header-font-weight);
+  margin: 0 0 1rem 0;
+  transition: all 0.3s ease;
+}
+
+.tech-split-panel-left h3 {
+  color: white;
+}
+
+.tech-split-panel-right h3 {
+  color: var(--brand-font-primary);
+}
+
+.tech-split-panel p {
+  font-size: 1rem;
+  line-height: 1.7;
+  margin: 0 0 2rem 0;
+}
+
+.tech-split-panel-left p {
+  color: rgba(255, 255, 255, 0.6);
+}
+
+.tech-split-panel-right p {
+  color: var(--brand-font-secondary);
+}
+
+.tech-split-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.75rem;
+  font-weight: 600;
+  font-size: 1rem;
+  text-decoration: none;
+  padding: 1rem 2rem;
+  transition: all 0.3s ease;
+  width: fit-content;
+}
+
+.tech-split-btn-light {
+  color: white;
+  border: 2px solid rgba(255, 255, 255, 0.3);
+}
+
+.tech-split-btn-light:hover {
+  background: white;
+  color: var(--brand-font-primary);
+  border-color: white;
+}
+
+.tech-split-btn-dark {
+  color: var(--brand-font-primary);
+  border: 2px solid var(--brand-font-primary);
+}
+
+.tech-split-btn-dark:hover {
+  background: var(--brand-font-primary);
+  color: white;
+}
+
+.tech-split-btn svg {
+  transition: transform 0.3s ease;
+}
+
+.tech-split-btn:hover svg {
+  transform: translateX(4px);
+}
+
+/* Responsive Split Screen */
+@media (max-width: 1024px) {
+  .tech-split-panels {
+    grid-template-columns: 1fr;
+  }
+  
+  .tech-split-panel {
+    padding: 3rem 5%;
+  }
+}
+
+@media (max-width: 768px) {
+  .tech-split-header {
+    padding: var(--spacing-lg) 5%;
+  }
+  
+  .tech-split-panel h3 {
+    font-size: 1.5rem;
+  }
+  
+  .tech-split-panel-number {
+    font-size: 3rem;
   }
 }
 
@@ -4710,6 +5007,18 @@ p {
   max-width: 900px;
   margin: 0 auto 60px;
   padding: 0 10%;
+}
+
+@media (min-width: 1400px) {
+  .foundation-header {
+    max-width: 1100px;
+  }
+}
+
+@media (min-width: 1800px) {
+  .foundation-header {
+    max-width: 1300px;
+  }
 }
 
 .foundation-header h2 {
