@@ -1,0 +1,573 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <meta name="description" content="AlphaLum raises CHF 3.4 million seed funding led by Vsquared Ventures to scale its optics and sensing platform for smart glasses and spatial computing."/>
+    <title>AlphaLum Raises CHF 3.4 Million for Mass-Scale AR Glasses | AlphaLum</title>
+
+    <!-- Open Graph / Social Media Preview -->
+    <meta property="og:type" content="article"/>
+    <meta property="og:title" content="AlphaLum Raises CHF 3.4 Million for Mass-Scale AR Glasses"/>
+    <meta property="og:description" content="AlphaLum raises a CHF 3.4 million seed funding round led by Vsquared Ventures to scale its optics and sensing platform for smart glasses."/>
+    <meta property="og:image" content="https://www.alphalum.com/assets/images/marketing/alphalum-social.png"/>
+    <meta property="og:url" content="https://www.alphalum.com/news-seed-funding-2026.html"/>
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image"/>
+    <meta name="twitter:title" content="AlphaLum Raises CHF 3.4 Million for Mass-Scale AR Glasses"/>
+    <meta name="twitter:description" content="AlphaLum raises a CHF 3.4 million seed funding round led by Vsquared Ventures to scale its optics and sensing platform for smart glasses."/>
+    <meta name="twitter:image" content="https://www.alphalum.com/assets/images/marketing/alphalum-social.png"/>
+
+    <!-- Favicons -->
+    <link rel="icon" href="assets/download/final-logo/alphalum-square-color-logo-png.png" type="image/png"/>
+    <link rel="shortcut icon" href="assets/download/final-logo/alphalum-square-color-logo-png.png"/>
+    <link rel="apple-touch-icon" sizes="180x180" href="assets/download/final-logo/alphalum-square-color-logo-png.png"/>
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com"/>
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet"/>
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="reset.css"/>
+    <link rel="stylesheet" href="brand-styles.css"/>
+    
+    <style>
+        /* Press Release Specific Styles */
+        .press-release-hero {
+            background: linear-gradient(135deg, 
+                rgba(255, 69, 36, 0.08) 0%, 
+                rgba(255, 94, 108, 0.06) 35%, 
+                rgba(0, 170, 255, 0.08) 100%);
+            padding: 160px 10% 80px 10%;
+            min-height: auto;
+        }
+        
+        .press-release-hero-content {
+            max-width: var(--container-max-width);
+            margin: 0 auto;
+        }
+        
+        .press-release-meta {
+            display: flex;
+            align-items: center;
+            gap: var(--spacing-md);
+            margin-bottom: var(--spacing-md);
+            flex-wrap: wrap;
+        }
+        
+        .press-release-tag {
+            display: inline-block;
+            padding: 6px 16px;
+            background: var(--rainbow-gradient);
+            color: white;
+            font-size: 0.75rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            border-radius: 4px;
+        }
+        
+        .press-release-date {
+            font-size: 0.9rem;
+            color: var(--brand-font-secondary);
+            font-weight: 500;
+        }
+        
+        .press-release-hero h1 {
+            font-family: var(--font-header);
+            font-size: clamp(2rem, 5vw, 3.5rem);
+            font-weight: 300;
+            color: var(--brand-font-primary);
+            line-height: 1.2;
+            margin: 0 0 var(--spacing-lg) 0;
+            max-width: 900px;
+        }
+        
+        .press-release-lead {
+            font-size: 1.25rem;
+            color: var(--brand-font-secondary);
+            line-height: 1.7;
+            max-width: 800px;
+            font-weight: 400;
+        }
+        
+        .press-release-lead-bullets {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            max-width: 800px;
+        }
+        
+        .press-release-lead-bullets li {
+            font-size: 1.15rem;
+            color: var(--brand-font-secondary);
+            line-height: 1.7;
+            font-weight: 400;
+            padding-left: 1.5rem;
+            position: relative;
+            margin-bottom: var(--spacing-sm);
+        }
+        
+        .press-release-lead-bullets li:last-child {
+            margin-bottom: 0;
+        }
+        
+        .press-release-lead-bullets li::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 0.65em;
+            width: 6px;
+            height: 6px;
+            border-radius: 50%;
+            background: var(--rainbow-gradient);
+        }
+        
+        .press-release-content {
+            max-width: var(--container-max-width);
+            margin: 0 auto;
+            padding: var(--spacing-xl) 10%;
+        }
+        
+        .press-release-body {
+            max-width: 800px;
+        }
+        
+        .press-release-body p {
+            font-size: 1.1rem;
+            line-height: 1.85;
+            color: var(--brand-font-primary);
+            margin-bottom: var(--spacing-lg);
+            font-weight: 300;
+        }
+        
+        .press-release-body p:first-of-type::first-line {
+            font-weight: 400;
+        }
+        
+        .press-release-quote {
+            position: relative;
+            padding: var(--spacing-lg) var(--spacing-xl);
+            margin: var(--spacing-xl) 0;
+            background: linear-gradient(135deg, 
+                rgba(255, 69, 36, 0.04) 0%, 
+                rgba(0, 170, 255, 0.04) 100%);
+            border-left: 1px solid;
+            border-image: var(--rainbow-gradient) 1;
+            border-radius: 0 8px 8px 0;
+        }
+        
+        .press-release-quote p {
+            font-size: 1.15rem;
+            font-style: italic;
+            line-height: 1.8;
+            color: var(--brand-font-primary);
+            margin-bottom: var(--spacing-sm) !important;
+        }
+        
+        .press-release-quote-author {
+            font-size: 0.95rem;
+            font-weight: 600;
+            color: var(--brand-font-secondary);
+            font-style: normal !important;
+            margin-bottom: 0 !important;
+        }
+        
+        .press-release-divider {
+            width: 60px;
+            height: 1px;
+            background: var(--rainbow-gradient);
+            margin: var(--spacing-xl) 0;
+        }
+        
+        /* Back to News Link */
+        .press-release-back {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 0.9rem;
+            font-weight: 500;
+            color: var(--brand-font-secondary);
+            text-decoration: none;
+            margin-bottom: var(--spacing-lg);
+            transition: var(--transition);
+        }
+        
+        .press-release-back:hover {
+            background: var(--rainbow-gradient);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        
+        .press-release-back svg {
+            width: 18px;
+            height: 18px;
+        }
+        
+        /* About Section */
+        .press-release-about {
+            margin-top: var(--spacing-xl);
+            padding-top: var(--spacing-xl);
+            border-top: 1px solid transparent;
+            border-image: var(--rainbow-gradient) 1;
+        }
+        
+        .press-release-about h3 {
+            font-family: var(--font-header);
+            font-size: 1rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            color: var(--brand-font-secondary);
+            margin-bottom: var(--spacing-md);
+        }
+        
+        .press-release-about p {
+            font-size: 0.95rem !important;
+            color: var(--brand-font-secondary) !important;
+        }
+        
+        /* Contact Info */
+        .press-release-contact {
+            margin-top: var(--spacing-lg);
+        }
+        
+        .press-release-contact h4 {
+            font-size: 0.875rem;
+            font-weight: 600;
+            color: var(--brand-font-primary);
+            margin-bottom: var(--spacing-xs);
+        }
+        
+        .press-release-contact a {
+            background: var(--rainbow-gradient);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            text-decoration: none;
+            font-weight: 500;
+        }
+        
+        .press-release-contact a:hover {
+            text-decoration: underline;
+            text-decoration-color: var(--brand-primary);
+        }
+        
+        /* Press Release Info Sections (inside article) */
+        .press-release-info {
+            margin-top: var(--spacing-xl);
+            padding-top: var(--spacing-xl);
+            border-top: 1px solid transparent;
+            border-image: var(--rainbow-gradient) 1;
+        }
+        
+        .press-info-section {
+            margin-bottom: var(--spacing-lg);
+            padding-bottom: var(--spacing-lg);
+            border-bottom: 1px solid transparent;
+            border-image: var(--rainbow-gradient) 1;
+        }
+        
+        .press-info-section:last-child {
+            border-bottom: none;
+            margin-bottom: 0;
+            padding-bottom: 0;
+        }
+        
+        .press-info-section h3 {
+            font-family: var(--font-header);
+            font-size: 0.875rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: var(--spacing-md);
+            color: var(--brand-font-primary);
+        }
+        
+        .press-info-section p {
+            font-size: 0.95rem;
+            line-height: 1.7;
+            color: var(--brand-font-secondary);
+            margin: 0 0 var(--spacing-xs) 0;
+            font-weight: 300;
+        }
+        
+        .press-info-company {
+            font-weight: 600 !important;
+            color: var(--brand-font-primary) !important;
+        }
+        
+        .press-info-links {
+            display: flex;
+            align-items: center;
+            gap: var(--spacing-sm);
+            flex-wrap: wrap;
+            margin-top: var(--spacing-sm);
+        }
+        
+        .press-info-links a {
+            background: var(--rainbow-gradient);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            text-decoration: none;
+            font-weight: 500;
+            transition: var(--transition);
+        }
+        
+        .press-info-links a:hover {
+            text-decoration: underline;
+            text-decoration-color: var(--brand-primary);
+        }
+        
+        .press-info-divider {
+            color: var(--brand-font-secondary);
+            opacity: 0.5;
+        }
+        
+        .press-info-section a {
+            background: var(--rainbow-gradient);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            text-decoration: none;
+            font-weight: 500;
+            transition: var(--transition);
+        }
+        
+        .press-info-section a:hover {
+            text-decoration: underline;
+            text-decoration-color: var(--brand-primary);
+        }
+        
+        /* Responsive */
+        @media (max-width: 768px) {
+            .press-release-hero {
+                padding: 140px 5% 60px 5%;
+            }
+            
+            .press-release-content {
+                padding: var(--spacing-lg) 5%;
+            }
+            
+            .press-release-quote {
+                padding: var(--spacing-md);
+                margin: var(--spacing-lg) 0;
+            }
+            
+            .press-release-body p {
+                font-size: 1rem;
+            }
+            
+            .press-info-links {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: var(--spacing-xs);
+            }
+            
+            .press-info-divider {
+                display: none;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Global Navigation -->
+    <nav class="global-nav">
+        <div class="global-nav-content">
+            <!-- Logo -->
+            <div class="global-nav-logo">
+                <a href="index.html">
+                    <img src="assets/download/final-logo/alphalum-logo-png.png" alt="AlphaLum"/>
+                </a>
+            </div>
+            
+            <!-- Desktop Navigation Links -->
+            <div class="global-nav-links">
+                <!-- Technology Dropdown -->
+                <div class="nav-dropdown">
+                    <a href="#" class="global-nav-link nav-dropdown-trigger">
+                        Technology
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6 6-6"/></svg>
+                    </a>
+                    <div class="nav-dropdown-menu">
+                        <a href="technology-holographic.html" class="nav-dropdown-item">
+                            AR Display
+                            <span>Ultra-efficient transparent displays</span>
+                        </a>
+                        <a href="technology-smi.html" class="nav-dropdown-item">
+                            SMI Sensing
+                            <span>AI-powered optical motion intelligence</span>
+                        </a>
+                    </div>
+                </div>
+                
+                <a href="about.html" class="global-nav-link">About</a>
+                <a href="careers.html" class="global-nav-link">Careers</a>
+            </div>
+            
+            <!-- CTA Button -->
+            <div class="global-nav-cta">
+                <a href="contact.html" class="btn-secondary-sm">
+                    <span>Contact</span>
+                </a>
+            </div>
+            
+            <!-- Mobile Toggle -->
+            <button class="mobile-nav-toggle" aria-label="Toggle navigation">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </div>
+    </nav>
+    
+    <!-- Mobile Navigation Menu -->
+    <div class="mobile-nav-menu">
+        <div class="mobile-nav-item">
+            <a href="#" class="mobile-nav-link mobile-dropdown-trigger">
+                Technology
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6 6-6"/></svg>
+            </a>
+            <div class="mobile-dropdown-items">
+                <a href="technology-holographic.html" class="mobile-dropdown-item">AR Display</a>
+                <a href="technology-smi.html" class="mobile-dropdown-item">SMI Sensing</a>
+            </div>
+        </div>
+        <a href="about.html" class="mobile-nav-link">About</a>
+        <a href="careers.html" class="mobile-nav-link">Careers</a>
+        <a href="contact.html" class="mobile-nav-link">Contact</a>
+    </div>
+
+    <!-- Press Release Hero -->
+    <section class="press-release-hero">
+        <div class="press-release-hero-content">
+            <div class="press-release-meta">
+                <span class="press-release-tag">Press Release</span>
+                <span class="press-release-date">January 15, 2026</span>
+            </div>
+            <h1>AlphaLum raises CHF 3.4 million to enable mass-scale AR glasses and spatial computing</h1>
+            <ul class="press-release-lead-bullets">
+                <li>AlphaLum raises a CHF 3.4 million seed funding round led by Vsquared Ventures to scale its optics and sensing platform for smart glasses.</li>
+                <li>The Switzerland-based deep-tech company develops ultra-efficient AR displays and ultra-low-power, always-on optical sensing technologies addressing the key bottlenecks limiting mass-market adoption.</li>
+                <li>The company's technology enables truly wearable, scalable smart glasses, as the new funding accelerates AlphaLum's transition from advanced R&D to a core technology supplier for OEMs.</li>
+            </ul>
+        </div>
+    </section>
+
+    <!-- Press Release Content -->
+    <div class="press-release-content">
+        <article class="press-release-body">
+            <p><strong>Lausanne, Switzerland, 15 January 2026</strong> — AlphaLum, a Switzerland-based company developing advanced optics and sensing technologies for augmented reality, today announced the successful close of its CHF 3.4 million seed financing round led by Vsquared Ventures. With this funding, the company accelerates its transition from advanced engineering to becoming a core technology supplier for upcoming smart glasses and spatial-computing product generations, positioning AlphaLum as a key European provider of high-efficiency optical technologies. Founded as a spin-out from ams OSRAM's corporate incubator, AlphaLum combines industrial optics heritage with a team experienced in scaling innovative photonic technologies.</p>
+            
+            <p>Recent developments in the smart glasses market underscore both the momentum behind AR and the structural bottlenecks preventing global scale. Flagship consumer products have demonstrated strong demand, so strong that global rollouts have been postponed as production capacity is absorbed by a single lead market. Yet inefficient optical architectures and power-hungry sensing systems continue to limit scalability beyond early launches. With industry forecasts pointing to smart glasses and spatial computing as the next major shift in computing, the gap between demand and manufacturability has become a defining challenge for the sector.</p>
+            
+            <p>AlphaLum is addressing exactly this challenge by enabling AR hardware to move from constrained pilot production to true mass manufacturing, laying the foundation for a globally competitive smart glasses supply chain and a strong European role in the next computing platform. The company combines two tightly integrated technologies: holographic optical combiners and ultra-low-power interferometric laser sensors, addressing the low efficiency of transparent displays and the high-power consumption of vision-based sensing. AlphaLum's thin, invisible optical layer minimizes light loss between the display and the human eye, delivering over 10× higher optical efficiency than conventional waveguides while significantly reducing system cost. Complemented by an AI-powered motion-sensing platform, the technology enables intuitive, hands-free AR interaction and high-resolution, distortion-free images—unlocking mass-market scalability that has so far remained out of reach.</p>
+            
+            <p>Led by serial entrepreneur Markus Rossi, previously exited Heptagon as CIO to ams AG in 2017, the team blends rare, end-to-end experience across laser/optics physics, ASIC/electronics, and edge-AI – combined with hands-on experience designing pilot lines and transferring processes to contract manufacturers.</p>
+            
+            <div class="press-release-quote">
+                <p>"At AlphaLum, our goal is to make the next generation of smart glasses truly wearable – not as prototypes, but as scalable products. By solving the low efficiency of transparent display technologies and always-on constraints of vision-based sensing, we enable our partners to bring interactive, everyday AR to market at scale. With this round, we are preparing the next phase of industrialization and strengthening our role as a core technology supplier for future smart glasses platforms."</p>
+                <p class="press-release-quote-author">— Markus Rossi, CEO and Co-founder of AlphaLum</p>
+            </div>
+            
+            <div class="press-release-quote">
+                <p>"AlphaLum is building foundational technology for one of the most important computing transitions ahead. Smart glasses are already a reality – the next step is to make them available at scale. AlphaLum is the player targeting the technological bottlenecks to enable this, and we are looking forward to partnering on this journey."</p>
+                <p class="press-release-quote-author">— Benedikt von Schoeler, General Partner at Vsquared Ventures</p>
+            </div>
+            
+            <!-- Press Release Info Sections -->
+            <div class="press-release-info">
+                <!-- Press Contact -->
+                <div class="press-info-section">
+                    <h3>Press Contacts</h3>
+                    <p class="press-info-company">ALPHALUM SA</p>
+                    <p>EPFL Innovation Park, Building J, Lausanne, Switzerland</p>
+                    <p class="press-info-links">
+                        <a href="mailto:press@alphalum.com">press@alphalum.com</a>
+                        <span class="press-info-divider">|</span>
+                        <a href="https://www.alphalum.com">www.alphalum.com</a>
+                    </p>
+                </div>
+                
+                <!-- About AlphaLum -->
+                <div class="press-info-section">
+                    <h3>About ALPHALUM</h3>
+                    <p>Founded in 2025 and headquartered in Lausanne, ALPHALUM develops high-efficiency holographic display optics and miniature sensing technologies for AR, MR, and spatial computing. Its team combines expertise in optics, AI, and industrial process design, pursuing a fabless model focused on IP, contract manufacturing, and product engineering.</p>
+                </div>
+                
+                <!-- About Vsquared -->
+                <div class="press-info-section">
+                    <h3>About Vsquared Ventures</h3>
+                    <p>Vsquared Ventures backs bold entrepreneurs engineering groundbreaking technologies addressing some of the world's most pressing challenges to become global leaders. Investing in deep tech companies, Vsquared Ventures focuses on new space, energy transition, robotics and manufacturing, new computing and sensing, AI and next-gen software and tech-bio. Vsquared Ventures has built one of Europe's strongest deep tech portfolios, including industry disruptors Isar Aerospace, IQM Quantum Computing, Zama.ai, Neura Robotics, Cylib and The Exploration Company. <a href="https://www.vsquared.vc" target="_blank" rel="noopener">www.vsquared.vc</a></p>
+                </div>
+            </div>
+        </article>
+    </div>
+
+    <!-- Global Footer -->
+    <footer class="global-footer">
+        <div class="global-footer-content">
+            <div class="global-footer-main">
+                <!-- Technology Column -->
+                <div class="global-footer-column">
+                    <h4>Technology</h4>
+                    <div class="global-footer-links">
+                        <a href="technology-holographic.html" class="global-footer-link">AR Display</a>
+                        <a href="technology-smi.html" class="global-footer-link">SMI Sensing</a>
+                    </div>
+                </div>
+                
+                <!-- Company Column -->
+                <div class="global-footer-column">
+                    <h4>Company</h4>
+                    <div class="global-footer-links">
+                        <a href="about.html" class="global-footer-link">About Us</a>
+                        <a href="careers.html" class="global-footer-link">Careers</a>
+                        <a href="contact.html" class="global-footer-link">Contact</a>
+                    </div>
+                </div>
+                
+                <!-- News Column -->
+                <div class="global-footer-column">
+                    <h4>News</h4>
+                    <div class="global-footer-links">
+                        <a href="news-seed-funding-2026.html" class="global-footer-link">Seed Funding Announcement</a>
+                    </div>
+                </div>
+                
+                <!-- Contact Column -->
+                <div class="global-footer-column">
+                    <h4>Get in Touch</h4>
+                    <div class="global-footer-links">
+                        <a href="contact.html" class="global-footer-link">Request Demo</a>
+                        <a href="mailto:info@alphalum.com" class="global-footer-link">info@alphalum.com</a>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Large Logo Reveal -->
+            <div class="global-footer-large-logo">
+                <img src="assets/download/final-logo/alphalum-white-logo-png.png" alt="AlphaLum"/>
+            </div>
+            
+            <!-- Footer Bottom (below logo) -->
+            <div class="global-footer-bottom">
+                <p class="global-footer-copyright">&copy; 2026 AlphaLum SA. All rights reserved.</p>
+                <div class="global-footer-legal">
+                    <a href="#">Privacy Policy</a>
+                    <a href="#">Terms of Service</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- JavaScript -->
+    <script src="brand-script.js"></script>
+</body>
+</html>
+
