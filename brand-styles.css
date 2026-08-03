@@ -2,6 +2,11 @@
 
 /* CSS Variables for Brand Colors */
 :root {
+  /* Site is designed for a light appearance only. This opts out of
+     Android Chrome's "Auto dark theme" force-darkening, so brand
+     colors, gradients, and images render as designed. */
+  color-scheme: only light;
+
   --brand-primary: #ff4524;
   --brand-secondary: #00AAFF;
   --brand-bg-1: #ffffff;
@@ -2146,6 +2151,10 @@ p {
   font-weight: var(--body-paragraph-weight);
 }
 
+.info-content p + p {
+  margin-top: var(--spacing-md);
+}
+
 .info-image {
   border-radius: 0;
   overflow: hidden;
@@ -3615,22 +3624,28 @@ p {
 
 .why-choose-section h2 {
   font-family: var(--font-header);
-  font-size: 5rem;
+  font-size: 3.75rem;
   font-weight: var(--header-font-weight);
   color: var(--brand-font-primary);
-  margin: 0;
+  margin: 0 auto var(--spacing-md) auto;
+  max-width: 16ch;
   line-height: 1.1;
+}
+
+.why-choose-section .foundation-subtitle {
+  max-width: 60ch;
+  margin: 0 auto;
 }
 
 @media (max-width: 768px) {
   .why-choose-section h2 {
-    font-size: 3rem;
+    font-size: 2.5rem;
   }
 }
 
 @media (max-width: 480px) {
   .why-choose-section h2 {
-    font-size: 2.25rem;
+    font-size: 2rem;
   }
 }
 
@@ -5613,17 +5628,35 @@ a.tech-split-panel:hover {
 
 .product-section-7 .specs-grid {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: repeat(4, 1fr);
   gap: 1px;
   background: linear-gradient(90deg, rgba(255, 69, 36, 0.25) 0%, rgba(255, 59, 81, 0.25) 50%, rgba(0, 170, 255, 0.25) 100%);
 }
 
+.product-section-7 .specs-grid.specs-grid-6 {
+  grid-template-columns: repeat(3, 1fr);
+}
+
+@media (max-width: 900px) {
+  .product-section-7 .specs-grid.specs-grid-6 {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 600px) {
+  .product-section-7 .specs-grid.specs-grid-6 {
+    grid-template-columns: 1fr;
+  }
+}
+
 .product-section-7 .spec-item {
   background: var(--brand-bg-1);
-  padding: 32px;
+  padding: 32px 24px;
   position: relative;
   cursor: default;
   transition: background 0.2s ease;
+  display: flex;
+  flex-direction: column;
 }
 
 .product-section-7 .spec-item.has-tooltip {
@@ -5635,15 +5668,19 @@ a.tech-split-panel:hover {
 }
 
 .product-section-7 .spec-item .spec-value {
-  font-size: 2.5rem;
+  font-size: clamp(1.5rem, 2.4vw, 2.25rem);
   font-weight: 200;
+  line-height: 1.15;
   background: var(--rainbow-gradient);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
   color: transparent;
-  margin-bottom: 8px;
-  display: inline-block;
+  margin-bottom: 10px;
+  min-height: 2.3em;
+  display: flex;
+  align-items: flex-end;
+  align-self: flex-start;
 }
 
 .product-section-7 .spec-item .spec-label {
@@ -5651,6 +5688,7 @@ a.tech-split-panel:hover {
   color: var(--brand-font-secondary);
   text-transform: uppercase;
   letter-spacing: 1px;
+  line-height: 1.3;
   margin-bottom: 0;
 }
 
@@ -5704,7 +5742,15 @@ a.tech-split-panel:hover {
   .product-section-7 .specs-grid {
     grid-template-columns: repeat(2, 1fr);
   }
-  
+
+  .product-section-7 .spec-item {
+    padding: 28px 20px;
+  }
+
+  .product-section-7 .spec-item .spec-value {
+    font-size: clamp(1.75rem, 5vw, 2.25rem);
+  }
+
   .product-section-7 .spec-tooltip {
     max-width: 220px;
     font-size: 0.75rem;
