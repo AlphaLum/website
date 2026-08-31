@@ -4881,6 +4881,23 @@ a.tech-split-panel:hover {
   }
 }
 
+/* Legibility scrim for narrow viewports: the cover crop slides the
+   subject's face behind the text on phones, so back the text with a
+   white fade. ::after (not ::before) so it paints above the .hero-image
+   and .hero-video siblings at the same z-index, under .hero-content. */
+@media (max-width: 768px) {
+  .page-hero-giant::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    z-index: 0;
+    background: linear-gradient(to bottom,
+      rgba(255, 255, 255, 0.6) 0%,
+      rgba(255, 255, 255, 0.35) 55%,
+      transparent 85%);
+  }
+}
+
 .page-hero-giant .hero-content {
   position: relative;
   z-index: 1;
