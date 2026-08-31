@@ -4909,6 +4909,11 @@ a.tech-split-panel:hover {
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
+  /* With line-height 1 the box is shorter than the glyphs, and
+     background-clip: text leaves anything outside it unpainted —
+     extend the paint area so descenders (the "y") stay visible. */
+  padding-bottom: 0.15em;
+  margin-bottom: -0.15em;
 }
 
 .page-hero-giant h1 .normal-line {
