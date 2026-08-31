@@ -62,6 +62,7 @@
 }
 
 html {
+  background: var(--brand-bg-1);
   overflow-x: hidden;
   width: 100%;
   margin: 0;
@@ -2116,6 +2117,9 @@ p {
   margin: 0 0 var(--spacing-md) 0;
   font-weight: 300;
   color: var(--brand-font-primary);
+  /* Even out the lines at whatever width the column happens to be, so a
+     heading never strands a single word on its own line. */
+  text-wrap: balance;
 }
 
 
@@ -3858,41 +3862,46 @@ p {
 }
 
 .tech-split-panels {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  min-height: 70vh;
+  display: flex;
+  flex-direction: column;
 }
 
 .tech-split-panel {
   position: relative;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  padding: 4rem;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  align-items: stretch;
+  min-height: 60vh;
   cursor: pointer;
   transition: all 0.5s ease;
   overflow: hidden;
   text-decoration: none;
 }
 
+/* Text column of each stacked technology row */
+.tech-split-panel-content {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: clamp(2.5rem, 5vw, 5rem);
+  position: relative;
+  z-index: 1;
+}
+
+/* Alternating layout: HoloWedge = text left / image right,
+   Motia = image left / text right (matches the mockup). */
+.tech-split-panel-left .tech-split-panel-content { order: 1; }
+.tech-split-panel-left .tech-split-panel-image { order: 2; }
+.tech-split-panel-right .tech-split-panel-image { order: 1; }
+.tech-split-panel-right .tech-split-panel-content { order: 2; }
+
 a.tech-split-panel:hover {
   text-decoration: none;
 }
 
-.tech-split-panel-left {
-  background: linear-gradient(135deg, 
-    color-mix(in srgb, var(--brand-primary) 75%, #0a0a0a) 0%, 
-    color-mix(in srgb, var(--brand-accent-1) 79%, #0a0a0a) 35%, 
-    color-mix(in srgb, var(--brand-secondary) 75%, #0a0a0a) 100%
-  );
-}
-
+.tech-split-panel-left,
 .tech-split-panel-right {
-  background: linear-gradient(135deg, 
-    rgba(255, 69, 36, 0.03) 0%, 
-    rgba(255, 59, 81, 0.06) 35%, 
-    rgba(0, 170, 255, 0.06) 95%
-  );
+  background: var(--brand-bg-1);
 }
 
 .tech-split-panel::before {
@@ -3904,18 +3913,9 @@ a.tech-split-panel:hover {
   pointer-events: none;
 }
 
-.tech-split-panel-left::before {
-  background: linear-gradient(135deg, 
-    rgba(255, 255, 255, 0.05) 0%, 
-    rgba(255, 255, 255, 0.02) 100%
-  );
-}
-
+.tech-split-panel-left::before,
 .tech-split-panel-right::before {
-  background: linear-gradient(135deg, 
-    rgba(255, 69, 36, 0.08) 0%, 
-    rgba(0, 170, 255, 0.08) 100%
-  );
+  background: rgba(0, 0, 0, 0.03);
 }
 
 .tech-split-panel:hover::before {
@@ -3924,24 +3924,22 @@ a.tech-split-panel:hover {
 
 .tech-split-panel-image {
   width: 100%;
-  aspect-ratio: 16/10;
+  height: 100%;
   overflow: hidden;
-  margin-bottom: 2rem;
+  margin-bottom: 0;
   position: relative;
-  -webkit-mask-image: radial-gradient(ellipse 70% 70% at center, black 40%, transparent 100%);
-  mask-image: radial-gradient(ellipse 70% 70% at center, black 40%, transparent 100%);
 }
 
-.tech-split-panel-image::after {
-  content: '';
-  position: absolute;
-  inset: 0;
-  border: 1px solid transparent;
-  transition: border-color 0.3s ease;
+/* Feather each image's inner edge (the one adjacent to the text) so it
+   blends softly into the background instead of a hard rectangle edge. */
+.tech-split-panel-left .tech-split-panel-image {
+  -webkit-mask-image: linear-gradient(to left, #000 78%, transparent 100%);
+  mask-image: linear-gradient(to left, #000 78%, transparent 100%);
 }
 
-.tech-split-panel:hover .tech-split-panel-image::after {
-  border-image: var(--rainbow-gradient) 1;
+.tech-split-panel-right .tech-split-panel-image {
+  -webkit-mask-image: linear-gradient(to right, #000 78%, transparent 100%);
+  mask-image: linear-gradient(to right, #000 78%, transparent 100%);
 }
 
 .tech-split-panel-image img {
@@ -3962,12 +3960,9 @@ a.tech-split-panel:hover {
   margin-bottom: 1rem;
 }
 
-.tech-split-panel-left .tech-split-panel-number {
-  color: rgba(255, 255, 255, 0.1);
-}
-
+.tech-split-panel-left .tech-split-panel-number,
 .tech-split-panel-right .tech-split-panel-number {
-  color: rgba(0, 0, 0, 0.06);
+  color: rgba(0, 0, 0, 0.12);
 }
 
 .tech-split-panel h3 {
@@ -3978,10 +3973,7 @@ a.tech-split-panel:hover {
   transition: all 0.3s ease;
 }
 
-.tech-split-panel-left h3 {
-  color: white;
-}
-
+.tech-split-panel-left h3,
 .tech-split-panel-right h3 {
   color: var(--brand-font-primary);
 }
@@ -3992,10 +3984,7 @@ a.tech-split-panel:hover {
   margin: 0 0 2rem 0;
 }
 
-.tech-split-panel-left p {
-  color: rgba(255, 255, 255, 0.6);
-}
-
+.tech-split-panel-left p,
 .tech-split-panel-right p {
   color: var(--brand-font-secondary);
 }
@@ -4043,12 +4032,27 @@ a.tech-split-panel:hover {
 
 /* Responsive Split Screen */
 @media (max-width: 1024px) {
-  .tech-split-panels {
-    grid-template-columns: 1fr;
-  }
-  
   .tech-split-panel {
-    padding: 3rem 5%;
+    grid-template-columns: 1fr;
+    min-height: 0;
+  }
+
+  .tech-split-panel-image {
+    aspect-ratio: 16/10;
+    height: auto;
+  }
+
+  /* Always stack image above text on mobile, regardless of row side */
+  .tech-split-panel-left .tech-split-panel-image,
+  .tech-split-panel-right .tech-split-panel-image {
+    order: 0;
+    -webkit-mask-image: none;
+    mask-image: none;
+  }
+
+  .tech-split-panel-left .tech-split-panel-content,
+  .tech-split-panel-right .tech-split-panel-content {
+    order: 1;
   }
 }
 
@@ -4894,6 +4898,43 @@ a.tech-split-panel:hover {
   opacity: 0.3;
 }
 
+.page-hero-giant .hero-image {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: right center;
+  z-index: 0;
+}
+
+/* Overlay variant: the video sits on top of .hero-image rather than standing
+   in for it, so it needs far less opacity than the standalone background
+   video above. Must follow .hero-video to win on equal specificity. */
+.page-hero-giant .hero-video-overlay {
+  opacity: 0.18;
+  pointer-events: none;
+  /* Confined to the lower half so the moving layer stays clear of the
+     woman's face, which the cover crop places in the upper part of the hero.
+     Overrides top/height from .hero-video above. */
+  top: auto;
+  bottom: 0;
+  height: 50%;
+  /* Feather the upper edge, otherwise the layer would begin on a visible
+     horizontal line across the photograph. */
+  -webkit-mask-image: linear-gradient(to bottom, transparent 0%, #000 30%);
+  mask-image: linear-gradient(to bottom, transparent 0%, #000 30%);
+}
+
+/* Respect a reduced-motion preference: drop the moving layer and leave the
+   photograph on its own. */
+@media (prefers-reduced-motion: reduce) {
+  .page-hero-giant .hero-video-overlay {
+    display: none;
+  }
+}
+
 .page-hero-giant .hero-content {
   position: relative;
   z-index: 1;
@@ -5068,6 +5109,162 @@ a.tech-split-panel:hover {
   }
 }
 
+/* Product Hero - Stacked: small wordmark, then the claim, subtitle and CTAs,
+   then a full-bleed image band underneath. */
+.product-hero-stacked {
+  position: relative;
+  width: 100vw;
+  margin-left: calc(-50vw + 50%);
+  background: var(--brand-bg-1);
+  overflow: hidden;
+}
+
+.product-hero-stacked::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 120%;
+  height: 70%;
+  background: var(--rainbow-gradient-bg);
+  opacity: 0.25;
+  filter: blur(100px);
+  pointer-events: none;
+}
+
+.product-hero-stacked .hero-content {
+  position: relative;
+  z-index: 2;
+  max-width: 1150px;
+  margin: 0 auto;
+  /* The side gaps are a percentage of the viewport, but the box is capped at
+     1150px - so past that width the gaps eat into the text column and the
+     headline gets LESS room on a bigger screen. Capping them holds the column
+     at a constant 1070px from 800px up, which is what lets the headline sit at
+     its full size without re-wrapping on wide monitors. Below 800px the 5%
+     still applies, so narrow screens keep proportional margins. */
+  padding: clamp(140px, 16vh, 200px) min(5%, 40px) clamp(120px, 14vh, 200px);
+  text-align: center;
+}
+
+.product-hero-stacked .hero-eyebrow {
+  /* inline-block so the gradient box shrinks to the text and the full
+     spectrum runs left-to-right across the letters, not across the column */
+  display: inline-block;
+  font-family: var(--font-header);
+  font-size: 0.75rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.2em;
+  background: var(--rainbow-gradient);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  margin: 0 0 1.75rem 0;
+}
+
+.product-hero-stacked h1 {
+  font-family: var(--font-header);
+  font-size: clamp(2rem, 5vw, 3.5rem);
+  font-weight: 200;
+  line-height: 1.1;
+  letter-spacing: -0.02em;
+  color: var(--brand-font-primary);
+  margin: 0 0 4rem 0;
+  /* Even line lengths for claims long enough to wrap. No effect where a hard
+     <br> already sets the breaks. */
+  text-wrap: balance;
+}
+
+.product-hero-stacked .subtitle {
+  font-family: var(--font-body);
+  /* Same size and leading as .foundation-subtitle, so every grey subline on
+     the technology pages reads at one size. */
+  font-size: 1.25rem;
+  line-height: 1.6;
+  color: var(--brand-font-secondary);
+  max-width: 720px;
+  margin: 0 auto 2.5rem auto;
+}
+
+.product-hero-stacked .hero-cta {
+  display: flex;
+  gap: 16px;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.product-hero-stacked .hero-media-full {
+  position: relative;
+  /* Behind the copy, so the photo's blank upper area can slide up under the
+     headline instead of pushing the frame down the page. */
+  z-index: 0;
+  width: 100%;
+  line-height: 0;
+  /* The pull is in vw and the image's height is also a function of vw, so the
+     frame keeps the same distance below the copy at every viewport width. */
+  margin-top: -27vw;
+}
+
+.product-hero-stacked .hero-media-full img {
+  width: 100%;
+  height: auto;
+  display: block;
+  /* The photo carries its own white sky at the top. Feathering that edge
+     dissolves it into the page background so the frame reads as floating
+     rather than as a banner with a visible top edge. No crop: the frame
+     keeps its natural proportions and bleeds off the left, right and bottom. */
+  -webkit-mask-image: linear-gradient(to bottom, transparent 0%, #000 20%);
+  mask-image: linear-gradient(to bottom, transparent 0%, #000 20%);
+}
+
+/* When a subtitle follows the headline, the large gap belongs below the
+   subtitle instead, so the headline sits close to the line it introduces. */
+.product-hero-stacked h1:has(+ .subtitle) {
+  margin-bottom: 1.5rem;
+}
+
+/* Variant for a subject centred in its frame with empty space all round
+   (the HoloWedge lens), rather than one anchored to the bottom edge like the
+   Motia eyewear shot. */
+/* Tighten the copy block's lower padding here: the pull below is small, so
+   this padding would otherwise dominate the gap down to the lens. */
+.product-hero-stacked.hero-media-centered .hero-content {
+  padding-bottom: clamp(40px, 5vh, 64px);
+}
+
+.product-hero-stacked.hero-media-centered .hero-media-full {
+  /* Small pull: after the crop below there is only ~2.4vw of empty space above
+     the lens, so anything deeper would slice into the optic itself. */
+  margin-top: -2vw;
+}
+
+.product-hero-stacked.hero-media-centered .hero-media-full img {
+  /* The render is 3:2, so at full width it stands 66.7vw tall while the lens
+     occupies only the middle ~60% - leaving dead bands above and below.
+     Capping the height crops those away; the 45% vertical anchor compensates
+     for the lens sitting slightly below the frame's centre. */
+  max-height: 46vw;
+  object-fit: cover;
+  object-position: center 45%;
+  /* Feather both edges, sized to the remaining empty margin at each end so
+     the fade lands on background rather than on the optic. */
+  -webkit-mask-image: linear-gradient(to bottom, transparent 0%, #000 5%, #000 93%, transparent 100%);
+  mask-image: linear-gradient(to bottom, transparent 0%, #000 5%, #000 93%, transparent 100%);
+}
+
+@media (max-width: 768px) {
+  .product-hero-stacked .hero-content {
+    padding: 120px 5% 40px;
+  }
+
+  /* Step down with .foundation-subtitle at the same breakpoint. */
+  .product-hero-stacked .subtitle {
+    font-size: 1.125rem;
+  }
+}
+
 /* ==========================================
    Foundation Section (Technology pages)
    ========================================== */
@@ -5109,6 +5306,20 @@ a.tech-split-panel:hover {
   font-size: 1.25rem;
   color: var(--brand-font-secondary);
   line-height: 1.6;
+}
+
+.foundation-media {
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 0 5%;
+}
+
+.foundation-media img {
+  width: 100%;
+  height: auto;
+  display: block;
+  border-radius: 16px;
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.12);
 }
 
 .foundation-stack {
@@ -5156,6 +5367,32 @@ a.tech-split-panel:hover {
   line-height: 1;
 }
 
+/* Photo in place of the numeral: fills the panel edge to edge, so the accent
+   padding is dropped and the gradient behind it is fully covered. */
+.foundation-card-accent-image {
+  padding: 0;
+  overflow: hidden;
+  position: relative;
+  /* Between the original ~3:1 letterbox and the render's own 1.625:1. The lens
+     occupies roughly the middle 65% of the frame, so the crop still takes only
+     empty bench and ceiling - about 25px of clearance left at each end, which
+     is why this stops short of 2.4:1 where it would start clipping the optic. */
+  aspect-ratio: 2.2 / 1;
+}
+
+/* Absolute, so the photo contributes nothing to layout and the card keeps the
+   height it had with the numeral (min-height, or the text column). An in-flow
+   image would set the height from its own aspect ratio instead. The crop
+   comes from object-fit. */
+.foundation-card-accent-image img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
 .foundation-card-content {
   padding: 60px;
   display: flex;
@@ -5172,9 +5409,11 @@ a.tech-split-panel:hover {
 }
 
 .foundation-card-content p {
-  font-size: 1.0625rem;
+  /* Matches .foundation-subtitle: both are supporting copy inside
+     .foundation-section, and 1.0625rem was a size used nowhere else. */
+  font-size: 1.25rem;
   color: var(--brand-font-secondary);
-  line-height: 1.8;
+  line-height: 1.6;
 }
 
 .foundation-image {
@@ -5240,7 +5479,8 @@ a.tech-split-panel:hover {
     font-size: 1.75rem;
   }
   
-  .foundation-subtitle {
+  .foundation-subtitle,
+  .foundation-card-content p {
     font-size: 1.125rem;
   }
   
