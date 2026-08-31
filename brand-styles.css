@@ -503,57 +503,6 @@ body {
   margin-top: 0.5rem;
 }
 
-/* Logo Grid */
-.logo-grid {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: var(--spacing-lg);
-  margin-top: var(--spacing-lg);
-}
-
-.logo-item {
-  background: var(--brand-bg-2);
-  border: 2px solid #e5e7eb;
-  border-radius: var(--border-radius);
-  padding: var(--spacing-md);
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  min-height: 150px;
-  transition: var(--transition);
-  cursor: pointer;
-}
-
-.logo-item:hover {
-  border-color: var(--brand-primary);
-
-  transform: translateY(-2px);
-}
-
-.logo-item img {
-  max-width: 100%;
-  max-height: 120px;
-  object-fit: contain;
-  margin-bottom: var(--spacing-sm);
-}
-
-.logo-item .logo-name {
-  font-size: 0.875rem;
-  color: var(--brand-font-secondary);
-  text-align: center;
-  margin-top: var(--spacing-sm);
-  word-break: break-word;
-}
-
-/* View More Logos Button */
-.view-more-logos {
-  margin-top: var(--spacing-lg);
-  display: inline-flex;
-  align-items: center;
-  gap: 8px;
-}
-
 /* Assets Section */
 .asset-category {
   margin-bottom: var(--spacing-xl);
@@ -2701,11 +2650,6 @@ p {
     padding: var(--spacing-md) 0;
   }
   
-  .logo-grid {
-    grid-template-columns: repeat(2, 1fr);
-    gap: var(--spacing-md);
-  }
-  
   .sample-h1 {
     font-size: 1.75rem;
   }
@@ -2860,12 +2804,14 @@ p {
 /* ppt-slide-title light variant logo - inherits parent styles */
 
 /* Title slide top-center logo */
+/* alphalum-logo.svg is tight-cropped, so the box is the wordmark: smaller
+   height and a nudge down keep it sized and placed as before. */
 .ppt-title-logo-top {
   position: absolute;
-  top: calc(1px + 5%);
+  top: calc(6.5px + 5%);
   left: 50%;
   transform: translateX(-50%);
-  height: clamp(28px, 5vw, 50px);
+  height: clamp(20px, 3.65vw, 36.5px);
   width: auto;
   z-index: 10;
 }
