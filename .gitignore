@@ -2,3 +2,6 @@
 
 # Playwright MCP screenshot output
 .playwright-mcp/
+
+# Video masters - web versions (*-web.mp4) are committed instead
+assets/videos/Short-*.mp4
