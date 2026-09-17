@@ -5466,6 +5466,99 @@ a.tech-split-panel:hover {
 }
 
 /* ==========================================
+   Media Feature (narrative video sections)
+   ========================================== */
+
+/* Used on about.html, motia.html, and holowedge.html to carry the
+   company and technology films. Deliberately not built like the
+   .hero-video-background loops: these clips have narration, burned-in
+   subtitles, and a beginning and end, so they are content the visitor
+   chooses to start, not decoration. The markup therefore keeps native
+   controls and preload="none" - the file (6-29MB) stays off the wire
+   until someone presses play, which is what makes a section this heavy
+   acceptable on a page that must still load fast. */
+.media-feature {
+  padding: 80px 10%;
+  background: var(--brand-bg-1);
+}
+
+.media-feature-header {
+  text-align: center;
+  max-width: 900px;
+  margin: 0 auto 48px;
+}
+
+.media-feature-header h2 {
+  font-family: var(--font-header);
+  font-size: clamp(2rem, 4vw, 2.75rem);
+  font-weight: var(--header-font-weight);
+  color: var(--brand-font-primary);
+  margin: 0 0 20px 0;
+  line-height: 1.2;
+}
+
+.media-feature-header p {
+  font-size: 1.25rem;
+  color: var(--brand-font-secondary);
+  line-height: 1.6;
+  margin: 0;
+}
+
+/* Black fill and a fixed 16:9 box so the poster, the loading gap, and
+   the playing video all occupy exactly the same space - no layout shift
+   when the first frame arrives. */
+.media-feature-frame {
+  position: relative;
+  max-width: 1000px;
+  margin: 0 auto;
+  aspect-ratio: 16 / 9;
+  background: #000;
+  border-radius: var(--border-radius);
+  overflow: hidden;
+  box-shadow: var(--shadow-md);
+}
+
+.media-feature-frame video {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  display: block;
+  /* The sources are 1920x1080, matching the frame's 16:9, so contain
+     neither letterboxes nor crops - it just guards against a future
+     re-export at another ratio being cut off. */
+  object-fit: contain;
+}
+
+.media-feature-caption {
+  max-width: 1000px;
+  margin: 20px auto 0;
+  text-align: center;
+  font-size: 0.9375rem;
+  color: var(--brand-font-secondary);
+}
+
+@media (max-width: 768px) {
+  .media-feature {
+    padding: var(--spacing-lg) 5%;
+  }
+  
+  .media-feature-header {
+    margin-bottom: var(--spacing-md);
+  }
+  
+  .media-feature-header p {
+    font-size: 1.0625rem;
+  }
+  
+  /* Corners squared off on phones to match how the rest of the
+     mobile layout runs edge to edge. */
+  .media-feature-frame {
+    border-radius: 0;
+  }
+}
+
+/* ==========================================
    Job Cards Component (for Careers page)
    ========================================== */
 
